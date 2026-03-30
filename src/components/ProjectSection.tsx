@@ -29,59 +29,70 @@ export default function ProjectSection({ project, onProjectSelect }: ProjectSect
     >
       {/* Background Image full screen */}
       <motion.div 
-        style={{ y: imageY }}
-        className="absolute inset-[-10%] w-[120%] h-[120%] z-0"
+        style={{ y: imageY, scale: 1.1 }}
+        className="absolute inset-0 w-full h-full z-0"
       >
         <img 
           src={project.coverImage} 
           alt={project.title}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover grayscale-[20%] brightness-[0.8] transition-all duration-700 hover:grayscale-0 hover:brightness-100"
           referrerPolicy="no-referrer"
         />
-        <div className="absolute inset-0 bg-black/20" />
-        <div className="absolute top-0 left-0 w-full h-48 bg-gradient-to-b from-black/70 to-transparent" />
+        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-black/80 to-transparent" />
       </motion.div>
 
-      {/* Top Right Navigation List */}
-      <div className="absolute top-32 lg:top-40 right-8 lg:right-16 z-20 flex gap-8 lg:gap-16 items-start">
-        <h4 className="text-white font-medium text-sm md:text-base hidden md:block">Latest Projects</h4>
-        <div className="flex flex-col items-start space-y-1">
-          {allProjects.map((p) => (
+      {/* Top Right Navigation List - More Architectural */}
+      <div className="absolute top-32 lg:top-48 right-8 lg:right-20 z-20 flex flex-col items-end">
+        <span className="text-[10px] uppercase tracking-[0.4em] text-white/40 mb-8 border-b border-white/20 pb-4 w-full text-right">
+          Collection
+        </span>
+        <div className="flex flex-col items-end space-y-4">
+          {allProjects.map((p, i) => (
             <button 
               key={p.id} 
               onClick={(e) => {
                 e.preventDefault();
-                if (onProjectSelect) {
-                  onProjectSelect(p);
-                } else {
-                  window.location.hash = p.id;
-                }
+                onProjectSelect?.(p);
               }}
-              className={`text-sm md:text-base tracking-wide transition-opacity text-left ${
-                p.id === project.id ? 'text-white opacity-100 font-medium' : 'text-white/40 hover:opacity-100 hover:text-white'
-              }`}
+              className="group flex flex-col items-end"
             >
-              {p.title}
+               <span className={`text-[10px] tracking-widest text-white/30 transition-all duration-500 group-hover:text-white ${p.id === project.id ? 'opacity-100' : 'opacity-0'}`}>
+                0{i + 1}
+              </span>
+              <span className={`text-sm md:text-base uppercase tracking-[0.2em] transition-all duration-500 ${
+                p.id === project.id ? 'text-white translate-x-0' : 'text-white/40 hover:text-white translate-x-4'
+              }`}>
+                {p.title}
+              </span>
             </button>
           ))}
         </div>
       </div>
 
       {/* Bottom Left Content (Current Project Details) */}
-      <div className="absolute bottom-16 left-8 lg:left-16 z-20 max-w-2xl">
-        <span className="text-xs uppercase tracking-[0.3em] font-medium text-white/70 block mb-4">
-          {project.location}
-        </span>
-        <h2 className="text-5xl md:text-7xl lg:text-8xl display-font font-bold tracking-tighter text-white uppercase leading-none mb-6">
-          {project.title}
-        </h2>
-        <Link 
-          to={`/project/${project.id}`}
-          className="group inline-flex items-center gap-4 text-xs font-semibold uppercase tracking-widest text-white hover:text-white/70 transition-colors"
+      <div className="absolute bottom-20 left-8 lg:left-20 z-20 max-w-3xl">
+        <motion.div
+           initial={{ opacity: 0, x: -20 }}
+           whileInView={{ opacity: 1, x: 0 }}
+           transition={{ duration: 1, delay: 0.3 }}
         >
-          <span>Explore Project</span>
-          <div className="w-12 h-[1px] bg-white group-hover:w-24 transition-all duration-500" />
-        </Link>
+          <span className="text-[10px] md:text-xs uppercase tracking-[0.5em] font-medium text-white/50 block mb-6">
+            {project.location} — {project.category}
+          </span>
+          <h2 className="text-6xl md:text-8xl lg:text-9xl display-font font-normal tracking-tighter text-white uppercase leading-[0.8] mb-10 mix-blend-difference">
+            {project.title}
+          </h2>
+          <Link 
+            to={`/project/${project.id}`}
+            className="group inline-flex flex-col items-start gap-4 text-[10px] font-semibold uppercase tracking-[0.4em] text-white hover:text-white/70 transition-colors"
+          >
+            <div className="flex items-center gap-4">
+               <span>Explore Studio</span>
+               <div className="w-16 h-[1px] bg-white group-hover:w-32 transition-all duration-700 ease-in-out" />
+            </div>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

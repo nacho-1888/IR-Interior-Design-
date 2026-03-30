@@ -19,7 +19,7 @@ export default function Navbar() {
   const logoX = useTransform(scrollY, [0, 200], [0, 0]); // Keep centered or move if needed
   
   const navPadding = useTransform(scrollY, [0, 200], ["2rem 2rem", "1rem 2rem"]);
-  const navOpacity = useTransform(scrollY, [200, 300], [0, 1]); // Links fade in later
+  const navOpacity = useTransform(scrollY, [0, 200], [0.5, 1]); // Links always visible faintly
 
   return (
     <>
