@@ -76,7 +76,7 @@ export default function Navbar() {
                 x: logoX,
                 transformOrigin: "left center"
               }}
-              className="flex flex-col items-start"
+              className="flex items-center relative"
             >
               <Link 
                 to="/" 
@@ -86,7 +86,7 @@ export default function Navbar() {
               </Link>
               <motion.span 
                 style={{ opacity: subtitleOpacity }}
-                className="text-[10px] md:text-xs uppercase tracking-[1.1em] font-medium text-white/60 ml-2 md:ml-4 mt-4 md:mt-6 whitespace-nowrap"
+                className="absolute top-full left-0 text-[10px] md:text-xs uppercase tracking-[1.1em] font-medium text-white/60 ml-2 md:ml-4 mt-4 md:mt-6 whitespace-nowrap"
               >
                 Interior Design
               </motion.span>
