@@ -1,10 +1,12 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { useState } from "react";
 import Home from "./pages/Home";
 import ProjectDetail from "./pages/ProjectDetail";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsConditions from "./pages/TermsConditions";
 import Navbar from "./components/Navbar";
+import ContactPopup from "./components/ContactPopup";
 
 function ScrollManager() {
   const { pathname, hash } = useLocation();
@@ -38,13 +40,17 @@ export default function App() {
 function AppContent() {
   const { pathname } = useLocation();
   const isHomePage = pathname === "/";
+  const [isContactOpen, setIsContactOpen] = useState(false);
+
+  const openContact = () => setIsContactOpen(true);
 
   return (
     <>
+      <ContactPopup isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
       {isHomePage && <Navbar />}
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/project/:id" element={<ProjectDetail />} />
+        <Route path="/" element={<Home onContactOpen={openContact} />} />
+        <Route path="/project/:id" element={<ProjectDetail onContactOpen={openContact} />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-conditions" element={<TermsConditions />} />
       </Routes>

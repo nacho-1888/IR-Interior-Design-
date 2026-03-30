@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { Project } from "../types";
 import NewsletterPopup from "../components/NewsletterPopup";
 
-export default function Home() {
+export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
   const [heroIndex, setHeroIndex] = useState(0);
   const { scrollY } = useScroll();
   const headerOpacity = useTransform(scrollY, [0, 500], [0, 1]);
@@ -144,12 +144,12 @@ export default function Home() {
               >
                 Portfolio
               </button>
-              <a 
-                href="#contact" 
+              <button 
+                onClick={onContactOpen} 
                 className="text-[10px] md:text-xs text-white/60 uppercase tracking-[0.35em] hover:text-white transition-colors text-right w-full"
               >
                 Contact
-              </a>
+              </button>
             </motion.div>
 
           </div>
@@ -193,7 +193,7 @@ export default function Home() {
         {/* Center: Monolithic Link List */}
         <div className="w-full md:w-2/12 flex flex-col space-y-4 text-xs font-semibold justify-start mt-4 md:mt-0 relative z-10">
           <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-left hover:text-white/50 transition-colors uppercase tracking-widest">Home</button>
-          <a href="#contact" className="hover:text-white/50 transition-colors uppercase tracking-widest">Contact Us</a>
+          <button onClick={onContactOpen} className="text-left hover:text-white/50 transition-colors uppercase tracking-widest">Contact Us</button>
           <a href="#portfolio" className="hover:text-white/50 transition-colors uppercase tracking-widest">Projects</a>
           <Link to="/privacy-policy" className="hover:text-white/50 transition-colors uppercase tracking-widest">Privacy Policy</Link>
           <Link to="/terms-conditions" className="hover:text-white/50 transition-colors uppercase tracking-widest">Terms & Conditions</Link>

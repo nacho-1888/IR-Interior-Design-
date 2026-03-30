@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
 
-export default function ProjectDetail() {
+export default function ProjectDetail({ onContactOpen }: { onContactOpen: () => void }) {
   const { id } = useParams();
   const project = projects.find((p) => p.id === id);
 
@@ -77,12 +77,12 @@ export default function ProjectDetail() {
         <h1 className="branding-font text-2xl md:text-4xl lg:text-6xl uppercase tracking-[0.1em] font-black text-white absolute left-1/2 -translate-x-1/2 text-center w-full px-24 pointer-events-none">
           {project.title}
         </h1>
-        <a 
-          href="#contact" 
+        <button 
+          onClick={onContactOpen} 
           className="text-white text-[10px] md:text-xs uppercase tracking-[0.4em] font-medium hover:opacity-50 transition-opacity z-30"
         >
           Let's Talk
-        </a>
+        </button>
       </div>
 
       {/* CENTER INTERACTIVE ZONES & ARROWS */}
