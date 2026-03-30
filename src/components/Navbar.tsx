@@ -15,8 +15,8 @@ export default function Navbar() {
     if (latest > previous && latest > 300) {
       // Scrolling down past the hero - Hide
       setIsHidden(true);
-    } else if (previous - latest > 150) {
-      // Scrolling up significantly - Show
+    } else if (previous - latest > 80) {
+      // Scrolling up with a snappy 80px threshold - Show
       setIsHidden(false);
     } else if (latest < 50) {
       // Near top - Always show
