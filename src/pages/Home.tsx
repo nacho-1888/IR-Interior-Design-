@@ -176,7 +176,7 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
 
         {/* Left: Huge Logo */}
         <div className="w-full md:w-5/12 relative z-10">
-          <h2 className="text-[14vw] md:text-[7vw] leading-[0.85] display-font font-black tracking-tighter uppercase text-white mb-8">
+          <h2 className="text-[14vw] md:text-[7vw] leading-[0.95] display-font font-black tracking-tighter uppercase text-white mb-8">
             Isabel
             <br className="hidden md:block" />
             <span className="md:hidden"> </span>Römer
