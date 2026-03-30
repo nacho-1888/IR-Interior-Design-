@@ -76,7 +76,7 @@ export default function Home() {
         <div className="absolute inset-0 z-20 flex flex-col justify-between p-6 md:p-12">
           
           {/* Top Section - Name now handled by Sticky Navbar */}
-          <div className="flex justify-between items-start pt-2 lg:pt-8 w-full invisible md:visible">
+          <div className="flex justify-between items-start pt-2 lg:pt-8 w-full">
             <motion.div 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
