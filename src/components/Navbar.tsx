@@ -36,8 +36,8 @@ export default function Navbar() {
   const navOpacity = useTransform(scrollY, [100, 400], [0.5, 1]);
 
   // Scaling/Positioning for the logo (Always visible and anchored left)
-  const logoScale = useTransform(scrollY, range, [0.85, 0.40]); 
-  const logoY = useTransform(scrollY, [0, 300], [0, 0]); 
+  const logoScale = useTransform(scrollY, range, [1.3, 0.40]); 
+  const logoY = useTransform(scrollY, [0, 400], ["35vh", "0vh"]); 
   const logoX = useTransform(scrollY, range, [0, 0]);
 
   return (
@@ -69,6 +69,7 @@ export default function Navbar() {
             <motion.div
               style={{ 
                 scale: logoScale,
+                y: logoY,
                 transformOrigin: "left center"
               }}
               className="flex items-center"
