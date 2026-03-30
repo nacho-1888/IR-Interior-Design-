@@ -129,7 +129,7 @@ export default function ProjectDetail() {
         {/* Back/Next Link */}
         <div className="pointer-events-auto">
           <Link 
-            to="/" 
+            to="/#portfolio" 
             className="text-white text-[10px] md:text-xs uppercase tracking-[0.4em] font-medium flex items-center gap-2 hover:opacity-50 transition-opacity"
           >
             More Work <span className="text-lg">→</span>
