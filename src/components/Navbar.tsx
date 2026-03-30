@@ -18,8 +18,8 @@ export default function Navbar() {
   // Navigation Links Opacity
   const navOpacity = useTransform(scrollY, [100, 400], [0.5, 1]);
 
-  // Scaling/Positioning for the logo (Always visible)
-  const logoScale = useTransform(scrollY, range, [1, 0.40]); 
+  // Scaling/Positioning for the logo (Always visible and centered)
+  const logoScale = useTransform(scrollY, range, [0.85, 0.40]); 
   const logoY = useTransform(scrollY, [0, 300], [0, 0]); 
   const logoX = useTransform(scrollY, range, [0, 0]);
 
@@ -31,9 +31,9 @@ export default function Navbar() {
             width: bubbleWidth,
             scale: bubbleScale,
           }}
-          className="relative pointer-events-auto transition-all duration-700 h-18 md:h-20 lg:h-24 flex items-center"
+          className="relative pointer-events-auto transition-all duration-700 h-18 md:h-20 lg:h-24 flex items-center justify-center"
         >
-          {/* THE BUBBLE BACKGROUND - Static long capsule (No overflow hidden) */}
+          {/* THE BUBBLE BACKGROUND - Static long capsule */}
           <motion.div 
             style={{ 
               opacity: bubbleOpacity,
@@ -41,18 +41,18 @@ export default function Navbar() {
             className="absolute inset-0 z-0 liquid-glass rounded-full border border-white/5"
           />
 
-          {/* THE CONTENT - Name centered at the vertical midpoint of the fixed height */}
-          <div className="relative z-10 w-full flex items-center px-8 md:px-12 lg:px-16 flex-nowrap overflow-visible">
+          {/* THE CONTENT - Centered branding */}
+          <div className="relative z-10 w-full flex items-center justify-center px-8 md:px-12 flex-nowrap overflow-visible">
             <motion.div
               style={{ 
                 scale: logoScale,
-                transformOrigin: "left center"
+                transformOrigin: "center center"
               }}
-              className="flex items-center"
+              className="flex items-center justify-center"
             >
               <Link 
                 to="/" 
-                className="text-6xl md:text-[8rem] lg:text-[10rem] font-medium leading-none font-sans tracking-tight block whitespace-nowrap ml-[-4px] md:ml-[-8px] text-white"
+                className="text-6xl md:text-[8rem] lg:text-[10rem] font-medium leading-none font-sans tracking-tight block whitespace-nowrap uppercase text-white text-center"
               >
                 Isabel Romer
               </Link>
