@@ -182,18 +182,13 @@ export default function Home() {
         {/* Center: Links */}
         <div className="w-full md:w-3/12 flex gap-12 md:gap-16 text-xs font-semibold justify-start mt-4 md:mt-0 relative z-10">
           <div className="flex flex-col space-y-3">
-            <a href="#" className="hover:text-white/50 transition-colors">Contact Us</a>
-            <a href="#" className="hover:text-white/50 transition-colors">About</a>
+            <a href="#contact" className="hover:text-white/50 transition-colors">Contact Us</a>
+            <a href="#about" className="hover:text-white/50 transition-colors">About</a>
             <a href="#" className="hover:text-white/50 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white/50 transition-colors">Terms & Conditions</a>
-            <a href="#" className="hover:text-white/50 transition-colors">Careers</a>
           </div>
           <div className="flex flex-col space-y-3">
-            <a href="#" className="hover:text-white/50 transition-colors">FAQ</a>
-            <a href="#" className="hover:text-white/50 transition-colors">Press</a>
-            <a href="#" className="hover:text-white/50 transition-colors">Trade</a>
-            <a href="#" className="hover:text-white/50 transition-colors">Accessibility</a>
-            <a href="#" className="hover:text-white/50 transition-colors">Projects</a>
+            <a href="#" className="hover:text-white/50 transition-colors">Terms & Conditions</a>
+            <a href="#portfolio" className="hover:text-white/50 transition-colors">Projects</a>
           </div>
         </div>
 
