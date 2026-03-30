@@ -73,18 +73,19 @@ export default function Home() {
         </div>
 
         {/* Content Overlay */}
-        <div className="absolute inset-0 z-20 flex flex-col justify-between px-8 md:px-12 lg:px-20 py-16 md:py-24">
+        <div className="absolute inset-0 z-20 flex flex-col justify-between p-6 md:p-12">
           
-          {/* Top Section - Name now handled by Sticky Navbar */}
-          <div className="flex justify-between items-start pt-2 lg:pt-8 w-full">
+          {/* Top Hero Layout - Aligned with Sticky Branding */}
+          <div className="flex justify-between items-start pt-4 lg:pt-8 w-full">
             <motion.div 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: "easeOut" }}
               className="flex flex-col"
             >
-              <div className="h-[340px] md:h-[360px] lg:h-[450px]" /> {/* Aligned with lowered Navbar Logo */}
-              <p className="text-[10px] md:text-sm uppercase tracking-[0.2em] md:tracking-[0.3em] font-medium text-white/90">
+              {/* Spacer specifically tuned to the Navbar's logo position */}
+              <div className="h-[6rem] md:[6rem] lg:h-[7.5rem]" /> 
+              <p className="text-[10px] md:text-sm uppercase tracking-[0.3em] md:tracking-[0.45em] font-medium text-white/90 mt-4 md:mt-2 ml-[-2px] md:ml-[-4px]">
                 Interior, Furniture, Landscape Designer
               </p>
             </motion.div>
@@ -98,7 +99,7 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 1 }}
-              className="max-w-[280px] md:max-w-md absolute bottom-8 left-0"
+              className="max-w-[280px] md:max-w-md absolute bottom-8 left-0 md:left-2"
             >
               <p className="text-lg md:text-2xl leading-snug font-light text-white/90">
                 Transforming ordinary spaces into extraordinary experiences.
@@ -122,18 +123,21 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7, duration: 1 }}
-              className="flex flex-col items-end space-y-3 absolute bottom-8 right-0 md:pr-4"
+              className="flex flex-col items-end space-y-4 absolute bottom-8 right-0 md:pr-4"
             >
-              <a href="#about" className="text-xs text-white uppercase tracking-widest flex items-center gap-4 hover:opacity-70 transition-opacity">
-                About Me <span className="w-6 h-[1px] bg-white hidden md:block" />
+              <a href="#about" className="text-[10px] md:text-xs text-white uppercase tracking-[0.35em] flex items-center gap-6 hover:opacity-70 transition-opacity">
+                About Me <span className="w-10 h-[1px] bg-white hidden md:block" />
               </a>
-              <button onClick={() => document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" })} className="text-xs text-white/60 uppercase tracking-widest hover:text-white transition-colors text-right w-full">
+              <button 
+                onClick={() => document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" })} 
+                className="text-[10px] md:text-xs text-white/60 uppercase tracking-[0.35em] hover:text-white transition-colors text-right w-full"
+              >
                 Portfolio
               </button>
-              <a href="#prices" className="text-xs text-white/60 uppercase tracking-widest hover:text-white transition-colors">
+              <a href="#prices" className="text-[10px] md:text-xs text-white/60 uppercase tracking-[0.35em] hover:text-white transition-colors">
                 Prices
               </a>
-              <a href="#services" className="text-xs text-white/60 uppercase tracking-widest hover:text-white transition-colors">
+              <a href="#services" className="text-[10px] md:text-xs text-white/60 uppercase tracking-[0.35em] hover:text-white transition-colors">
                 Services
               </a>
             </motion.div>
