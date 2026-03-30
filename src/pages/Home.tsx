@@ -76,18 +76,14 @@ export default function Home() {
         <div className="absolute inset-0 z-20 flex flex-col justify-between p-6 md:p-12">
           
           {/* Top Hero Layout - Aligned with Sticky Branding */}
-          <div className="flex justify-between items-start pt-4 lg:pt-8 w-full">
+          <div className="flex justify-between items-start w-full">
             <motion.div 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: "easeOut" }}
               className="flex flex-col"
             >
-              {/* Spacer specifically tuned to the Navbar's logo position */}
-              <div className="h-[6rem] md:[6rem] lg:h-[7.5rem]" /> 
-              <p className="text-[10px] md:text-sm uppercase tracking-[0.3em] md:tracking-[0.45em] font-medium text-white/90 mt-4 md:mt-2 ml-[-2px] md:ml-[-4px]">
-                Interior, Furniture, Landscape Designer
-              </p>
+              {/* Branding is now solely in Navbar.tsx for vertical control */}
             </motion.div>
           </div>
 

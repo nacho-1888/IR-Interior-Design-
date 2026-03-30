@@ -25,7 +25,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full z-50 flex flex-col items-center pointer-events-none p-4 md:p-6 lg:p-8">
+      <nav className="fixed top-0 left-0 w-full z-50 flex flex-col items-center pointer-events-none pt-12 md:pt-16 lg:pt-20 px-6 md:px-12">
         <motion.div 
           style={{ 
             width: bubbleWidth,
@@ -41,8 +41,8 @@ export default function Navbar() {
             className="absolute inset-0 z-0 liquid-glass rounded-full border border-white/5"
           />
 
-          {/* THE CONTENT - Branding on the left side of the capsule */}
-          <div className="relative z-10 w-full flex items-center justify-start px-8 md:px-12 lg:px-16 flex-nowrap overflow-visible">
+          {/* THE CONTENT - Branding perfectly flush left inside the capsule area */}
+          <div className="relative z-10 w-full flex items-center justify-start flex-nowrap overflow-visible">
             <motion.div
               style={{ 
                 scale: logoScale,
