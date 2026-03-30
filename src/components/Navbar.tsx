@@ -42,8 +42,8 @@ export default function Navbar() {
             className="absolute inset-0 z-0 liquid-glass rounded-full border border-white/5"
           />
 
-          {/* THE CONTENT - Symmetrical Left/Right Spacing */}
-          <div className="relative z-10 w-full flex items-center justify-between px-10 md:px-16 flex-nowrap overflow-visible">
+          {/* THE CONTENT - Symmetrical Deep-Pocket Spacing */}
+          <div className="relative z-10 w-full flex items-center justify-between px-16 md:px-28 flex-nowrap overflow-visible">
             {/* BRANDING */}
             <motion.div
               style={{ 
@@ -60,7 +60,7 @@ export default function Navbar() {
               </Link>
             </motion.div>
 
-            {/* CONTACT BUTTON - Symmetrically mirrored right gutter */}
+            {/* CONTACT BUTTON - Symmetrically mirrored deep right gutter */}
             <motion.div
               style={{ opacity: bubbleOpacity }}
               className="flex items-center"
