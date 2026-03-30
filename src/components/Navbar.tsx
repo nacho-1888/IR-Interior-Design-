@@ -7,19 +7,22 @@ export default function Navbar() {
   const { scrollY } = useScroll();
   const [isOpen, setIsOpen] = useState(false);
 
-  // Background opacity for the header
-  const headerBg = useTransform(scrollY, [0, 200], ["rgba(0,0,0,0)", "rgba(0,0,0,0.8)"]);
-  const headerBlur = useTransform(scrollY, [0, 200], ["blur(0px)", "blur(20px)"]);
+  // Transition Range: 0 to 600px for a much slower, weighted feel
+  const range = [0, 600];
+
+  // Background and thinness transitions
+  const headerBg = useTransform(scrollY, range, ["rgba(0,0,0,0)", "rgba(0,0,0,0.9)"]);
+  const headerBlur = useTransform(scrollY, range, ["blur(0px)", "blur(30px)"]);
+  const navPadding = useTransform(scrollY, range, ["3rem 2rem", "0.75rem 2rem"]);
   
-  // Font size and position scaling
-  // At scroll 0: huge (Hero style)
-  // At scroll 200: small (Header style)
-  const logoScale = useTransform(scrollY, [0, 200], [1, 0.2]); // Scaling down
-  const logoY = useTransform(scrollY, [0, 200], [40, 0]); // Moving from lower hero position to header top
-  const logoX = useTransform(scrollY, [0, 200], [0, 0]); // Keep centered or move if needed
+  // Scaling and Position: Start at Left (Hero size), transit to Small
+  // scale 1 -> 0.18
+  const logoScale = useTransform(scrollY, range, [1, 0.18]); 
+  const logoY = useTransform(scrollY, range, [0, -5]); // Subtle vertical centering
+  const logoX = useTransform(scrollY, range, [0, 0]); // Assuming it starts where we want it on the left
   
-  const navPadding = useTransform(scrollY, [0, 200], ["2rem 2rem", "1rem 2rem"]);
-  const navOpacity = useTransform(scrollY, [0, 200], [0.5, 1]); // Links always visible faintly
+  // Navigation Links Opacity
+  const navOpacity = useTransform(scrollY, [100, 600], [0.3, 0.8]);
 
   return (
     <>
@@ -31,32 +34,30 @@ export default function Navbar() {
         }}
         className="fixed top-0 left-0 w-full z-50 flex justify-between items-center text-white"
       >
-        <motion.div 
-          style={{ opacity: navOpacity }}
-          className="flex gap-8 text-[10px] font-semibold tracking-widest uppercase items-center hidden md:flex"
-        >
-          <Link to="#about" className="hover:opacity-100 transition-opacity">About Me</Link>
-          <Link to="#portfolio" className="hover:opacity-100 transition-opacity">Portfolio</Link>
-        </motion.div>
+        {/* Left Side: Logo (Starts big here) */}
+        <div className="flex items-center">
+          <motion.div
+            style={{ 
+              scale: logoScale,
+              y: logoY,
+              transformOrigin: "top left"
+            }}
+            className="z-50"
+          >
+            <Link to="/" className="text-6xl md:text-[8rem] lg:text-[10rem] font-normal leading-[0.85] display-font tracking-tight uppercase whitespace-nowrap block ml-[-4px] md:ml-[-8px]">
+              Isabel Romer
+            </Link>
+          </motion.div>
+        </div>
 
-        <motion.div
-           style={{ 
-             scale: logoScale,
-             y: logoY,
-             transformOrigin: "center center"
-           }}
-           className="z-50"
-        >
-          <Link to="/" className="text-6xl md:text-[8rem] lg:text-[10rem] font-normal leading-none display-font tracking-tight uppercase whitespace-nowrap block">
-            Isabel Romer
-          </Link>
-        </motion.div>
-
-        <div className="flex items-center gap-8">
+        {/* Right Side: Links (Pushed from logo) */}
+        <div className="flex items-center gap-8 lg:gap-12 pl-12">
           <motion.div 
             style={{ opacity: navOpacity }}
-            className="flex gap-8 text-[10px] font-semibold tracking-widest uppercase items-center hidden md:flex"
+            className="flex gap-8 text-[10px] font-semibold tracking-[0.3em] uppercase items-center hidden md:flex"
           >
+            <Link to="#about" className="hover:opacity-100 transition-opacity">About Me</Link>
+            <Link to="#portfolio" className="hover:opacity-100 transition-opacity">Portfolio</Link>
             <Link to="#contact" className="hover:opacity-100 transition-opacity">Contact Me</Link>
           </motion.div>
 
