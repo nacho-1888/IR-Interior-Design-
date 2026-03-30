@@ -38,7 +38,7 @@ export default function Navbar() {
   // Scaling/Positioning for the logo (Always visible and anchored left)
   const logoScale = useTransform(scrollY, range, [0.9, 0.40]); 
   const logoY = useTransform(scrollY, [0, 400], ["15vh", "0vh"]); 
-  const logoX = useTransform(scrollY, [0, 400], ["5vw", "0vw"]);
+  const logoX = useTransform(scrollY, range, ["0vw", "0vw"]);
 
   return (
     <>
@@ -64,7 +64,7 @@ export default function Navbar() {
           />
 
           {/* THE CONTENT - Flex for branding, Absolute for contact avoids layout overflow */}
-          <div className="relative z-10 w-full h-full flex items-center pl-8 md:pl-12 flex-nowrap overflow-visible">
+          <div className="relative z-10 w-full h-full flex items-center pl-4 md:pl-6 flex-nowrap overflow-visible">
             {/* BRANDING */}
             <motion.div
               style={{ 
