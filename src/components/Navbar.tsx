@@ -10,39 +10,39 @@ export default function Navbar() {
   // Transition Range: 0 to 600px for a much slower, weighted feel
   const range = [0, 600];
 
-  // Bubble appearance logic (ONLY for the background)
-  const bubbleScale = useTransform(scrollY, [0, 600], [0.98, 1]);
-  const bubbleOpacity = useTransform(scrollY, [50, 200], [0, 1]);
-  const bubbleWidth = useTransform(scrollY, [0, 600], ["100%", "50%"]);
+  // Static Bubble appearance logic: appears later when name is small
+  const bubbleScale = useTransform(scrollY, [300, 600], [0.98, 1]);
+  const bubbleOpacity = useTransform(scrollY, [300, 450], [0, 1]);
+  const bubbleWidth = useTransform(scrollY, range, ["100%", "85%"]);
   
   // Navigation Links Opacity
   const navOpacity = useTransform(scrollY, [100, 400], [0.5, 1]);
 
   // Scaling/Positioning for the logo (Always visible)
-  const logoScale = useTransform(scrollY, range, [1, 0.35]); 
-  const logoY = useTransform(scrollY, range, [0, 0]); 
+  const logoScale = useTransform(scrollY, range, [1, 0.28]); 
+  const logoY = useTransform(scrollY, [0, 300], [0, 0]); 
   const logoX = useTransform(scrollY, range, [0, 0]);
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full z-50 flex flex-col items-center pointer-events-none p-2 md:p-3">
+      <nav className="fixed top-0 left-0 w-full z-50 flex flex-col items-center pointer-events-none p-4 md:p-6 lg:p-8">
         <motion.div 
           style={{ 
             width: bubbleWidth,
             scale: bubbleScale,
           }}
-          className="relative pointer-events-auto transition-all duration-500 overflow-hidden"
+          className="relative pointer-events-auto transition-all duration-700 overflow-hidden h-14 md:h-16 flex items-center"
         >
-          {/* THE BUBBLE BACKGROUND */}
+          {/* THE BUBBLE BACKGROUND - Static long capsule */}
           <motion.div 
             style={{ 
               opacity: bubbleOpacity,
             }}
-            className="absolute inset-0 z-0 liquid-glass rounded-full"
+            className="absolute inset-0 z-0 liquid-glass rounded-full border border-white/5"
           />
 
-          {/* THE CONTENT */}
-          <div className="relative z-10 w-full flex items-center px-8 md:px-10 py-3 md:py-4">
+          {/* THE CONTENT - Name centered at the vertical midpoint of the fixed height */}
+          <div className="relative z-10 w-full flex items-center px-8 md:px-12 flex-nowrap">
             <motion.div
               style={{ 
                 scale: logoScale,
