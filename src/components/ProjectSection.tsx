@@ -38,7 +38,7 @@ export default function ProjectSection({ project, onProjectSelect }: ProjectSect
             initial={{ opacity: 0, scale: 1.05 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.2, ease: "easeInOut" }}
+            transition={{ duration: 0.95, ease: "easeInOut" }}
             src={project.coverImage} 
             alt={project.title}
             className="absolute inset-0 w-full h-full object-cover grayscale-[20%] brightness-[0.8] transition-all duration-700 hover:grayscale-0 hover:brightness-100"
@@ -79,7 +79,7 @@ export default function ProjectSection({ project, onProjectSelect }: ProjectSect
              initial={{ opacity: 0, x: -20 }}
              animate={{ opacity: 1, x: 0 }}
              exit={{ opacity: 0, x: 20 }}
-             transition={{ duration: 0.8 }}
+             transition={{ duration: 0.65 }}
              className="pointer-events-auto"
           >
             <span className="text-[10px] md:text-xs uppercase tracking-[0.5em] font-medium text-white/50 block mb-6">
