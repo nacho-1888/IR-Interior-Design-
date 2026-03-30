@@ -179,28 +179,59 @@ export default function Home() {
           </h2>
         </div>
 
-        {/* Center: Links */}
-        <div className="w-full md:w-3/12 flex gap-12 md:gap-16 text-xs font-semibold justify-start mt-4 md:mt-0 relative z-10">
-          <div className="flex flex-col space-y-3">
-            <a href="#contact" className="hover:text-white/50 transition-colors">Contact Us</a>
-            <a href="#about" className="hover:text-white/50 transition-colors">About</a>
-            <a href="#" className="hover:text-white/50 transition-colors">Privacy Policy</a>
-          </div>
-          <div className="flex flex-col space-y-3">
-            <a href="#" className="hover:text-white/50 transition-colors">Terms & Conditions</a>
-            <a href="#portfolio" className="hover:text-white/50 transition-colors">Projects</a>
-          </div>
+        {/* Center: Monolithic Link List */}
+        <div className="w-full md:w-2/12 flex flex-col space-y-4 text-xs font-semibold justify-start mt-4 md:mt-0 relative z-10">
+          <a href="#contact" className="hover:text-white/50 transition-colors">Contact Us</a>
+          <a href="#about" className="hover:text-white/50 transition-colors">About Me</a>
+          <a href="#" className="hover:text-white/50 transition-colors">Privacy Policy</a>
+          <a href="#" className="hover:text-white/50 transition-colors">Terms & Conditions</a>
+          <a href="#portfolio" className="hover:text-white/50 transition-colors">Projects</a>
         </div>
 
-        {/* Right: Newsletter Signup */}
-        <div className="w-full md:w-4/12 flex flex-col space-y-6 md:items-end mt-4 md:mt-0 relative z-10">
-          <h3 className="text-lg md:text-xl font-black uppercase tracking-tight w-full md:w-auto md:text-right text-white/90">Sign up for updates</h3>
-          <div className="w-full max-w-sm border-b border-white/30 pb-2 flex justify-between items-center group">
-            <input type="email" placeholder="Email Address" className="w-full bg-transparent outline-none text-sm placeholder:text-white/50 text-white font-medium" />
+        {/* Right: Expanded Complete Contact Section */}
+        <div className="w-full md:w-5/12 flex flex-col space-y-10 md:items-end mt-4 md:mt-0 relative z-10">
+          <div className="w-full max-w-md flex flex-col space-y-8">
+            <h3 className="text-xl md:text-2xl font-black uppercase tracking-tighter text-white">
+              Let's create something
+              <br />
+              beautiful together.
+            </h3>
+            
+            <div className="flex flex-col space-y-6">
+              {/* Name Field */}
+              <div className="border-b border-white/20 pb-2 flex group transition-all focus-within:border-white">
+                <input 
+                  type="text" 
+                  placeholder="Full Name" 
+                  className="w-full bg-transparent outline-none text-sm placeholder:text-white/30 text-white font-medium uppercase tracking-widest" 
+                />
+              </div>
+
+              {/* Email Field */}
+              <div className="border-b border-white/20 pb-2 flex group transition-all focus-within:border-white">
+                <input 
+                  type="email" 
+                  placeholder="Email Address" 
+                  className="w-full bg-transparent outline-none text-sm placeholder:text-white/30 text-white font-medium uppercase tracking-widest" 
+                />
+              </div>
+
+              {/* Message Field */}
+              <div className="border-b border-white/20 pb-2 flex group transition-all focus-within:border-white">
+                <textarea 
+                  placeholder="Tell us about your project" 
+                  rows={1}
+                  className="w-full bg-transparent outline-none text-sm placeholder:text-white/30 text-white font-medium uppercase tracking-widest resize-none" 
+                />
+              </div>
+            </div>
+
+            <button className="text-left md:text-right font-serif italic text-4xl tracking-wide hover:text-white/50 transition-colors group">
+              SUBMIT <span className="inline-block transition-transform group-hover:translate-x-4">→</span>
+            </button>
           </div>
-          <button className="text-left md:text-right font-serif italic text-2xl tracking-wide hover:text-white/50 transition-colors w-full max-w-sm">SIGN UP</button>
           
-          <div className="pt-12 md:pt-24 text-[10px] font-medium tracking-wide w-full md:text-right text-white/40">
+          <div className="pt-12 md:pt-16 text-[10px] font-medium tracking-widest w-full md:text-right text-white/30 uppercase">
             © 2026 Isabel Romer. All Rights Reserved.
           </div>
         </div>
