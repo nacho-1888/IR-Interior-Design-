@@ -37,7 +37,7 @@ export default function Navbar() {
 
   // Scaling/Positioning for the logo (Always visible and anchored left)
   const logoScale = useTransform(scrollY, range, [0.9, 0.40]); 
-  const logoY = useTransform(scrollY, [0, 400], ["15vh", "0vh"]); 
+  const logoY = useTransform(scrollY, [0, 400], ["calc(15vh + 2px)", "0vh"]); 
   const logoX = useTransform(scrollY, range, ["0vw", "0vw"]);
 
   return (
