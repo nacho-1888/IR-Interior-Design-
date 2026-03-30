@@ -42,8 +42,8 @@ export default function Navbar() {
             className="absolute inset-0 z-0 liquid-glass rounded-full border border-white/5"
           />
 
-          {/* THE CONTENT - Constrained Symmetrical Safe Zone */}
-          <div className="relative z-10 w-full h-full flex items-center justify-between px-12 md:px-24 lg:px-48 flex-nowrap overflow-visible">
+          {/* THE CONTENT - Drastically Pulled Inland for Symmetry */}
+          <div className="relative z-10 w-full h-full flex items-center justify-between px-8 md:px-[10%] lg:px-[15%] flex-nowrap overflow-visible">
             {/* BRANDING */}
             <motion.div
               style={{ 
@@ -60,7 +60,7 @@ export default function Navbar() {
               </Link>
             </motion.div>
 
-            {/* CONTACT BUTTON - Symmetrical distance from opposite edge */}
+            {/* CONTACT BUTTON - Symmetrically anchored deep within the bubble interior */}
             <motion.div
               style={{ opacity: bubbleOpacity }}
               className="flex items-center"
