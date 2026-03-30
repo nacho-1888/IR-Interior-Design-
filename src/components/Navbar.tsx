@@ -8,17 +8,19 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
 
-  // Hide the navbar when scrolling down, show when scrolling up
+  // Hide the navbar when scrolling down, show when scrolling up with a threshold
   useMotionValueEvent(scrollY, "change", (latest) => {
-    const previous = scrollY.getPrevious();
-    if (previous !== undefined) {
-      if (latest > previous && latest > 250) {
-        // Scrolling down past the hero
-        setIsHidden(true);
-      } else if (latest < previous) {
-        // Scrolling up
-        setIsHidden(false);
-      }
+    const previous = scrollY.getPrevious() || 0;
+    
+    if (latest > previous && latest > 300) {
+      // Scrolling down past the hero - Hide
+      setIsHidden(true);
+    } else if (previous - latest > 150) {
+      // Scrolling up significantly - Show
+      setIsHidden(false);
+    } else if (latest < 50) {
+      // Near top - Always show
+      setIsHidden(false);
     }
   });
 
@@ -43,7 +45,7 @@ export default function Navbar() {
       <motion.nav 
         animate={{ y: isHidden ? "-150%" : "0%" }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed top-0 left-0 w-full z-50 flex flex-col items-center pointer-events-none pt-12 md:pt-16 lg:pt-20 px-3 md:px-6"
+        className="fixed top-0 left-0 w-full z-50 flex flex-col items-center pointer-events-none pt-6 md:pt-10 lg:pt-12 px-3 md:px-6"
       >
         <motion.div 
           style={{ 
