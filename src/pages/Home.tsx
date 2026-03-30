@@ -199,39 +199,37 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
         {/* Right: Expanded Complete Contact Section */}
         <div className="w-full md:w-5/12 flex flex-col space-y-16 md:items-end relative z-10 pt-4 md:pt-6 lg:pt-8">
           <div className="w-full max-w-md flex flex-col space-y-12">
-            <h3 className="text-3xl md:text-4xl font-black uppercase tracking-tighter text-black leading-[0.85]">
-              Let's create something
-              <br />
-              beautiful together.
+            <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-black leading-[0.85]">
+              Let's Talk.
             </h3>
             
             <div className="flex flex-col space-y-4">
               <div className="bg-black/5 rounded-2xl px-6 py-5 flex group transition-all focus-within:bg-black/[0.08] border border-black/5 focus-within:border-black/10">
                 <input 
                   type="text" 
-                  placeholder="Full Name" 
-                  className="w-full bg-transparent outline-none text-xs uppercase tracking-[0.15em] placeholder:text-black/20 text-black font-semibold" 
+                  placeholder="NAME" 
+                  className="w-full bg-transparent outline-none text-xs uppercase tracking-[0.25em] placeholder:text-black/20 text-black font-semibold" 
                 />
               </div>
 
               <div className="bg-black/5 rounded-2xl px-6 py-5 flex group transition-all focus-within:bg-black/[0.08] border border-black/5 focus-within:border-black/10">
                 <input 
                   type="email" 
-                  placeholder="Email Address" 
-                  className="w-full bg-transparent outline-none text-xs uppercase tracking-[0.15em] placeholder:text-black/20 text-black font-semibold" 
+                  placeholder="EMAIL" 
+                  className="w-full bg-transparent outline-none text-xs uppercase tracking-[0.25em] placeholder:text-black/20 text-black font-semibold" 
                 />
               </div>
 
               <div className="bg-black/5 rounded-2xl px-6 py-6 flex group transition-all focus-within:bg-black/[0.08] border border-black/5 focus-within:border-black/10">
                 <textarea 
-                  placeholder="Tell us about your project" 
+                  placeholder="ABOUT YOU" 
                   rows={1}
-                  className="w-full bg-transparent outline-none text-xs uppercase tracking-[0.15em] placeholder:text-black/20 text-black font-semibold resize-none" 
+                  className="w-full bg-transparent outline-none text-xs uppercase tracking-[0.25em] placeholder:text-black/20 text-black font-semibold resize-none" 
                 />
               </div>
 
               <button className="w-full py-6 bg-black text-white font-black uppercase text-[10px] tracking-[0.5em] hover:bg-black/90 active:scale-[0.98] transition-all rounded-2xl mt-4 shadow-2xl shadow-black/10">
-                Let's Talk
+                Send Message
               </button>
             </div>
           </div>
