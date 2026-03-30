@@ -119,7 +119,7 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
                 <button 
                   key={i}
                   onClick={() => setHeroIndex(i)}
-                  className={`h-1 cursor-pointer transition-all duration-500 ease-in-out ${i === heroIndex ? 'w-12 bg-white' : 'w-6 bg-white/40 hover:bg-white/70'}`}
+                  className={`h-[1px] cursor-pointer transition-all duration-500 ease-in-out ${i === heroIndex ? 'w-12 bg-white' : 'w-6 bg-white/40 hover:bg-white/70'}`}
                   aria-label={`Go to slide ${i + 1}`}
                 />
               ))}

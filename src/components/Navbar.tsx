@@ -73,7 +73,7 @@ export default function Navbar() {
                 x: logoX,
                 transformOrigin: "left center"
               }}
-              className="flex items-center"
+              className="flex flex-col items-start"
             >
               <Link 
                 to="/" 
@@ -81,6 +81,9 @@ export default function Navbar() {
               >
                 Isabel Römer
               </Link>
+              <span className="text-[10px] md:text-sm uppercase tracking-[0.8em] font-medium text-white/40 ml-1 md:ml-3 mt-2 md:mt-4">
+                Interior Design
+              </span>
             </motion.div>
 
             {/* CONTACT BUTTON - Absolute right positioning ignores the unscaled text width */}
