@@ -3,8 +3,8 @@
 
 @theme {
   --font-serif: "Cormorant Garamond", serif;
-  --font-sans: "Inter", sans-serif;
-  --font-display: "Jost", sans-serif;
+  --font-sans: Helvetica, Arial, sans-serif;
+  --font-display: Helvetica, Arial, sans-serif;
   --color-luxury-gold: #c5a059;
   --color-luxury-black: #0a0a0a;
   --color-luxury-paper: #f5f2ed;
@@ -24,8 +24,8 @@
   font-family: var(--font-display);
 }
 
-.glass-panel {
-  @apply backdrop-blur-md bg-white/5 border-b border-white/10;
+.liquid-glass {
+  @apply backdrop-blur-[60px] bg-white/5 border-b border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)];
 }
 
 .luxury-gradient {

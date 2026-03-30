@@ -11,18 +11,16 @@ export default function Navbar() {
   const range = [0, 600];
 
   // Background and thinness transitions
-  const headerBg = useTransform(scrollY, range, ["rgba(0,0,0,0)", "rgba(0,0,0,0.9)"]);
-  const headerBlur = useTransform(scrollY, range, ["blur(0px)", "blur(30px)"]);
+  const headerBg = useTransform(scrollY, range, ["rgba(255,255,255,0)", "rgba(255,255,255,0.05)"]);
+  const headerBlur = useTransform(scrollY, range, ["blur(0px)", "blur(50px)"]);
   const navPadding = useTransform(scrollY, range, ["3rem 2rem", "0.75rem 2rem"]);
   
-  // Scaling and Position: Start at Left (Hero size), transit to Small
-  // scale 1 -> 0.18
-  const logoScale = useTransform(scrollY, range, [1, 0.18]); 
-  const logoY = useTransform(scrollY, range, [0, -5]); // Subtle vertical centering
-  const logoX = useTransform(scrollY, range, [0, 0]); // Assuming it starts where we want it on the left
+  // Scaling and Position: Start at Left (Hero size), transit to readable header size
+  const logoScale = useTransform(scrollY, range, [1, 0.35]); 
+  const logoY = useTransform(scrollY, range, [0, 0]); 
   
   // Navigation Links Opacity
-  const navOpacity = useTransform(scrollY, [100, 600], [0.3, 0.8]);
+  const navOpacity = useTransform(scrollY, [100, 400], [0.4, 1]);
 
   return (
     <>
@@ -32,9 +30,9 @@ export default function Navbar() {
           backdropFilter: headerBlur,
           padding: navPadding 
         }}
-        className="fixed top-0 left-0 w-full z-50 flex justify-between items-center text-white"
+        className="fixed top-0 left-0 w-full z-50 flex justify-between items-center text-white border-b border-white/0 transition-all duration-700 liquid-glass"
       >
-        {/* Left Side: Logo (Starts big here) */}
+        {/* Left Side: Logo (No all-caps, Helvetica) */}
         <div className="flex items-center">
           <motion.div
             style={{ 
@@ -44,20 +42,18 @@ export default function Navbar() {
             }}
             className="z-50"
           >
-            <Link to="/" className="text-6xl md:text-[8rem] lg:text-[10rem] font-normal leading-[0.85] display-font tracking-tight uppercase whitespace-nowrap block ml-[-4px] md:ml-[-8px]">
+            <Link to="/" className="text-6xl md:text-[8rem] lg:text-[10rem] font-medium leading-[0.85] font-sans tracking-tight block ml-[-4px] md:ml-[-8px]">
               Isabel Romer
             </Link>
           </motion.div>
         </div>
 
-        {/* Right Side: Links (Pushed from logo) */}
-        <div className="flex items-center gap-8 lg:gap-12 pl-12">
+        {/* Right Side: Links (Contact Me only, Helvetica) */}
+        <div className="flex items-center gap-8 lg:gap-12 pl-12 pr-4">
           <motion.div 
             style={{ opacity: navOpacity }}
-            className="flex gap-8 text-[10px] font-semibold tracking-[0.3em] uppercase items-center hidden md:flex"
+            className="flex gap-8 text-[10px] md:text-xs font-semibold tracking-[0.3em] uppercase items-center hidden md:flex font-sans"
           >
-            <Link to="#about" className="hover:opacity-100 transition-opacity">About Me</Link>
-            <Link to="#portfolio" className="hover:opacity-100 transition-opacity">Portfolio</Link>
             <Link to="#contact" className="hover:opacity-100 transition-opacity">Contact Me</Link>
           </motion.div>
 
@@ -78,8 +74,6 @@ export default function Navbar() {
         className="fixed inset-0 bg-luxury-black/95 backdrop-blur-xl text-luxury-paper flex flex-col items-center justify-center space-y-8 z-40"
       >
         <Link to="/" onClick={() => setIsOpen(false)} className="text-4xl display-font font-bold uppercase transition-all hover:tracking-widest">Home</Link>
-        <Link to="#about" onClick={() => setIsOpen(false)} className="text-4xl display-font font-bold uppercase transition-all hover:tracking-widest">About Me</Link>
-        <Link to="#portfolio" onClick={() => setIsOpen(false)} className="text-4xl display-font font-bold uppercase transition-all hover:tracking-widest">Portfolio</Link>
         <Link to="#contact" onClick={() => setIsOpen(false)} className="text-4xl display-font font-bold uppercase transition-all hover:tracking-widest">Contact Me</Link>
         
         <div className="absolute bottom-12 text-center space-y-2">
