@@ -39,6 +39,9 @@ export default function Navbar() {
   const logoScale = useTransform(scrollY, range, [0.9, 0.40]); 
   const logoY = useTransform(scrollY, [0, 400], ["15vh", "0vh"]); 
   const logoX = useTransform(scrollY, range, ["0vw", "0vw"]);
+  
+  // Subtitle should only exist in the Hero, disappearing rapidly
+  const subtitleOpacity = useTransform(scrollY, [0, 150], [1, 0]);
 
   return (
     <>
@@ -81,9 +84,12 @@ export default function Navbar() {
               >
                 Isabel Römer
               </Link>
-              <span className="text-[10px] md:text-sm uppercase tracking-[0.8em] font-medium text-white/40 ml-1 md:ml-3 mt-2 md:mt-4">
+              <motion.span 
+                style={{ opacity: subtitleOpacity }}
+                className="text-[10px] md:text-xs uppercase tracking-[1.1em] font-medium text-white/60 ml-2 md:ml-4 mt-4 md:mt-6 whitespace-nowrap"
+              >
                 Interior Design
-              </span>
+              </motion.span>
             </motion.div>
 
             {/* CONTACT BUTTON - Absolute right positioning ignores the unscaled text width */}
