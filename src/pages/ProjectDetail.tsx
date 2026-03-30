@@ -20,6 +20,14 @@ export default function ProjectDetail() {
   const [imgIndex, setImgIndex] = useState(0);
   const gallery = [project.coverImage, ...project.gallery];
 
+  // Professional Image Preloader to eliminate the black gap
+  useEffect(() => {
+    gallery.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, [gallery]);
+
   const nextImg = () => {
     if (imgIndex < gallery.length - 1) setImgIndex(prev => prev + 1);
   };
@@ -35,21 +43,20 @@ export default function ProjectDetail() {
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [imgIndex]); // Re-bind on index change to ensure callbacks are fresh if needed, though state setter is enough.
-
+  }, [imgIndex]);
 
   return (
     <main className="bg-luxury-black text-white h-screen w-full relative overflow-hidden font-sans">
       
       {/* Background Gallery Layer */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        <AnimatePresence mode="popLayout">
+      <div className="absolute inset-0 z-0 bg-[#050505] overflow-hidden">
+        <AnimatePresence initial={false}>
           <motion.img
             key={imgIndex}
             initial={{ opacity: 0, scale: 1.05 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
             src={gallery[imgIndex]}
             alt={project.title}
             className="absolute inset-0 w-full h-full object-cover grayscale-[10%] brightness-[0.85]"
