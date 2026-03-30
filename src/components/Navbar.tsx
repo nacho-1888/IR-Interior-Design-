@@ -19,7 +19,7 @@ export default function Navbar() {
   const navOpacity = useTransform(scrollY, [100, 400], [0.5, 1]);
 
   // Scaling/Positioning for the logo (Always visible)
-  const logoScale = useTransform(scrollY, range, [1, 0.28]); 
+  const logoScale = useTransform(scrollY, range, [1, 0.40]); 
   const logoY = useTransform(scrollY, [0, 300], [0, 0]); 
   const logoX = useTransform(scrollY, range, [0, 0]);
 
@@ -31,9 +31,9 @@ export default function Navbar() {
             width: bubbleWidth,
             scale: bubbleScale,
           }}
-          className="relative pointer-events-auto transition-all duration-700 overflow-hidden h-14 md:h-16 flex items-center"
+          className="relative pointer-events-auto transition-all duration-700 h-18 md:h-20 lg:h-24 flex items-center"
         >
-          {/* THE BUBBLE BACKGROUND - Static long capsule */}
+          {/* THE BUBBLE BACKGROUND - Static long capsule (No overflow hidden) */}
           <motion.div 
             style={{ 
               opacity: bubbleOpacity,
@@ -42,7 +42,7 @@ export default function Navbar() {
           />
 
           {/* THE CONTENT - Name centered at the vertical midpoint of the fixed height */}
-          <div className="relative z-10 w-full flex items-center px-8 md:px-12 flex-nowrap">
+          <div className="relative z-10 w-full flex items-center px-8 md:px-12 lg:px-16 flex-nowrap overflow-visible">
             <motion.div
               style={{ 
                 scale: logoScale,
