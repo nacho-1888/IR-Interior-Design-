@@ -77,7 +77,7 @@ export default function Navbar() {
                 to="/" 
                 className="text-6xl md:text-[8rem] lg:text-[10rem] branding-font font-bold leading-none tracking-tight block whitespace-nowrap uppercase text-white"
               >
-                Isabel Romer
+                Isabel Römer
               </Link>
             </motion.div>
 
