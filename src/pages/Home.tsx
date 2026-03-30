@@ -172,11 +172,18 @@ export default function Home() {
 
         {/* Left: Huge Logo */}
         <div className="w-full md:w-5/12 relative z-10">
-          <h2 className="text-[14vw] md:text-[7vw] leading-[0.85] display-font font-black tracking-tighter uppercase text-white">
+          <h2 className="text-[14vw] md:text-[7vw] leading-[0.85] display-font font-black tracking-tighter uppercase text-white mb-8">
             Isabel
             <br className="hidden md:block" />
             <span className="md:hidden"> </span>Romer
           </h2>
+          
+          {/* Direct Studio Contact Links */}
+          <div className="flex gap-8 text-[10px] md:text-xs uppercase tracking-[0.3em] font-black text-white/40">
+            <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">Instagram</a>
+            <a href="mailto:isabel@romer.com" className="hover:text-white transition-colors">Email</a>
+            <a href="https://wa.me/something" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">WhatsApp</a>
+          </div>
         </div>
 
         {/* Center: Monolithic Link List */}
