@@ -10,30 +10,31 @@ export default function Navbar() {
   // Transition Range: 0 to 600px for a much slower, weighted feel
   const range = [0, 600];
 
-  // Static Bubble appearance logic: appears later when name is small
+  // Static Bubble appearance logic: appears later and expands from the left
   const bubbleScale = useTransform(scrollY, [300, 600], [0.98, 1]);
   const bubbleOpacity = useTransform(scrollY, [300, 450], [0, 1]);
-  const bubbleWidth = useTransform(scrollY, range, ["100%", "85%"]);
+  const bubbleWidth = useTransform(scrollY, range, ["100%", "90%"]);
   
   // Navigation Links Opacity
   const navOpacity = useTransform(scrollY, [100, 400], [0.5, 1]);
 
-  // Scaling/Positioning for the logo (Always visible and centered)
+  // Scaling/Positioning for the logo (Always visible and anchored left)
   const logoScale = useTransform(scrollY, range, [0.85, 0.40]); 
   const logoY = useTransform(scrollY, [0, 300], [0, 0]); 
   const logoX = useTransform(scrollY, range, [0, 0]);
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full z-50 flex flex-col items-center pointer-events-none pt-12 md:pt-16 lg:pt-20 px-6 md:px-12">
+      <nav className="fixed top-0 left-0 w-full z-50 flex flex-col items-start pointer-events-none pt-12 md:pt-16 lg:pt-20 px-4 md:px-8">
         <motion.div 
           style={{ 
             width: bubbleWidth,
             scale: bubbleScale,
+            transformOrigin: "left center" 
           }}
-          className="relative pointer-events-auto transition-all duration-700 h-18 md:h-20 lg:h-24 flex items-center"
+          className="relative pointer-events-auto transition-all duration-700 h-18 md:h-20 lg:h-24 flex items-center justify-start"
         >
-          {/* THE BUBBLE BACKGROUND - Static long capsule */}
+          {/* THE BUBBLE BACKGROUND - Static long capsule anchored left */}
           <motion.div 
             style={{ 
               opacity: bubbleOpacity,
@@ -41,8 +42,8 @@ export default function Navbar() {
             className="absolute inset-0 z-0 liquid-glass rounded-full border border-white/5"
           />
 
-          {/* THE CONTENT - Branding perfectly flush left inside the capsule area */}
-          <div className="relative z-10 w-full flex items-center justify-start flex-nowrap overflow-visible">
+          {/* THE CONTENT - Branding perfectly flush left inside the left-anchored capsule area */}
+          <div className="relative z-10 w-full flex items-center justify-start px-8 md:px-12 flex-nowrap overflow-visible">
             <motion.div
               style={{ 
                 scale: logoScale,
