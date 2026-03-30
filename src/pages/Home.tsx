@@ -10,11 +10,9 @@ export default function Home() {
   const { scrollY } = useScroll();
   const headerOpacity = useTransform(scrollY, [0, 500], [0, 1]);
 
-  const heroImages = [
-    "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2000&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2000&auto=format&fit=crop"
-  ];
+  // Syncing hero images to the first 3 projects
+  const heroProjects = projects.slice(0, 3);
+  const heroImages = heroProjects.map(p => p.coverImage);
 
   // Auto carousel effect
   useEffect(() => {
@@ -90,16 +88,25 @@ export default function Home() {
           {/* Bottom Section */}
           <div className="flex flex-col md:flex-row justify-between items-end pb-8 w-full relative">
             
-            {/* Bottom Left Paragraph */}
+            {/* Dynamic Project Title in Bottom Left */}
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 1 }}
-              className="max-w-[280px] md:max-w-md absolute bottom-8 left-0 md:left-2"
+              className="max-w-[280px] md:max-w-xl absolute bottom-8 left-0 md:left-2"
             >
-              <p className="text-lg md:text-2xl leading-snug font-light text-white/90">
-                Transforming ordinary spaces into extraordinary experiences.
-              </p>
+              <AnimatePresence mode="wait">
+                <motion.h2
+                  key={heroIndex}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 20 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  className="text-3xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tight text-white/95"
+                >
+                  {heroProjects[heroIndex].title}
+                </motion.h2>
+              </AnimatePresence>
             </motion.div>
 
             {/* Carousel Flat Lines Indicator */}
