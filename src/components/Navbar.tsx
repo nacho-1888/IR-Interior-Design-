@@ -43,7 +43,7 @@ export default function Navbar() {
           />
 
           {/* THE CONTENT - Branding Left, Contact Right */}
-          <div className="relative z-10 w-full flex items-center justify-between px-8 md:px-12 flex-nowrap overflow-visible">
+          <div className="relative z-10 w-full flex items-center justify-between px-6 md:px-10 flex-nowrap overflow-visible">
             {/* BRANDING */}
             <motion.div
               style={{ 
@@ -60,14 +60,14 @@ export default function Navbar() {
               </Link>
             </motion.div>
 
-            {/* CONTACT BUTTON - Fades in with the bubble */}
+            {/* CONTACT BUTTON - Fully contained within the scroll-responsive bubble */}
             <motion.div
               style={{ opacity: bubbleOpacity }}
               className="flex items-center"
             >
               <a 
                 href="#contact" 
-                className="text-[10px] md:text-xs font-semibold uppercase tracking-[0.3em] text-white/90 px-6 py-3 rounded-full border border-white/20 hover:bg-white/10 transition-all duration-500 whitespace-nowrap ml-4"
+                className="text-[10px] md:text-xs font-semibold uppercase tracking-[0.3em] text-white/90 px-6 py-3 rounded-full border border-white/20 hover:bg-white/10 transition-all duration-500 whitespace-nowrap"
               >
                 Contact
               </a>
