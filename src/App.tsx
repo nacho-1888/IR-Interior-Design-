@@ -13,7 +13,7 @@ function ScrollManager() {
         const id = hash.replace("#", "");
         const element = document.getElementById(id);
         if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
+          element.scrollIntoView({ behavior: "auto" }); // Instant snap to anchor
         }
       }, 0);
     } else {
