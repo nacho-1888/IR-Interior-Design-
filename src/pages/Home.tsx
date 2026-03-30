@@ -1,5 +1,6 @@
 import { projects } from "../data/projects";
 import ProjectSection from "../components/ProjectSection";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
 import { useState, useEffect } from "react";
 import { Project } from "../types";
@@ -140,12 +141,12 @@ export default function Home() {
               >
                 Portfolio
               </button>
-              <a 
-                href="#contact" 
+              <button 
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} 
                 className="text-[10px] md:text-xs text-white/60 uppercase tracking-[0.35em] hover:text-white transition-colors text-right w-full"
               >
-                Contact
-              </a>
+                Home
+              </button>
             </motion.div>
 
           </div>
@@ -188,11 +189,11 @@ export default function Home() {
 
         {/* Center: Monolithic Link List */}
         <div className="w-full md:w-2/12 flex flex-col space-y-4 text-xs font-semibold justify-start mt-4 md:mt-0 relative z-10">
-          <a href="#contact" className="hover:text-white/50 transition-colors">Contact Us</a>
-          <a href="#about" className="hover:text-white/50 transition-colors">About Me</a>
-          <a href="#" className="hover:text-white/50 transition-colors">Privacy Policy</a>
-          <a href="#" className="hover:text-white/50 transition-colors">Terms & Conditions</a>
-          <a href="#portfolio" className="hover:text-white/50 transition-colors">Projects</a>
+          <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-left hover:text-white/50 transition-colors uppercase tracking-widest">Home</button>
+          <a href="#contact" className="hover:text-white/50 transition-colors uppercase tracking-widest">Contact Us</a>
+          <a href="#portfolio" className="hover:text-white/50 transition-colors uppercase tracking-widest">Projects</a>
+          <Link to="/privacy-policy" className="hover:text-white/50 transition-colors uppercase tracking-widest">Privacy Policy</Link>
+          <Link to="/terms-conditions" className="hover:text-white/50 transition-colors uppercase tracking-widest">Terms & Conditions</Link>
         </div>
 
         {/* Right: Expanded Complete Contact Section */}
