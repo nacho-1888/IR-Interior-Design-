@@ -31,7 +31,7 @@ export default function Navbar() {
             width: bubbleWidth,
             scale: bubbleScale,
           }}
-          className="relative pointer-events-auto transition-all duration-700 h-18 md:h-20 lg:h-24 flex items-center justify-center"
+          className="relative pointer-events-auto transition-all duration-700 h-18 md:h-20 lg:h-24 flex items-center"
         >
           {/* THE BUBBLE BACKGROUND - Static long capsule */}
           <motion.div 
@@ -41,18 +41,18 @@ export default function Navbar() {
             className="absolute inset-0 z-0 liquid-glass rounded-full border border-white/5"
           />
 
-          {/* THE CONTENT - Centered branding */}
-          <div className="relative z-10 w-full flex items-center justify-center px-8 md:px-12 flex-nowrap overflow-visible">
+          {/* THE CONTENT - Branding on the left side of the capsule */}
+          <div className="relative z-10 w-full flex items-center justify-start px-8 md:px-12 lg:px-16 flex-nowrap overflow-visible">
             <motion.div
               style={{ 
                 scale: logoScale,
-                transformOrigin: "center center"
+                transformOrigin: "left center"
               }}
-              className="flex items-center justify-center"
+              className="flex items-center"
             >
               <Link 
                 to="/" 
-                className="text-6xl md:text-[8rem] lg:text-[10rem] font-medium leading-none font-sans tracking-tight block whitespace-nowrap uppercase text-white text-center"
+                className="text-6xl md:text-[8rem] lg:text-[10rem] font-medium leading-none font-sans tracking-tight block whitespace-nowrap uppercase text-white ml-[-4px] md:ml-[-8px]"
               >
                 Isabel Romer
               </Link>
