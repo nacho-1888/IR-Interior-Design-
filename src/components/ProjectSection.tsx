@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform, AnimatePresence } from "motion/react";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Project } from "../types";
 import { projects as allProjects } from "../data/projects";
@@ -11,42 +11,49 @@ interface ProjectSectionProps {
   key?: string | number;
 }
 
-export default function ProjectSection({ project, onProjectSelect }: ProjectSectionProps) {
+import React from "react";
+
+// Memoized to prevent parent re-renders from killing the internal transition state
+const ProjectSection = React.memo(({ project, onProjectSelect }: ProjectSectionProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"],
   });
 
-  // Parallax effect for the background image
   const imageY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
 
   return (
     <section 
-      id={project.id}
       ref={containerRef}
       className="relative h-screen w-full flex items-center justify-center bg-luxury-black overflow-hidden font-sans"
     >
-      {/* Background Image full screen */}
+      {/* Foolproof GPU Crossfade: Pre-mounted architectural layers */}
       <motion.div 
         style={{ y: imageY, scale: 1.1 }}
-        className="absolute inset-0 w-full h-full z-0 overflow-hidden"
+        className="absolute inset-0 w-full h-full z-0 overflow-hidden bg-luxury-black"
       >
-        <AnimatePresence mode="wait">
-          <motion.img 
-            key={project.coverImage}
-            initial={{ opacity: 0, scale: 1.05 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.95, ease: "easeInOut" }}
-            src={project.coverImage} 
-            alt={project.title}
-            className="absolute inset-0 w-full h-full object-cover grayscale-[20%] brightness-[0.8] transition-all duration-700 hover:grayscale-0 hover:brightness-100"
-            referrerPolicy="no-referrer"
+        {allProjects.map((p) => (
+          <motion.div 
+            key={p.id}
+            initial={false}
+            animate={{ 
+              opacity: p.id === project.id ? 1 : 0,
+              zIndex: p.id === project.id ? 10 : 0
+            }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            style={{ 
+              backgroundImage: `url(${p.coverImage})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}
+            className="absolute inset-0 w-full h-full grayscale-[20%] brightness-[0.8] will-change-opacity"
           />
-        </AnimatePresence>
-        <div className="absolute inset-0 bg-black/30 pointer-events-none" />
-        <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-black/80 to-transparent pointer-events-none" />
+        ))}
+        
+        <div className="absolute inset-0 bg-black/30 z-20 pointer-events-none" />
+        <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-black/80 to-transparent z-20 pointer-events-none" />
       </motion.div>
 
       {/* Top Right Navigation List - More Architectural */}
@@ -73,13 +80,13 @@ export default function ProjectSection({ project, onProjectSelect }: ProjectSect
 
       {/* Bottom Left Content (Current Project Details) */}
       <div className="absolute bottom-20 left-8 lg:left-20 z-20 max-w-3xl pointer-events-none">
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="popLayout">
           <motion.div
              key={project.id}
              initial={{ opacity: 0, x: -20 }}
              animate={{ opacity: 1, x: 0 }}
              exit={{ opacity: 0, x: 20 }}
-             transition={{ duration: 0.65 }}
+             transition={{ duration: 0.65, ease: "easeOut" }}
              className="pointer-events-auto"
           >
             <span className="text-[10px] md:text-xs uppercase tracking-[0.5em] font-medium text-white/50 block mb-6">
@@ -102,4 +109,6 @@ export default function ProjectSection({ project, onProjectSelect }: ProjectSect
       </div>
     </section>
   );
-}
+});
+
+export default ProjectSection;

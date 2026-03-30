@@ -2,7 +2,7 @@ import { projects } from "../data/projects";
 import ProjectSection from "../components/ProjectSection";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Project } from "../types";
 import NewsletterPopup from "../components/NewsletterPopup";
 
@@ -27,7 +27,7 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
     return shuffled.slice(0, 3);
   });
 
-  const handleProjectSelect = (windowIndex: number, newProject: Project) => {
+  const handleProjectSelect = useCallback((windowIndex: number, newProject: Project) => {
     setActiveProjects(prev => {
       const next = [...prev];
       const currentlyAtThisWindow = next[windowIndex];
@@ -47,7 +47,7 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
       next[windowIndex] = newProject;
       return next;
     });
-  };
+  }, []);
 
   return (
     <main className="relative bg-luxury-black text-luxury-paper">
@@ -191,7 +191,7 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
         </div>
 
         {/* Center: Monolithic Link List */}
-        <div className="w-full md:w-2/12 flex flex-col space-y-4 text-xs font-semibold justify-start mt-4 md:mt-0 relative z-10">
+        <div className="w-full md:w-2/12 flex flex-col space-y-4 text-xs font-semibold justify-start relative z-10 pt-3 md:pt-4 lg:pt-5">
           <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-left hover:text-white/50 transition-colors uppercase tracking-widest">Home</button>
           <button onClick={onContactOpen} className="text-left hover:text-white/50 transition-colors uppercase tracking-widest">Contact Us</button>
           <a href="#portfolio" className="hover:text-white/50 transition-colors uppercase tracking-widest">Projects</a>
@@ -200,9 +200,9 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
         </div>
 
         {/* Right: Expanded Complete Contact Section */}
-        <div className="w-full md:w-5/12 flex flex-col space-y-10 md:items-end mt-4 md:mt-0 relative z-10">
+        <div className="w-full md:w-5/12 flex flex-col space-y-10 md:items-end relative z-10 pt-3 md:pt-4 lg:pt-5">
           <div className="w-full max-w-md flex flex-col space-y-8">
-            <h3 className="text-xl md:text-2xl font-black uppercase tracking-tighter text-white">
+            <h3 className="text-xl md:text-2xl font-black uppercase tracking-tighter text-white leading-none">
               Let's create something
               <br />
               beautiful together.
