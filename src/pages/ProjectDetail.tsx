@@ -1,8 +1,8 @@
 import { useParams, Link } from "react-router-dom";
 import { projects } from "../data/projects";
 import { motion, AnimatePresence } from "motion/react";
-import { MoveLeft } from "lucide-react";
-import { useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export default function ProjectDetail() {
   const { id } = useParams();
@@ -20,8 +20,23 @@ export default function ProjectDetail() {
   const [imgIndex, setImgIndex] = useState(0);
   const gallery = [project.coverImage, ...project.gallery];
 
-  const nextImg = () => setImgIndex((prev) => (prev + 1) % gallery.length);
-  const prevImg = () => setImgIndex((prev) => (prev - 1 + gallery.length) % gallery.length);
+  const nextImg = () => {
+    if (imgIndex < gallery.length - 1) setImgIndex(prev => prev + 1);
+  };
+  const prevImg = () => {
+    if (imgIndex > 0) setImgIndex(prev => prev - 1);
+  };
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") nextImg();
+      if (e.key === "ArrowLeft") prevImg();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [imgIndex]); // Re-bind on index change to ensure callbacks are fresh if needed, though state setter is enough.
+
 
   return (
     <main className="bg-luxury-black text-white h-screen w-full relative overflow-hidden font-sans">
@@ -63,10 +78,29 @@ export default function ProjectDetail() {
         </a>
       </div>
 
-      {/* CENTER INTERACTIVE ZONES - Click left/right to navigate */}
+      {/* CENTER INTERACTIVE ZONES & ARROWS */}
       <div className="absolute inset-0 z-15 flex">
-        <div className="w-1/2 h-full cursor-w-resize" onClick={prevImg} />
-        <div className="w-1/2 h-full cursor-e-resize" onClick={nextImg} />
+        {/* Left Toggle */}
+        <button 
+          onClick={prevImg}
+          disabled={imgIndex === 0}
+          className={`w-1/2 h-full flex items-center justify-start pl-8 lg:pl-16 cursor-w-resize group transition-opacity ${imgIndex === 0 ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+        >
+          <div className="w-10 h-10 lg:w-14 lg:h-14 flex items-center justify-center rounded-full border border-white/20 bg-black/5 backdrop-blur-sm transition-all hover:bg-white/10 group-hover:scale-110">
+            <ChevronLeft className="text-white" size={24} strokeWidth={1.5} />
+          </div>
+        </button>
+
+        {/* Right Toggle */}
+        <button 
+          onClick={nextImg}
+          disabled={imgIndex === gallery.length - 1}
+          className={`w-1/2 h-full flex items-center justify-end pr-8 lg:pr-16 cursor-e-resize group transition-opacity ${imgIndex === gallery.length - 1 ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+        >
+          <div className="w-10 h-10 lg:w-14 lg:h-14 flex items-center justify-center rounded-full border border-white/20 bg-black/5 backdrop-blur-sm transition-all hover:bg-white/10 group-hover:scale-110">
+            <ChevronRight className="text-white" size={24} strokeWidth={1.5} />
+          </div>
+        </button>
       </div>
 
       {/* BOTTOM OVERLAY - Mirroring Reference Layout */}
