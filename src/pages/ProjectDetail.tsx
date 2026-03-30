@@ -63,16 +63,16 @@ export default function ProjectDetail() {
       <div className="absolute top-0 left-0 w-full z-20 flex justify-between items-center p-8 lg:p-12">
         <Link 
           to="/" 
-          className="text-white text-[10px] md:text-xs uppercase tracking-[0.4em] font-medium hover:opacity-50 transition-opacity"
+          className="text-white text-[10px] md:text-xs uppercase tracking-[0.4em] font-medium hover:opacity-50 transition-opacity z-30"
         >
           Menu
         </Link>
-        <h1 className="branding-font text-2xl md:text-3xl lg:text-4xl uppercase tracking-[0.2em] font-bold text-white">
+        <h1 className="branding-font text-2xl md:text-4xl lg:text-6xl uppercase tracking-[0.1em] font-black text-white absolute left-1/2 -translate-x-1/2 text-center w-full px-24 pointer-events-none">
           {project.title}
         </h1>
         <a 
           href="#contact" 
-          className="text-white text-[10px] md:text-xs uppercase tracking-[0.4em] font-medium hover:opacity-50 transition-opacity"
+          className="text-white text-[10px] md:text-xs uppercase tracking-[0.4em] font-medium hover:opacity-50 transition-opacity z-30"
         >
           Let's Talk
         </a>
