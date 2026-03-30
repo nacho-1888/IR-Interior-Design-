@@ -132,21 +132,24 @@ export default function Home() {
               transition={{ delay: 0.7, duration: 1 }}
               className="flex flex-col items-end space-y-4 absolute bottom-8 right-0 md:pr-4"
             >
-              <a href="#about" className="text-[10px] md:text-xs text-white uppercase tracking-[0.35em] flex items-center gap-6 hover:opacity-70 transition-opacity">
-                About Me <span className="w-10 h-[1px] bg-white hidden md:block" />
-              </a>
+              <button 
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} 
+                className="text-[10px] md:text-xs text-white uppercase tracking-[0.35em] flex items-center gap-6 hover:opacity-70 transition-opacity"
+              >
+                Home <span className="w-10 h-[1px] bg-white hidden md:block" />
+              </button>
               <button 
                 onClick={() => document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" })} 
                 className="text-[10px] md:text-xs text-white/60 uppercase tracking-[0.35em] hover:text-white transition-colors text-right w-full"
               >
                 Portfolio
               </button>
-              <button 
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} 
+              <a 
+                href="#contact" 
                 className="text-[10px] md:text-xs text-white/60 uppercase tracking-[0.35em] hover:text-white transition-colors text-right w-full"
               >
-                Home
-              </button>
+                Contact
+              </a>
             </motion.div>
 
           </div>
