@@ -183,7 +183,7 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
           </h2>
           
           {/* Direct Studio Contact Links */}
-          <div className="flex gap-8 text-[10px] md:text-xs uppercase tracking-[0.3em] font-black text-white/40">
+          <div className="flex gap-16 text-[10px] md:text-xs uppercase tracking-[0.35em] font-black text-white/40">
             <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">Instagram</a>
             <a href="mailto:isabel@romer.com" className="hover:text-white transition-colors">Email</a>
             <a href="https://wa.me/something" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">WhatsApp</a>

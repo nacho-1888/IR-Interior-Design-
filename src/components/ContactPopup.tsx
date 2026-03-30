@@ -36,15 +36,30 @@ export default function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
               <X size={20} />
             </button>
 
+            {/* Top: Reach Me Directly */}
+            <div className="mb-10 md:mb-12 mt-4 flex flex-col items-center gap-4">
+              <span className="text-[10px] uppercase tracking-[0.4em] font-black text-white/30">Reach me directly</span>
+              <div className="flex gap-8 text-white/40">
+                <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">
+                  <Instagram size={18} />
+                </a>
+                <a href="mailto:isabel@romer.com" className="hover:text-white transition-colors">
+                  <Mail size={18} />
+                </a>
+                <a href="https://wa.me/something" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">
+                  <Phone size={18} />
+                </a>
+              </div>
+            </div>
+
             {/* Header */}
-            <div className="mb-10 pt-4">
-              <h2 className="branding-font text-3xl md:text-4xl uppercase tracking-tighter text-white font-black leading-none">
+            <div className="mb-8 overflow-visible">
+              <h2 className="branding-font text-3xl md:text-4xl uppercase tracking-tighter text-white font-black leading-none text-center">
                 Start a
                 <br />
                 Conversation.
               </h2>
             </div>
-
             {/* Contact Form */}
             <form className="flex-1 flex flex-col space-y-6 md:space-y-8" onSubmit={(e) => e.preventDefault()}>
               <div className="border-b border-white/20 pb-2 flex group transition-all focus-within:border-white">
@@ -75,22 +90,6 @@ export default function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
                 Send Enquiry
               </button>
             </form>
-
-            {/* Footer: Reach Me Directly */}
-            <div className="mt-12 pt-8 border-t border-white/5 flex flex-col items-center gap-4">
-              <span className="text-[10px] uppercase tracking-[0.4em] font-black text-white/30">Reach me directly</span>
-              <div className="flex gap-8 text-white/40">
-                <a href="#" className="hover:text-white transition-colors">
-                  <Instagram size={18} />
-                </a>
-                <a href="#" className="hover:text-white transition-colors">
-                  <Mail size={18} />
-                </a>
-                <a href="#" className="hover:text-white transition-colors">
-                  <Phone size={18} />
-                </a>
-              </div>
-            </div>
           </motion.div>
         </>
       )}
