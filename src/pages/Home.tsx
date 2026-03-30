@@ -140,6 +140,12 @@ export default function Home() {
               >
                 Portfolio
               </button>
+              <a 
+                href="#contact" 
+                className="text-[10px] md:text-xs text-white/60 uppercase tracking-[0.35em] hover:text-white transition-colors text-right w-full"
+              >
+                Contact
+              </a>
             </motion.div>
 
           </div>
