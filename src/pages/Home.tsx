@@ -106,7 +106,7 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: 20 }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
-                  className="text-3xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tight text-white/95"
+                  className="text-[8vw] md:text-5xl lg:text-6xl font-bold uppercase tracking-tight text-white/95"
                 >
                   {heroProjects[heroIndex].title}
                 </motion.h2>
@@ -169,7 +169,7 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
       </div>
 
       {/* Solid Museum-Style White Footer */}
-      <footer id="contact" className="w-full bg-white text-black pt-32 pb-16 px-8 md:px-24 flex flex-col md:flex-row justify-between items-start gap-20 font-sans relative z-30 border-t border-black/5">
+      <footer id="contact" className="w-full bg-white text-black pt-24 md:pt-32 pb-12 md:pb-16 px-6 md:px-24 flex flex-col md:flex-row justify-between items-start gap-12 md:gap-20 font-sans relative z-30 border-t border-black/5 flex-wrap">
         
         {/* Left: Huge Logo */}
         <div className="w-full md:w-5/12 relative z-10">
@@ -196,8 +196,8 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
           <Link to="/terms-conditions" className="hover:text-black/40 transition-colors uppercase tracking-[0.2em]">Terms & Conditions</Link>
         </div>
 
-        {/* Right: Expanded Complete Contact Section */}
-        <div className="w-full md:w-5/12 flex flex-col space-y-16 md:items-end relative z-10">
+        {/* Right: Expanded Complete Contact Section - Hidden on Mobile to condense layout */}
+        <div className="hidden md:flex w-5/12 flex-col space-y-16 items-end relative z-10">
           <div className="w-full max-w-md flex flex-col space-y-12">
             <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-black leading-[0.85]">
               Let's Talk.
@@ -233,10 +233,11 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
               </button>
             </div>
           </div>
-          
-          <div className="pt-8 text-[10px] font-bold tracking-[0.3em] w-full md:text-right text-black/30 uppercase">
-            © 2026 Isabel Römer. All Rights Reserved.
-          </div>
+        </div>
+
+        {/* Global Copyright - Spans full width on mobile/desktop bottoms */}
+        <div className="w-full pt-10 md:pt-4 text-[9px] md:text-[10px] font-bold tracking-[0.3em] md:text-right text-black/30 uppercase mt-4 md:mt-0 border-t border-black/5 md:border-none">
+          © 2026 Isabel Römer. All Rights Reserved.
         </div>
       </footer>
     </main>

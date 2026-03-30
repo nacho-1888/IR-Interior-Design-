@@ -57,7 +57,7 @@ const ProjectSection = React.memo(({ project, onProjectSelect }: ProjectSectionP
       </motion.div>
 
       {/* Top Right Navigation List - More Architectural */}
-      <div className="absolute top-32 lg:top-48 right-8 lg:right-20 z-20 flex flex-col items-end">
+      <div className="absolute top-28 lg:top-48 right-6 lg:right-20 z-20 flex flex-col items-end">
         <div className="flex flex-col items-end space-y-4">
           {allProjects.map((p, i) => (
             <button 
@@ -68,7 +68,7 @@ const ProjectSection = React.memo(({ project, onProjectSelect }: ProjectSectionP
               }}
               className="group flex flex-col items-end py-2"
             >
-              <span className={`text-sm md:text-base uppercase tracking-[0.2em] transition-all duration-500 ${
+              <span className={`text-xs md:text-base uppercase tracking-[0.2em] transition-all duration-500 ${
                 p.id === project.id ? 'text-white translate-x-0' : 'text-white/40 hover:text-white translate-x-4'
               }`}>
                 {p.title}
@@ -79,7 +79,7 @@ const ProjectSection = React.memo(({ project, onProjectSelect }: ProjectSectionP
       </div>
 
       {/* Bottom Left Content (Current Project Details) */}
-      <div className="absolute bottom-20 left-8 lg:left-20 z-20 max-w-3xl pointer-events-none">
+      <div className="absolute bottom-16 md:bottom-20 left-6 lg:left-20 z-20 max-w-3xl pointer-events-none">
         <AnimatePresence mode="popLayout">
           <motion.div
              key={project.id}
@@ -92,7 +92,7 @@ const ProjectSection = React.memo(({ project, onProjectSelect }: ProjectSectionP
             <span className="text-[10px] md:text-xs uppercase tracking-[0.5em] font-medium text-white/50 block mb-6">
               {project.location} — {project.category}
             </span>
-            <h2 className="text-6xl md:text-8xl lg:text-9xl display-font font-bold tracking-tighter text-white uppercase leading-[0.8] mb-10 mix-blend-difference">
+            <h2 className="text-[13vw] md:text-8xl lg:text-9xl display-font font-bold tracking-tighter text-white uppercase leading-[0.8] mb-10 mix-blend-difference">
               {project.title}
             </h2>
             <Link 
