@@ -42,8 +42,8 @@ export default function Navbar() {
             className="absolute inset-0 z-0 liquid-glass rounded-full border border-white/5"
           />
 
-          {/* THE CONTENT - Branding Anchored Left, Contact Pulled Inland Right */}
-          <div className="relative z-10 w-full h-full flex items-center justify-between pl-8 md:pl-12 pr-24 md:pr-48 lg:pr-64 flex-nowrap overflow-visible">
+          {/* THE CONTENT - Branding Anchored Left, Contact Explictly Margined Right */}
+          <div className="relative z-10 w-full h-full flex items-center justify-start pl-8 md:pl-12 flex-nowrap overflow-visible">
             {/* BRANDING */}
             <motion.div
               style={{ 
@@ -60,10 +60,10 @@ export default function Navbar() {
               </Link>
             </motion.div>
 
-            {/* CONTACT BUTTON - Positioned on the right but kept safely inside the bubble pocket */}
+            {/* CONTACT BUTTON - Guaranteed inside via fixed right margin */}
             <motion.div
               style={{ opacity: bubbleOpacity }}
-              className="flex items-center"
+              className="flex items-center ml-auto mr-16 md:mr-32 lg:mr-64 transition-all duration-700"
             >
               <a 
                 href="#contact" 
