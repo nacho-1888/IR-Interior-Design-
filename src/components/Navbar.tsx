@@ -73,7 +73,7 @@ export default function Navbar() {
             >
               <Link 
                 to="/" 
-                className="text-6xl md:text-[8rem] lg:text-[10rem] font-medium leading-none font-sans tracking-tight block whitespace-nowrap uppercase text-white"
+                className="text-6xl md:text-[8rem] lg:text-[10rem] branding-font font-normal leading-none tracking-tight block whitespace-nowrap uppercase text-white"
               >
                 Isabel Romer
               </Link>
