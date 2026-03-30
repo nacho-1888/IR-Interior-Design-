@@ -168,22 +168,22 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
         ))}
       </div>
 
-      {/* Glassy Footer styled referencing Kelly Wearstler */}
-      <footer id="contact" className="w-full bg-white/5 backdrop-blur-2xl border-t border-white/10 text-white py-16 px-8 md:px-16 flex flex-col md:flex-row justify-between items-start gap-12 font-sans relative z-30 overflow-hidden">
+      {/* Glassy Footer styled with New Liquid Bubble aesthetic */}
+      <footer id="contact" className="w-full bg-white/5 backdrop-blur-2xl border-t border-white/10 text-white pt-24 pb-12 px-8 md:px-20 flex flex-col md:flex-row justify-between items-start gap-16 font-sans relative z-30 overflow-hidden rounded-t-[3rem] md:rounded-t-[5rem]">
         
         {/* Subtle glow behind the footer */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
 
         {/* Left: Huge Logo */}
         <div className="w-full md:w-5/12 relative z-10">
-          <h2 className="text-[14vw] md:text-[7vw] leading-[1.1] display-font font-black tracking-tighter uppercase text-white mb-8">
+          <h2 className="text-[14vw] md:text-[7vw] leading-[1.1] display-font font-black tracking-tighter uppercase text-white mb-10">
             Isabel
             <br className="hidden md:block" />
             <span className="md:hidden"> </span>Römer
           </h2>
           
           {/* Direct Studio Contact Links */}
-          <div className="flex gap-16 text-[10px] md:text-xs uppercase tracking-[0.35em] font-black text-white/40">
+          <div className="flex gap-12 text-[10px] md:text-xs uppercase tracking-[0.35em] font-black text-white/40">
             <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">Instagram</a>
             <a href="mailto:isabel@romer.com" className="hover:text-white transition-colors">Email</a>
             <a href="https://wa.me/something" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">WhatsApp</a>
@@ -191,7 +191,7 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
         </div>
 
         {/* Center: Monolithic Link List */}
-        <div className="w-full md:w-2/12 flex flex-col space-y-4 text-xs font-semibold justify-start relative z-10 pt-3 md:pt-4 lg:pt-5">
+        <div className="w-full md:w-2/12 flex flex-col space-y-5 text-xs font-semibold justify-start relative z-10 pt-3 md:pt-4 lg:pt-6">
           <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-left hover:text-white/50 transition-colors uppercase tracking-widest">Home</button>
           <button onClick={onContactOpen} className="text-left hover:text-white/50 transition-colors uppercase tracking-widest">Contact Us</button>
           <a href="#portfolio" className="hover:text-white/50 transition-colors uppercase tracking-widest">Projects</a>
@@ -200,49 +200,46 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
         </div>
 
         {/* Right: Expanded Complete Contact Section */}
-        <div className="w-full md:w-5/12 flex flex-col space-y-10 md:items-end relative z-10 pt-3 md:pt-4 lg:pt-5">
-          <div className="w-full max-w-md flex flex-col space-y-8">
-            <h3 className="text-xl md:text-2xl font-black uppercase tracking-tighter text-white leading-none">
+        <div className="w-full md:w-5/12 flex flex-col space-y-12 md:items-end relative z-10 pt-3 md:pt-4 lg:pt-6">
+          <div className="w-full max-w-md flex flex-col space-y-10">
+            <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-white leading-[0.9]">
               Let's create something
               <br />
               beautiful together.
             </h3>
             
-            <div className="flex flex-col space-y-6">
-              {/* Name Field */}
-              <div className="border-b border-white/20 pb-2 flex group transition-all focus-within:border-white">
+            <div className="flex flex-col space-y-4">
+              <div className="bg-white/5 rounded-2xl px-6 py-4 flex group transition-all focus-within:bg-white/10 border border-white/5 focus-within:border-white/20">
                 <input 
                   type="text" 
                   placeholder="Full Name" 
-                  className="w-full bg-transparent outline-none text-sm placeholder:text-white/30 text-white font-medium uppercase tracking-widest" 
+                  className="w-full bg-transparent outline-none text-xs uppercase tracking-[0.15em] placeholder:text-white/20 text-white font-medium" 
                 />
               </div>
 
-              {/* Email Field */}
-              <div className="border-b border-white/20 pb-2 flex group transition-all focus-within:border-white">
+              <div className="bg-white/5 rounded-2xl px-6 py-4 flex group transition-all focus-within:bg-white/10 border border-white/5 focus-within:border-white/20">
                 <input 
                   type="email" 
                   placeholder="Email Address" 
-                  className="w-full bg-transparent outline-none text-sm placeholder:text-white/30 text-white font-medium uppercase tracking-widest" 
+                  className="w-full bg-transparent outline-none text-xs uppercase tracking-[0.15em] placeholder:text-white/20 text-white font-medium" 
                 />
               </div>
 
-              {/* Message Field */}
-              <div className="border-b border-white/20 pb-2 flex group transition-all focus-within:border-white">
+              <div className="bg-white/5 rounded-2xl px-6 py-5 flex group transition-all focus-within:bg-white/10 border border-white/5 focus-within:border-white/20">
                 <textarea 
                   placeholder="Tell us about your project" 
                   rows={1}
-                  className="w-full bg-transparent outline-none text-sm placeholder:text-white/30 text-white font-medium uppercase tracking-widest resize-none" 
+                  className="w-full bg-transparent outline-none text-xs uppercase tracking-[0.15em] placeholder:text-white/20 text-white font-medium resize-none" 
                 />
               </div>
-            </div>
 
-            <button className="text-left md:text-right font-serif italic text-4xl tracking-wide hover:text-white/50 transition-colors group">
-              SUBMIT <span className="inline-block transition-transform group-hover:translate-x-4">→</span>
-            </button>
+              <button className="w-full py-5 bg-white text-black font-black uppercase text-[10px] tracking-[0.5em] hover:bg-white/90 active:scale-[0.98] transition-all rounded-2xl mt-4 shadow-xl shadow-black/20">
+                Send Message
+              </button>
+            </div>
           </div>
           
-          <div className="pt-12 md:pt-16 text-[10px] font-medium tracking-widest w-full md:text-right text-white/30 uppercase">
+          <div className="pt-8 text-[10px] font-medium tracking-widest w-full md:text-right text-white/20 uppercase">
             © 2026 Isabel Römer. All Rights Reserved.
           </div>
         </div>
