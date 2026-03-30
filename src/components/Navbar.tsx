@@ -10,10 +10,10 @@ export default function Navbar() {
   // Transition Range: 0 to 600px for a much slower, weighted feel
   const range = [0, 600];
 
-  // Static Bubble appearance logic: appears later and spans the full width
+  // Static Bubble appearance logic: appears later and spans proportionally
   const bubbleScale = useTransform(scrollY, [300, 600], [0.98, 1]);
   const bubbleOpacity = useTransform(scrollY, [300, 450], [0, 1]);
-  const bubbleWidth = useTransform(scrollY, range, ["100%", "100%"]);
+  const bubbleWidth = useTransform(scrollY, range, ["100%", "94%"]);
   
   // Navigation Links Opacity
   const navOpacity = useTransform(scrollY, [100, 400], [0.5, 1]);
@@ -25,7 +25,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full z-50 flex flex-col items-start pointer-events-none pt-12 md:pt-16 lg:pt-20">
+      <nav className="fixed top-0 left-0 w-full z-50 flex flex-col items-center pointer-events-none pt-12 md:pt-16 lg:pt-20 px-3 md:px-6">
         <motion.div 
           style={{ 
             width: bubbleWidth,
@@ -42,8 +42,9 @@ export default function Navbar() {
             className="absolute inset-0 z-0 liquid-glass rounded-full border border-white/5"
           />
 
-          {/* THE CONTENT - Branding perfectly flush left inside the left-anchored capsule area */}
-          <div className="relative z-10 w-full flex items-center justify-start px-8 md:px-12 flex-nowrap overflow-visible">
+          {/* THE CONTENT - Branding Left, Contact Right */}
+          <div className="relative z-10 w-full flex items-center justify-between px-8 md:px-12 flex-nowrap overflow-visible">
+            {/* BRANDING */}
             <motion.div
               style={{ 
                 scale: logoScale,
@@ -57,6 +58,19 @@ export default function Navbar() {
               >
                 Isabel Romer
               </Link>
+            </motion.div>
+
+            {/* CONTACT BUTTON - Fades in with the bubble */}
+            <motion.div
+              style={{ opacity: bubbleOpacity }}
+              className="flex items-center"
+            >
+              <a 
+                href="#contact" 
+                className="text-[10px] md:text-xs font-semibold uppercase tracking-[0.3em] text-white/90 px-6 py-3 rounded-full border border-white/20 hover:bg-white/10 transition-all duration-500 whitespace-nowrap ml-4"
+              >
+                Contact
+              </a>
             </motion.div>
           </div>
         </motion.div>
