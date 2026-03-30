@@ -42,8 +42,8 @@ export default function Navbar() {
             className="absolute inset-0 z-0 liquid-glass rounded-full border border-white/5"
           />
 
-          {/* THE CONTENT - Branding Anchored Left, Contact Explictly Margined Right */}
-          <div className="relative z-10 w-full h-full flex items-center justify-start pl-8 md:pl-12 flex-nowrap overflow-visible">
+          {/* THE CONTENT - Flex for branding, Absolute for contact avoids layout overflow */}
+          <div className="relative z-10 w-full h-full flex items-center pl-8 md:pl-12 flex-nowrap overflow-visible">
             {/* BRANDING */}
             <motion.div
               style={{ 
@@ -60,10 +60,10 @@ export default function Navbar() {
               </Link>
             </motion.div>
 
-            {/* CONTACT BUTTON - Guaranteed inside via fixed right margin */}
+            {/* CONTACT BUTTON - Absolute right positioning ignores the unscaled text width */}
             <motion.div
               style={{ opacity: bubbleOpacity }}
-              className="flex items-center ml-auto mr-16 md:mr-32 lg:mr-64 transition-all duration-700"
+              className="absolute right-8 md:right-16 lg:right-24 flex items-center"
             >
               <a 
                 href="#contact" 
