@@ -12,11 +12,11 @@ export default function Navbar() {
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() || 0;
     
-    if (latest > previous && latest > 300) {
-      // Scrolling down past the hero - Hide
+    if (latest > previous + 30 && latest > 300) {
+      // Scrolling down past the hero with a 30px threshold - Hide
       setIsHidden(true);
-    } else if (previous - latest > 80) {
-      // Scrolling up with a snappy 80px threshold - Show
+    } else if (previous - latest > 60) {
+      // Scrolling up with a snappy 60px threshold - Show
       setIsHidden(false);
     } else if (latest < 50) {
       // Near top - Always show
