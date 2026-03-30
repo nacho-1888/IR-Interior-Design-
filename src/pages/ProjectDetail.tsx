@@ -42,8 +42,8 @@ export default function ProjectDetail() {
     <main className="bg-luxury-black text-white h-screen w-full relative overflow-hidden font-sans">
       
       {/* Background Gallery Layer */}
-      <div className="absolute inset-0 z-0">
-        <AnimatePresence mode="wait">
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <AnimatePresence mode="popLayout">
           <motion.img
             key={imgIndex}
             initial={{ opacity: 0, scale: 1.05 }}
