@@ -75,17 +75,15 @@ export default function Home() {
         {/* Content Overlay */}
         <div className="absolute inset-0 z-20 flex flex-col justify-between p-6 md:p-12">
           
-          {/* Top Section - Initially very clear name */}
-          <div className="flex justify-between items-start pt-2 lg:pt-8 w-full">
+          {/* Top Section - Name now handled by Sticky Navbar */}
+          <div className="flex justify-between items-start pt-2 lg:pt-8 w-full invisible md:visible">
             <motion.div 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: "easeOut" }}
               className="flex flex-col"
             >
-              <h1 className="text-6xl md:text-[8rem] lg:text-[10rem] leading-[0.85] font-normal display-font text-white tracking-tight ml-[-8px]">
-                Isabel Romer
-              </h1>
+              <div className="h-[10rem] md:h-[8rem] lg:h-[10rem]" /> {/* Spacer for where the nav logo will sit at top */}
               <p className="text-[10px] md:text-sm uppercase tracking-[0.2em] md:tracking-[0.25em] font-medium text-white/90 mt-6 md:mt-8 ml-2">
                 Interior, Furniture, Landscape Designer
               </p>
@@ -147,14 +145,6 @@ export default function Home() {
       {/* Projects Portfolio Section */}
       <div id="portfolio" className="relative z-20 bg-luxury-black">
         
-        {/* Sticky moving name, bottom right! Sticks inside portfolio until the end, then rolls up when footer appears! */}
-        <div className="absolute inset-0 pointer-events-none z-50">
-          <div className="sticky top-[calc(100vh-100px)] md:top-[calc(100vh-160px)] w-full flex justify-end px-8 md:px-16 pb-8">
-            <h1 className="text-5xl md:text-7xl lg:text-[8rem] leading-[0.85] font-normal display-font tracking-tight uppercase text-white drop-shadow-xl">
-              Isabel Romer
-            </h1>
-          </div>
-        </div>
 
         {portfolioQueue.map((project, index) => (
           <ProjectSection key={`${project.id}-${index}`} project={project} index={index} onProjectSelect={handleProjectSelect} />
