@@ -20,30 +20,8 @@ export default function Home() {
     return () => clearInterval(timer);
   }, []);
 
-  // 3 Random projects queue
-  const [portfolioQueue, setPortfolioQueue] = useState<Project[]>(projects.slice(0, 3));
-  
-  useEffect(() => {
-    const shuffled = [...projects].sort(() => 0.5 - Math.random());
-    setPortfolioQueue(shuffled.slice(0, 3));
-  }, []);
-
-  const handleProjectSelect = (p: Project) => {
-    setPortfolioQueue(prev => {
-      const filtered = prev.filter(item => item.id !== p.id);
-      const newQueue = [p, ...filtered];
-      const pool = projects.filter(rp => !newQueue.find(nq => nq.id === rp.id));
-      while (newQueue.length < 3 && pool.length > 0) {
-        newQueue.push(pool.shift()!);
-      }
-      return newQueue.slice(0, 3);
-    });
-    
-    const portfolioEl = document.getElementById("portfolio");
-    if (portfolioEl) {
-      portfolioEl.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  // Single active project for the portfolio gallery view
+  const [activeProject, setActiveProject] = useState<Project>(projects[0]);
 
   return (
     <main className="relative bg-luxury-black text-luxury-paper">
@@ -149,13 +127,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Projects Portfolio Section */}
+      {/* Projects Portfolio Section - Single Screen Interactive Gallery */}
       <div id="portfolio" className="relative z-20 bg-luxury-black">
-        
-
-        {portfolioQueue.map((project, index) => (
-          <ProjectSection key={`${project.id}-${index}`} project={project} index={index} onProjectSelect={handleProjectSelect} />
-        ))}
+        <ProjectSection project={activeProject} index={0} onProjectSelect={setActiveProject} />
       </div>
 
       {/* Glassy Footer styled referencing Kelly Wearstler */}
