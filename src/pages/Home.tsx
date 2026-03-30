@@ -188,7 +188,7 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
         </div>
 
         {/* Center: Monolithic Link List */}
-        <div className="w-full md:w-2/12 flex flex-col space-y-6 text-xs font-bold justify-start relative z-10 pt-4 md:pt-6 lg:pt-8">
+        <div className="w-full md:w-2/12 flex flex-col space-y-6 text-xs font-bold justify-start relative z-10">
           <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-left hover:text-black/40 transition-colors uppercase tracking-[0.2em]">Home</button>
           <button onClick={onContactOpen} className="text-left hover:text-black/40 transition-colors uppercase tracking-[0.2em]">Contact Us</button>
           <a href="#portfolio" className="hover:text-black/40 transition-colors uppercase tracking-[0.2em]">Projects</a>
@@ -197,7 +197,7 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
         </div>
 
         {/* Right: Expanded Complete Contact Section */}
-        <div className="w-full md:w-5/12 flex flex-col space-y-16 md:items-end relative z-10 pt-4 md:pt-6 lg:pt-8">
+        <div className="w-full md:w-5/12 flex flex-col space-y-16 md:items-end relative z-10">
           <div className="w-full max-w-md flex flex-col space-y-12">
             <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-black leading-[0.85]">
               Let's Talk.
