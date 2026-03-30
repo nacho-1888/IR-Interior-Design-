@@ -49,7 +49,7 @@ export default function ProjectDetail() {
             initial={{ opacity: 0, scale: 1.05 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             src={gallery[imgIndex]}
             alt={project.title}
             className="absolute inset-0 w-full h-full object-cover grayscale-[10%] brightness-[0.85]"
