@@ -10,10 +10,10 @@ export default function Navbar() {
   // Transition Range: 0 to 600px for a much slower, weighted feel
   const range = [0, 600];
 
-  // Static Bubble appearance logic: appears later and expands from the left
+  // Static Bubble appearance logic: appears later and spans the full width
   const bubbleScale = useTransform(scrollY, [300, 600], [0.98, 1]);
   const bubbleOpacity = useTransform(scrollY, [300, 450], [0, 1]);
-  const bubbleWidth = useTransform(scrollY, range, ["100%", "90%"]);
+  const bubbleWidth = useTransform(scrollY, range, ["100%", "100%"]);
   
   // Navigation Links Opacity
   const navOpacity = useTransform(scrollY, [100, 400], [0.5, 1]);
@@ -25,7 +25,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full z-50 flex flex-col items-start pointer-events-none pt-12 md:pt-16 lg:pt-20 px-4 md:px-8">
+      <nav className="fixed top-0 left-0 w-full z-50 flex flex-col items-start pointer-events-none pt-12 md:pt-16 lg:pt-20">
         <motion.div 
           style={{ 
             width: bubbleWidth,

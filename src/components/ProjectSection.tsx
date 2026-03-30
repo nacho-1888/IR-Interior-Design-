@@ -44,9 +44,6 @@ export default function ProjectSection({ project, onProjectSelect }: ProjectSect
 
       {/* Top Right Navigation List - More Architectural */}
       <div className="absolute top-32 lg:top-48 right-8 lg:right-20 z-20 flex flex-col items-end">
-        <span className="text-[10px] uppercase tracking-[0.4em] text-white/40 mb-8 border-b border-white/20 pb-4 w-full text-right">
-          Collection
-        </span>
         <div className="flex flex-col items-end space-y-4">
           {allProjects.map((p, i) => (
             <button 
