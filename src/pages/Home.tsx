@@ -97,7 +97,7 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 1 }}
-              className="max-w-[280px] md:max-w-xl absolute bottom-6 left-4 md:left-[10%]"
+              className="max-w-[280px] md:max-w-xl absolute bottom-4 left-2 md:left-4"
             >
               <AnimatePresence mode="wait">
                 <motion.h2
