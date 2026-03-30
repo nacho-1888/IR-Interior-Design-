@@ -42,8 +42,8 @@ export default function Navbar() {
             className="absolute inset-0 z-0 liquid-glass rounded-full border border-white/5"
           />
 
-          {/* THE CONTENT - Branding Left, Contact Right (Pulled in from edge) */}
-          <div className="relative z-10 w-full flex items-center justify-between pl-6 md:pl-10 pr-16 md:pr-24 flex-nowrap overflow-visible">
+          {/* THE CONTENT - Symmetrical Left/Right Spacing */}
+          <div className="relative z-10 w-full flex items-center justify-between px-10 md:px-16 flex-nowrap overflow-visible">
             {/* BRANDING */}
             <motion.div
               style={{ 
@@ -54,13 +54,13 @@ export default function Navbar() {
             >
               <Link 
                 to="/" 
-                className="text-6xl md:text-[8rem] lg:text-[10rem] font-medium leading-none font-sans tracking-tight block whitespace-nowrap uppercase text-white ml-[-4px] md:ml-[-8px]"
+                className="text-6xl md:text-[8rem] lg:text-[10rem] font-medium leading-none font-sans tracking-tight block whitespace-nowrap uppercase text-white"
               >
                 Isabel Romer
               </Link>
             </motion.div>
 
-            {/* CONTACT BUTTON - Pulled deep into the bubble pocket */}
+            {/* CONTACT BUTTON - Symmetrically mirrored right gutter */}
             <motion.div
               style={{ opacity: bubbleOpacity }}
               className="flex items-center"
