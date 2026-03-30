@@ -18,45 +18,13 @@ export default function ProjectDetail() {
 
   return (
     <main className="bg-luxury-paper text-luxury-black min-h-screen">
-      {/* Header */}
-      <header className="relative h-[80vh] w-full overflow-hidden">
-        <motion.img 
-          initial={{ scale: 1.1 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
-          src={project.coverImage} 
-          alt={project.title}
-          className="w-full h-full object-cover"
-          referrerPolicy="no-referrer"
-        />
-        <div className="absolute inset-0 bg-luxury-black/30" />
-        
-        <div className="absolute top-12 left-12 z-20">
-          <Link to="/" className="flex items-center space-x-4 text-luxury-paper uppercase text-xs tracking-[0.3em] hover:opacity-70 transition-all">
-            <MoveLeft size={16} />
-            <span>Back to Portfolio</span>
-          </Link>
-        </div>
-
-        <div className="absolute bottom-12 left-12 z-20 text-luxury-paper max-w-2xl">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 1 }}
-            className="text-6xl md:text-8xl serif font-light mb-4 tracking-tighter"
-          >
-            {project.title}
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 1 }}
-            className="text-sm uppercase tracking-[0.3em] opacity-80"
-          >
-            {project.location} — {project.year}
-          </motion.p>
-        </div>
-      </header>
+      {/* Navigation back to portfolio */}
+      <div className="pt-24 px-8 lg:px-20">
+        <Link to="/" className="flex items-center space-x-4 text-luxury-black uppercase text-xs tracking-[0.3em] font-medium hover:opacity-50 transition-all">
+          <MoveLeft size={16} />
+          <span>Back to Portfolio</span>
+        </Link>
+      </div>
 
       {/* Content */}
       <section className="max-w-7xl mx-auto px-8 py-24 grid grid-cols-1 md:grid-cols-2 gap-24 items-start">

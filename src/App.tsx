@@ -18,12 +18,23 @@ export default function App() {
   return (
     <Router>
       <ScrollToTop />
-      <Navbar />
+      <AppContent />
+    </Router>
+  );
+}
+
+function AppContent() {
+  const { pathname } = useLocation();
+  const isHomePage = pathname === "/";
+
+  return (
+    <>
+      {isHomePage && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/project/:id" element={<ProjectDetail />} />
       </Routes>
-    </Router>
+    </>
   );
 }
 
