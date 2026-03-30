@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform, useMotionValueEvent } from "motion/react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
@@ -6,6 +6,21 @@ import { useState, useEffect } from "react";
 export default function Navbar() {
   const { scrollY } = useScroll();
   const [isOpen, setIsOpen] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
+
+  // Hide the navbar when scrolling down, show when scrolling up
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious();
+    if (previous !== undefined) {
+      if (latest > previous && latest > 250) {
+        // Scrolling down past the hero
+        setIsHidden(true);
+      } else if (latest < previous) {
+        // Scrolling up
+        setIsHidden(false);
+      }
+    }
+  });
 
   // Transition Range: 0 to 600px for a much slower, weighted feel
   const range = [0, 600];
@@ -25,7 +40,11 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full z-50 flex flex-col items-center pointer-events-none pt-12 md:pt-16 lg:pt-20 px-3 md:px-6">
+      <motion.nav 
+        animate={{ y: isHidden ? "-150%" : "0%" }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        className="fixed top-0 left-0 w-full z-50 flex flex-col items-center pointer-events-none pt-12 md:pt-16 lg:pt-20 px-3 md:px-6"
+      >
         <motion.div 
           style={{ 
             width: bubbleWidth,
@@ -74,7 +93,7 @@ export default function Navbar() {
             </motion.div>
           </div>
         </motion.div>
-      </nav>
+      </motion.nav>
 
       {/* Full screen menu for mobile */}
       <motion.div 
