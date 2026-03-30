@@ -140,12 +140,6 @@ export default function Home() {
               >
                 Portfolio
               </button>
-              <a href="#prices" className="text-[10px] md:text-xs text-white/60 uppercase tracking-[0.35em] hover:text-white transition-colors">
-                Prices
-              </a>
-              <a href="#services" className="text-[10px] md:text-xs text-white/60 uppercase tracking-[0.35em] hover:text-white transition-colors">
-                Services
-              </a>
             </motion.div>
 
           </div>
