@@ -36,9 +36,9 @@ export default function Navbar() {
   const navOpacity = useTransform(scrollY, [100, 400], [0.5, 1]);
 
   // Scaling/Positioning for the logo (Always visible and anchored left)
-  const logoScale = useTransform(scrollY, range, [1.3, 0.40]); 
-  const logoY = useTransform(scrollY, [0, 400], ["35vh", "0vh"]); 
-  const logoX = useTransform(scrollY, range, [0, 0]);
+  const logoScale = useTransform(scrollY, range, [0.9, 0.40]); 
+  const logoY = useTransform(scrollY, [0, 400], ["15vh", "0vh"]); 
+  const logoX = useTransform(scrollY, [0, 400], ["5vw", "0vw"]);
 
   return (
     <>
@@ -70,6 +70,7 @@ export default function Navbar() {
               style={{ 
                 scale: logoScale,
                 y: logoY,
+                x: logoX,
                 transformOrigin: "left center"
               }}
               className="flex items-center"
