@@ -47,7 +47,7 @@ function AppContent() {
   return (
     <>
       <ContactPopup isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
-      {isHomePage && <Navbar />}
+      {isHomePage && <Navbar onContactOpen={openContact} />}
       <Routes>
         <Route path="/" element={<Home onContactOpen={openContact} />} />
         <Route path="/project/:id" element={<ProjectDetail onContactOpen={openContact} />} />

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 
-export default function Navbar() {
+export default function Navbar({ onContactOpen }: { onContactOpen?: () => void }) {
   const { scrollY } = useScroll();
   const [isOpen, setIsOpen] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
@@ -97,12 +97,12 @@ export default function Navbar() {
               style={{ opacity: bubbleOpacity }}
               className="absolute right-8 md:right-16 lg:right-24 flex items-center"
             >
-              <a 
-                href="#contact" 
+              <button 
+                onClick={onContactOpen} 
                 className="text-[10px] md:text-xs font-semibold uppercase tracking-[0.3em] text-white/90 px-6 py-3 rounded-full border border-white/20 hover:bg-white/10 transition-all duration-500 whitespace-nowrap"
               >
                 Contact
-              </a>
+              </button>
             </motion.div>
           </div>
         </motion.div>
