@@ -231,7 +231,7 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
               </div>
 
               <button className="w-full py-6 bg-black text-white font-black uppercase text-[10px] tracking-[0.5em] hover:bg-black/90 active:scale-[0.98] transition-all rounded-2xl mt-4 shadow-2xl shadow-black/10">
-                Send Message
+                Let's Talk
               </button>
             </div>
           </div>
