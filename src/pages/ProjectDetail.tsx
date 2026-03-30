@@ -1,7 +1,8 @@
 import { useParams, Link } from "react-router-dom";
 import { projects } from "../data/projects";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { MoveLeft } from "lucide-react";
+import { useState } from "react";
 
 export default function ProjectDetail() {
   const { id } = useParams();
@@ -16,84 +17,93 @@ export default function ProjectDetail() {
     );
   }
 
+  const [imgIndex, setImgIndex] = useState(0);
+  const gallery = [project.coverImage, ...project.gallery];
+
+  const nextImg = () => setImgIndex((prev) => (prev + 1) % gallery.length);
+  const prevImg = () => setImgIndex((prev) => (prev - 1 + gallery.length) % gallery.length);
+
   return (
-    <main className="bg-luxury-paper text-luxury-black min-h-screen">
-      {/* Navigation back to portfolio */}
-      <div className="pt-24 px-8 lg:px-20">
-        <Link to="/" className="flex items-center space-x-4 text-luxury-black uppercase text-xs tracking-[0.3em] font-medium hover:opacity-50 transition-all">
-          <MoveLeft size={16} />
-          <span>Back to Portfolio</span>
-        </Link>
+    <main className="bg-luxury-black text-white h-screen w-full relative overflow-hidden font-sans">
+      
+      {/* Background Gallery Layer */}
+      <div className="absolute inset-0 z-0">
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={imgIndex}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+            src={gallery[imgIndex]}
+            alt={project.title}
+            className="absolute inset-0 w-full h-full object-cover grayscale-[10%] brightness-[0.85]"
+            referrerPolicy="no-referrer"
+          />
+        </AnimatePresence>
+        <div className="absolute inset-0 bg-black/30 z-10" />
       </div>
 
-      {/* Content */}
-      <section className="max-w-7xl mx-auto px-8 py-24 grid grid-cols-1 md:grid-cols-2 gap-24 items-start">
-        <div className="space-y-8">
-          <h2 className="text-4xl serif font-light italic leading-tight">
-            Elevating the essence of contemporary living through a curated lens of luxury and craft.
-          </h2>
-          <div className="w-24 h-[1px] bg-luxury-black/20" />
-          <div className="grid grid-cols-2 gap-8 text-[10px] uppercase tracking-[0.2em] opacity-60">
-            <div>
-              <p className="font-bold mb-2">Category</p>
-              <p>{project.category}</p>
-            </div>
-            <div>
-              <p className="font-bold mb-2">Location</p>
-              <p>{project.location}</p>
-            </div>
-            <div>
-              <p className="font-bold mb-2">Year</p>
-              <p>{project.year}</p>
-            </div>
-            <div>
-              <p className="font-bold mb-2">Studio</p>
-              <p>Isabel Romer</p>
-            </div>
+      {/* TOP OVERLAY - Mirroring Reference Layout */}
+      <div className="absolute top-0 left-0 w-full z-20 flex justify-between items-center p-8 lg:p-12">
+        <Link 
+          to="/" 
+          className="text-white text-[10px] md:text-xs uppercase tracking-[0.4em] font-medium hover:opacity-50 transition-opacity"
+        >
+          Menu
+        </Link>
+        <h1 className="branding-font text-2xl md:text-3xl lg:text-4xl uppercase tracking-[0.2em] font-bold text-white">
+          {project.title}
+        </h1>
+        <a 
+          href="#contact" 
+          className="text-white text-[10px] md:text-xs uppercase tracking-[0.4em] font-medium hover:opacity-50 transition-opacity"
+        >
+          Let's Talk
+        </a>
+      </div>
+
+      {/* CENTER INTERACTIVE ZONES - Click left/right to navigate */}
+      <div className="absolute inset-0 z-15 flex">
+        <div className="w-1/2 h-full cursor-w-resize" onClick={prevImg} />
+        <div className="w-1/2 h-full cursor-e-resize" onClick={nextImg} />
+      </div>
+
+      {/* BOTTOM OVERLAY - Mirroring Reference Layout */}
+      <div className="absolute bottom-0 left-0 w-full z-20 flex justify-between items-end p-8 lg:p-12 pointer-events-none">
+        
+        {/* Scroll/Indicator Arrow */}
+        <div className="pointer-events-auto">
+          <div className="w-8 h-8 flex items-center justify-center border border-white/20 rounded-full hover:bg-white/10 transition-all cursor-pointer">
+             <span className="text-white">↓</span>
           </div>
         </div>
 
-        <div className="text-lg font-light leading-relaxed opacity-80 serif">
-          <p>{project.description}</p>
-          <p className="mt-8">
-            Every detail in the {project.title} has been meticulously considered to create a sense of harmony and timeless elegance. From the custom-designed furniture to the hand-selected materials, the space reflects a deep commitment to quality and artistic expression.
-          </p>
-        </div>
-      </section>
-
-      {/* Gallery */}
-      <section className="px-8 pb-24 space-y-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {project.gallery.map((img, idx) => (
-            <motion.div 
-              key={idx}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: idx * 0.2 }}
-              className={`overflow-hidden ${idx % 3 === 0 ? 'md:col-span-2 aspect-[16/9]' : 'aspect-square'}`}
-            >
-              <img 
-                src={img} 
-                alt={`${project.title} gallery ${idx}`}
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000"
-                referrerPolicy="no-referrer"
+        {/* Dynamic Image Progress Line */}
+        <div className="flex-1 flex justify-center pb-3 pointer-events-auto">
+          <div className="flex items-center gap-4">
+            {gallery.map((_, i) => (
+              <button 
+                key={i}
+                onClick={(e) => { e.stopPropagation(); setImgIndex(i); }}
+                className={`h-[1px] transition-all duration-700 ${i === imgIndex ? 'w-16 bg-white' : 'w-4 bg-white/20 hover:bg-white/40'}`}
               />
-            </motion.div>
-          ))}
+            ))}
+          </div>
         </div>
-      </section>
 
-      {/* Next Project */}
-      <section className="h-[60vh] w-full flex flex-col items-center justify-center bg-luxury-black text-luxury-paper px-8 text-center">
-        <span className="text-xs uppercase tracking-[0.3em] opacity-50 mb-4">Next Project</span>
-        <Link 
-          to={`/project/${projects[(projects.indexOf(project) + 1) % projects.length].id}`}
-          className="text-5xl md:text-7xl serif font-light hover:italic transition-all duration-500"
-        >
-          {projects[(projects.indexOf(project) + 1) % projects.length].title}
-        </Link>
-      </section>
+        {/* Back/Next Link */}
+        <div className="pointer-events-auto">
+          <Link 
+            to="/" 
+            className="text-white text-[10px] md:text-xs uppercase tracking-[0.4em] font-medium flex items-center gap-2 hover:opacity-50 transition-opacity"
+          >
+            More Work <span className="text-lg">→</span>
+          </Link>
+        </div>
+
+      </div>
+
     </main>
   );
 }
