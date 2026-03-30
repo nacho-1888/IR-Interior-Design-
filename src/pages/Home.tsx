@@ -20,8 +20,33 @@ export default function Home() {
     return () => clearInterval(timer);
   }, []);
 
-  // Single active project for the portfolio gallery view
-  const [activeProject, setActiveProject] = useState<Project>(projects[0]);
+  // 3 Independent Project Windows (PWs)
+  const [activeProjects, setActiveProjects] = useState<Project[]>(() => {
+    const shuffled = [...projects].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, 3);
+  });
+
+  const handleProjectSelect = (windowIndex: number, newProject: Project) => {
+    setActiveProjects(prev => {
+      const next = [...prev];
+      const currentlyAtThisWindow = next[windowIndex];
+      
+      // If clicking the same project, do nothing
+      if (currentlyAtThisWindow.id === newProject.id) return prev;
+      
+      // Check if the selected project is currently displayed in another PW
+      const existingWindowIndex = next.findIndex(p => p.id === newProject.id);
+      
+      if (existingWindowIndex !== -1) {
+        // Swap: Give the *other* window the project we are currently holding
+        next[existingWindowIndex] = currentlyAtThisWindow;
+      }
+      
+      // Assign the requested project to the window that was clicked
+      next[windowIndex] = newProject;
+      return next;
+    });
+  };
 
   return (
     <main className="relative bg-luxury-black text-luxury-paper">
@@ -127,9 +152,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Projects Portfolio Section - Single Screen Interactive Gallery */}
+      {/* Projects Portfolio Section - 3 Independent Interactive Windows */}
       <div id="portfolio" className="relative z-20 bg-luxury-black">
-        <ProjectSection project={activeProject} index={0} onProjectSelect={setActiveProject} />
+        {activeProjects.map((project, idx) => (
+          <ProjectSection 
+            key={`pw-${idx}`} 
+            project={project} 
+            index={idx} 
+            onProjectSelect={(p) => handleProjectSelect(idx, p)} 
+          />
+        ))}
       </div>
 
       {/* Glassy Footer styled referencing Kelly Wearstler */}
