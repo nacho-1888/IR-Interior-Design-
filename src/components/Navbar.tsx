@@ -18,9 +18,9 @@ export default function Navbar() {
   // Navigation Links Opacity
   const navOpacity = useTransform(scrollY, [100, 400], [0.5, 1]);
 
-  // Scaling/Positioning for the logo (Always visible and centered)
+  // Scaling/Positioning for the logo (Starts LOWER and LEFT in hero)
   const logoScale = useTransform(scrollY, range, [0.85, 0.40]); 
-  const logoY = useTransform(scrollY, [0, 300], [0, 0]); 
+  const logoY = useTransform(scrollY, [0, 600], [260, 0]); 
   const logoX = useTransform(scrollY, range, [0, 0]);
 
   return (
@@ -42,17 +42,18 @@ export default function Navbar() {
           />
 
           {/* THE CONTENT - Branding on the left side of the capsule */}
-          <div className="relative z-10 w-full flex items-center justify-start px-8 md:px-12 lg:px-16 flex-nowrap overflow-visible">
+          <div className="relative z-10 w-full flex items-center justify-start px-8 md:px-12 lg:px-20 flex-nowrap overflow-visible">
             <motion.div
               style={{ 
                 scale: logoScale,
+                y: logoY,
                 transformOrigin: "left center"
               }}
               className="flex items-center"
             >
               <Link 
                 to="/" 
-                className="text-6xl md:text-[8rem] lg:text-[10rem] font-medium leading-none font-sans tracking-tight block whitespace-nowrap uppercase text-white ml-[-4px] md:ml-[-8px]"
+                className="text-6xl md:text-[8rem] lg:text-[10rem] font-medium leading-none font-sans tracking-tight block whitespace-nowrap uppercase text-white"
               >
                 Isabel Romer
               </Link>

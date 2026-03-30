@@ -73,7 +73,7 @@ export default function Home() {
         </div>
 
         {/* Content Overlay */}
-        <div className="absolute inset-0 z-20 flex flex-col justify-between p-6 md:p-12">
+        <div className="absolute inset-0 z-20 flex flex-col justify-between px-8 md:px-12 lg:px-20 py-16 md:py-24">
           
           {/* Top Section - Name now handled by Sticky Navbar */}
           <div className="flex justify-between items-start pt-2 lg:pt-8 w-full">
@@ -83,8 +83,8 @@ export default function Home() {
               transition={{ duration: 1, ease: "easeOut" }}
               className="flex flex-col"
             >
-              <div className="h-[10rem] md:h-[8rem] lg:h-[10rem]" /> {/* Spacer for where the nav logo will sit at top */}
-              <p className="text-[10px] md:text-sm uppercase tracking-[0.2em] md:tracking-[0.25em] font-medium text-white/90 mt-6 md:mt-8 ml-2">
+              <div className="h-[340px] md:h-[360px] lg:h-[450px]" /> {/* Aligned with lowered Navbar Logo */}
+              <p className="text-[10px] md:text-sm uppercase tracking-[0.2em] md:tracking-[0.3em] font-medium text-white/90">
                 Interior, Furniture, Landscape Designer
               </p>
             </motion.div>
@@ -98,7 +98,7 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 1 }}
-              className="max-w-[280px] md:max-w-md absolute bottom-8 left-0 md:left-2"
+              className="max-w-[280px] md:max-w-md absolute bottom-8 left-0"
             >
               <p className="text-lg md:text-2xl leading-snug font-light text-white/90">
                 Transforming ordinary spaces into extraordinary experiences.
