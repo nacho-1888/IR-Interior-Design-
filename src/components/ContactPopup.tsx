@@ -41,32 +41,27 @@ export default function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
               </button>
             </div>
 
-            {/* Direct Contact List - Ergonomic and Spelled Out */}
-            <div className="flex flex-col space-y-10 mt-4">
+            {/* Direct Contact List - Refined Visual Hierarchy */}
+            <div className="flex flex-col space-y-12 mt-6">
               
               {/* Call */}
-              <a href="tel:+34647383266" className="group flex flex-col items-start border-b border-black/5 pb-6">
-                <span className="text-[9px] uppercase tracking-[0.4em] font-black text-black/20 mb-3 group-hover:text-black/40 transition-colors">Call Studio</span>
-                <span className="text-xl md:text-2xl font-medium tracking-tight text-black">+34 647 383 266</span>
+              <a href="tel:+34647383266" className="group flex flex-col items-start">
+                <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-black/40 mb-3 group-hover:text-black transition-colors">Call</span>
+                <span className="text-xl md:text-2xl font-light tracking-tight text-black">+34 647 383 266</span>
               </a>
 
               {/* Message / Instagram */}
-              <a href="https://www.instagram.com/isabelromer.interiordesign/" target="_blank" rel="noreferrer" className="group flex flex-col items-start border-b border-black/5 pb-6">
-                <span className="text-[9px] uppercase tracking-[0.4em] font-black text-black/20 mb-3 group-hover:text-black/40 transition-colors">Direct Message</span>
-                <span className="text-xl md:text-2xl font-medium tracking-tight text-black">@isabelromer.interiordesign</span>
+              <a href="https://www.instagram.com/isabelromer.interiordesign/" target="_blank" rel="noreferrer" className="group flex flex-col items-start">
+                <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-black/40 mb-3 group-hover:text-black transition-colors">Message</span>
+                <span className="text-xl md:text-2xl font-light tracking-tight text-black">@isabelromer.interiordesign</span>
               </a>
 
               {/* Email */}
               <a href="mailto:proyectos@isabelromer.com" className="group flex flex-col items-start">
-                <span className="text-[9px] uppercase tracking-[0.4em] font-black text-black/20 mb-3 group-hover:text-black/40 transition-colors">Email Projects</span>
-                <span className="text-xl md:text-2xl font-medium tracking-tight text-black">proyectos@isabelromer.com</span>
+                <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-black/40 mb-3 group-hover:text-black transition-colors">Email</span>
+                <span className="text-xl md:text-2xl font-light tracking-tight text-black">proyectos@isabelromer.com</span>
               </a>
 
-            </div>
-
-            {/* Subtle Footer Tag */}
-            <div className="mt-[auto] pt-12">
-               <span className="text-[9px] uppercase tracking-[0.4em] font-black text-black/10">Madrid — Spain</span>
             </div>
           </motion.div>
         </>
