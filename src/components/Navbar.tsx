@@ -68,7 +68,7 @@ export default function Navbar({ onContactOpen }: { onContactOpen?: () => void }
           />
 
           {/* THE CONTENT - Flex for branding, Absolute for contact avoids layout overflow */}
-          <div className="relative z-10 w-full h-full flex items-center pl-4 md:pl-6 flex-nowrap overflow-visible">
+          <div className="relative z-10 w-full h-full flex items-center pl-8 md:pl-16 lg:pl-24 flex-nowrap overflow-visible">
             {/* BRANDING */}
             <motion.div
               style={{ 
