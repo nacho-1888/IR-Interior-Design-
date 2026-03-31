@@ -46,7 +46,7 @@ const ProjectSection = React.memo(({ project, onProjectSelect }: ProjectSectionP
             style={{ 
               backgroundImage: `url(${p.coverImage})`,
               backgroundSize: 'cover',
-              backgroundPosition: 'center',
+              backgroundPosition: p.customPosition || 'center',
             }}
             className="absolute inset-0 w-full h-full brightness-[1.05] will-change-opacity"
           />

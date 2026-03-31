@@ -7,4 +7,5 @@ export interface Project {
   gallery: string[];
   year: string;
   category: string;
+  customPosition?: string;
 }

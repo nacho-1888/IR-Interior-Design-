@@ -61,6 +61,7 @@ export default function ProjectDetail({ onContactOpen }: { onContactOpen: () => 
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
             src={gallery[imgIndex]}
             alt={project.title}
+            style={{ objectPosition: (gallery[imgIndex] === project.coverImage ? project.customPosition : undefined) || 'center' }}
             className="absolute inset-0 w-full h-full object-cover"
             referrerPolicy="no-referrer"
           />

@@ -39,7 +39,7 @@ export default function Navbar({ onContactOpen }: { onContactOpen?: () => void }
   // Reduced end scale from 0.40 to 0.22 for a more elegant name in the sticky pill
   const logoScale = useTransform(scrollY, range, [0.9, 0.22]); 
   const logoY = useTransform(scrollY, [0, 400], ["15vh", "0vh"]); 
-  const logoX = useTransform(scrollY, range, ["0vw", "0vw"]);
+  const logoX = useTransform(scrollY, [300, 600], ["0vw", "4vw"]); 
   
   // Subtitle should only exist in the Hero, disappearing rapidly
   const subtitleOpacity = useTransform(scrollY, [0, 150], [1, 0]);
@@ -68,7 +68,7 @@ export default function Navbar({ onContactOpen }: { onContactOpen?: () => void }
           />
 
           {/* THE CONTENT - Flex for branding, Absolute for contact avoids layout overflow */}
-          <div className="relative z-10 w-full h-full flex items-center pl-8 md:pl-16 lg:pl-24 flex-nowrap overflow-visible">
+          <div className="relative z-10 w-full h-full flex items-center pl-4 md:pl-6 flex-nowrap overflow-visible">
             {/* BRANDING */}
             <motion.div
               style={{ 
