@@ -21,6 +21,16 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
     return () => clearInterval(timer);
   }, []);
 
+  // Professional Scroll Reset: Forces the browser to start at the Hero section on load
+  useEffect(() => {
+    if (!window.location.hash) {
+      window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+      // Backup for browsers that struggle with instant scroll on initial paint
+      const timeout = setTimeout(() => window.scrollTo(0, 0), 10);
+      return () => clearTimeout(timeout);
+    }
+  }, []);
+
   // 3 Independent Project Windows (PWs)
   const [activeProjects, setActiveProjects] = useState<Project[]>(() => {
     const shuffled = [...projects].sort(() => 0.5 - Math.random());

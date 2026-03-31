@@ -36,7 +36,8 @@ export default function Navbar({ onContactOpen }: { onContactOpen?: () => void }
   const navOpacity = useTransform(scrollY, [100, 400], [0.5, 1]);
 
   // Scaling/Positioning for the logo (Always visible and anchored left)
-  const logoScale = useTransform(scrollY, range, [0.9, 0.40]); 
+  // Reduced end scale from 0.40 to 0.22 for a more elegant name in the sticky pill
+  const logoScale = useTransform(scrollY, range, [0.9, 0.22]); 
   const logoY = useTransform(scrollY, [0, 400], ["15vh", "0vh"]); 
   const logoX = useTransform(scrollY, range, ["0vw", "0vw"]);
   
