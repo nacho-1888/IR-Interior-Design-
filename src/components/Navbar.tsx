@@ -52,9 +52,9 @@ export default function Navbar({ onContactOpen }: { onContactOpen?: () => void }
           >
             <Link 
               to="/" 
-              className="text-6xl md:text-[8rem] lg:text-[10rem] branding-font font-bold leading-none tracking-tight block whitespace-nowrap uppercase text-white"
+              className="text-6xl md:text-[8rem] lg:text-[10rem] branding-font font-bold leading-[0.8] md:leading-none tracking-tight block whitespace-nowrap md:whitespace-nowrap uppercase text-white"
             >
-              Isabel Römer
+              Isabel <br className="md:hidden" /> Römer
             </Link>
           </motion.div>
 
@@ -62,7 +62,7 @@ export default function Navbar({ onContactOpen }: { onContactOpen?: () => void }
           <motion.span 
             style={{ 
               opacity: subtitleOpacity,
-              y: useTransform(scrollY, [0, 500], ["27vh", "10vh"]), // Adjusted to follow the deeper logo drop
+              y: useTransform(scrollY, [0, 500], ["34vh", "10vh"]), // Pushed down on mobile to account for 2 lines
               x: logoX, // Slides with the logo
             }}
             className="absolute top-0 left-0 text-[10px] md:text-sm lg:text-base uppercase tracking-[1.1em] font-medium text-white/60 ml-2 md:ml-4 whitespace-nowrap z-0"

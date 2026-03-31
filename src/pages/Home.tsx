@@ -166,15 +166,16 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
         </div>
       </section>
 
-      {/* Projects Portfolio Section - 3 Independent Interactive Windows */}
+      {/* Projects Portfolio Section - Dynamically reduced on mobile */}
       <div id="portfolio" className="relative z-20 bg-luxury-black">
         {activeProjects.map((project, idx) => (
-          <ProjectSection 
-            key={`pw-${idx}`} 
-            project={project} 
-            index={idx} 
-            onProjectSelect={(p) => handleProjectSelect(idx, p)} 
-          />
+          <div key={`pw-${idx}`} className={idx > 0 ? "hidden md:block" : "block"}>
+            <ProjectSection 
+              project={project} 
+              index={idx} 
+              onProjectSelect={(p) => handleProjectSelect(idx, p)} 
+            />
+          </div>
         ))}
       </div>
 
