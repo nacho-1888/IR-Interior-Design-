@@ -79,7 +79,7 @@ const ProjectSection = React.memo(({ project, onProjectSelect }: ProjectSectionP
       </div>
 
       {/* Bottom Left Content (Current Project Details) */}
-      <div className="absolute bottom-16 md:bottom-20 left-6 lg:left-20 z-20 max-w-3xl pointer-events-none">
+      <div className={`absolute bottom-16 md:bottom-20 left-6 lg:left-20 z-20 ${project.title === 'ACA ENTRE NOS' ? 'max-w-5xl' : 'max-w-3xl'} pointer-events-none`}>
         <AnimatePresence mode="popLayout">
           <motion.div
              key={project.id}
@@ -92,7 +92,7 @@ const ProjectSection = React.memo(({ project, onProjectSelect }: ProjectSectionP
             <span className="text-[10px] md:text-xs uppercase tracking-[0.5em] font-medium text-white/50 block mb-6">
               {project.location} — {project.category}
             </span>
-            <h2 className="text-[13vw] md:text-8xl lg:text-9xl display-font font-bold tracking-tighter text-white uppercase leading-[0.8] mb-10 mix-blend-difference">
+            <h2 className={`text-[13vw] md:text-8xl lg:text-9xl display-font font-bold tracking-tighter text-white uppercase leading-[0.8] mb-10 mix-blend-difference ${project.title === 'ACA ENTRE NOS' ? 'whitespace-nowrap' : ''}`}>
               {project.title}
             </h2>
             <Link 
