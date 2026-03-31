@@ -25,6 +25,13 @@ function ScrollManager() {
     }
   }, [pathname, hash]);
 
+  // Prevent browser from restoring scroll position on reload
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+  }, []);
+
   return null;
 }
 

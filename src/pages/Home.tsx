@@ -171,8 +171,8 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
       {/* Solid Museum-Style White Footer */}
       <footer id="contact" className="w-full bg-white text-black pt-24 md:pt-32 pb-12 md:pb-16 px-6 md:px-24 flex flex-col md:flex-row justify-between items-start gap-12 md:gap-20 font-sans relative z-30 border-t border-black/5 flex-wrap">
         
-        {/* Left: Huge Logo */}
-        <div className="w-full md:w-5/12 relative z-10">
+        {/* Left: Huge Logo - Adjusted width to prevent wrap */}
+        <div className="w-full md:w-4/12 relative z-10">
           <h2 className="text-[14vw] md:text-[7.5vw] leading-[0.95] display-font font-black tracking-tighter uppercase text-black mb-12">
             Isabel
             <br className="hidden md:block" />
@@ -187,8 +187,8 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
           </div>
         </div>
 
-        {/* Center: Monolithic Link List */}
-        <div className="w-full md:w-2/12 flex flex-col space-y-6 text-xs font-bold justify-start relative z-10">
+        {/* Center: Monolithic Link List - Adjusted width */}
+        <div className="w-full md:w-2/12 flex flex-col space-y-6 text-xs font-bold justify-start relative z-10 pt-4">
           <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-left hover:text-black/40 transition-colors uppercase tracking-[0.2em]">Home</button>
           <button onClick={onContactOpen} className="text-left hover:text-black/40 transition-colors uppercase tracking-[0.2em]">Contact Us</button>
           <a href="#portfolio" className="hover:text-black/40 transition-colors uppercase tracking-[0.2em]">Projects</a>
@@ -196,8 +196,8 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
           <Link to="/terms-conditions" className="hover:text-black/40 transition-colors uppercase tracking-[0.2em]">Terms & Conditions</Link>
         </div>
 
-        {/* Right: Expanded Complete Contact Section - Hidden on Mobile to condense layout */}
-        <div className="hidden md:flex w-5/12 flex-col space-y-16 items-end relative z-10">
+        {/* Right: Expanded Complete Contact Section - Adjusted width to prevent wrap */}
+        <div className="hidden md:flex w-full md:w-4/12 flex-col space-y-16 items-end relative z-10">
           <div className="w-full max-w-md flex flex-col space-y-12">
             <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-black leading-[0.85]">
               Let's Talk.
