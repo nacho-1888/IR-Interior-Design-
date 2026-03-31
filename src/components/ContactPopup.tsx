@@ -41,45 +41,32 @@ export default function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
               </button>
             </div>
 
-            {/* Contact Form - Matching Footer Style */}
-            <form className="flex flex-col space-y-4" onSubmit={(e) => e.preventDefault()}>
-              <div className="bg-black/5 rounded-2xl px-6 py-5 flex group transition-all focus-within:bg-black/[0.08] border border-black/5 focus-within:border-black/10">
-                <input 
-                  type="text" 
-                  placeholder="NAME"
-                  className="w-full bg-transparent outline-none text-xs uppercase tracking-[0.25em] placeholder:text-black/20 text-black font-semibold" 
-                />
-              </div>
+            {/* Direct Contact List - Ergonomic and Spelled Out */}
+            <div className="flex flex-col space-y-10 mt-4">
+              
+              {/* Call */}
+              <a href="tel:+34647383266" className="group flex flex-col items-start border-b border-black/5 pb-6">
+                <span className="text-[9px] uppercase tracking-[0.4em] font-black text-black/20 mb-3 group-hover:text-black/40 transition-colors">Call Studio</span>
+                <span className="text-xl md:text-2xl font-medium tracking-tight text-black">+34 647 383 266</span>
+              </a>
 
-              <div className="bg-black/5 rounded-2xl px-6 py-5 flex group transition-all focus-within:bg-black/[0.08] border border-black/5 focus-within:border-black/10">
-                <input 
-                  type="text" 
-                  placeholder="CONTACT"
-                  className="w-full bg-transparent outline-none text-xs uppercase tracking-[0.25em] placeholder:text-black/20 text-black font-semibold" 
-                />
-              </div>
+              {/* Message / Instagram */}
+              <a href="https://www.instagram.com/isabelromer.interiordesign/" target="_blank" rel="noreferrer" className="group flex flex-col items-start border-b border-black/5 pb-6">
+                <span className="text-[9px] uppercase tracking-[0.4em] font-black text-black/20 mb-3 group-hover:text-black/40 transition-colors">Direct Message</span>
+                <span className="text-xl md:text-2xl font-medium tracking-tight text-black">@isabelromer.interiordesign</span>
+              </a>
 
-              <div className="pt-4">
-                <button className="w-full py-6 bg-black text-white font-black uppercase text-[10px] tracking-[0.5em] hover:bg-black/90 active:scale-[0.98] transition-all rounded-2xl shadow-xl shadow-black/10">
-                  Send Message
-                </button>
-              </div>
-            </form>
+              {/* Email */}
+              <a href="mailto:proyectos@isabelromer.com" className="group flex flex-col items-start">
+                <span className="text-[9px] uppercase tracking-[0.4em] font-black text-black/20 mb-3 group-hover:text-black/40 transition-colors">Email Projects</span>
+                <span className="text-xl md:text-2xl font-medium tracking-tight text-black">proyectos@isabelromer.com</span>
+              </a>
 
-            {/* Direct Contact Section */}
-            <div className="mt-12 flex flex-col items-start">
-              <span className="text-[9px] uppercase tracking-[0.3em] font-black text-black/30 mb-8">contact me directly</span>
-              <div className="flex gap-10 text-black/30">
-                <a href="https://www.instagram.com/isabelromer.interiordesign/" target="_blank" rel="noreferrer" className="hover:text-black transition-all hover:-translate-y-1 duration-300">
-                  <Instagram size={22} strokeWidth={1.5} />
-                </a>
-                <a href="mailto:proyectos@isabelromer.com" className="hover:text-black transition-all hover:-translate-y-1 duration-300">
-                  <Mail size={22} strokeWidth={1.5} />
-                </a>
-                <a href="tel:+34647383266" className="hover:text-black transition-all hover:-translate-y-1 duration-300">
-                  <Phone size={22} strokeWidth={1.5} />
-                </a>
-              </div>
+            </div>
+
+            {/* Subtle Footer Tag */}
+            <div className="mt-[auto] pt-12">
+               <span className="text-[9px] uppercase tracking-[0.4em] font-black text-black/10">Madrid — Spain</span>
             </div>
           </motion.div>
         </>
