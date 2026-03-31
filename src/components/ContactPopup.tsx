@@ -31,7 +31,6 @@ export default function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
             {/* Header */}
             <div className="flex justify-between items-start mb-10">
               <div className="flex flex-col">
-                <span className="text-[10px] uppercase tracking-[0.4em] font-black text-black/20 mb-2">Portfolio Studio</span>
                 <h2 className="branding-font text-4xl text-black uppercase tracking-tighter font-black">LETS TALK.</h2>
               </div>
               <button 
@@ -62,7 +61,7 @@ export default function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
 
               <div className="pt-4">
                 <button className="w-full py-6 bg-black text-white font-black uppercase text-[10px] tracking-[0.5em] hover:bg-black/90 active:scale-[0.98] transition-all rounded-2xl shadow-xl shadow-black/10">
-                  Send Inquiry
+                  Send Message
                 </button>
               </div>
             </form>
