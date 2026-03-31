@@ -11,82 +11,74 @@ export default function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* Subtle Backdrop Darkening (No Blur) */}
+          {/* Subtle Mask Layer */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/40 z-[100] cursor-pointer"
+            className="fixed inset-0 bg-black/5 z-[100] cursor-pointer"
           />
 
-          {/* Sleek Side Drawer Panel */}
+          {/* Sleek Bottom-Right Card */}
           <motion.div
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed top-0 right-0 h-screen w-full md:w-[450px] lg:w-[550px] bg-luxury-black z-[101] flex flex-col p-8 md:p-16 lg:p-20 shadow-[-20px_0_60px_rgba(0,0,0,0.5)] font-sans"
+            initial={{ opacity: 0, y: 40, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 40, scale: 0.95 }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="fixed bottom-6 right-6 md:bottom-12 md:right-12 w-[90%] sm:w-[400px] md:w-[450px] bg-white z-[101] flex flex-col p-8 md:p-12 shadow-[0_20px_80px_rgba(0,0,0,0.15)] font-sans rounded-[2.5rem]"
           >
-            {/* Header / Brand */}
-            <div className="flex justify-between items-start mb-20">
+            {/* Header */}
+            <div className="flex justify-between items-start mb-10">
               <div className="flex flex-col">
-                <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-white/40 mb-2">Portfolio Studio</span>
-                <h2 className="branding-font text-3xl md:text-4xl text-white uppercase tracking-tighter">Contact.</h2>
+                <span className="text-[10px] uppercase tracking-[0.4em] font-black text-black/20 mb-2">Portfolio Studio</span>
+                <h2 className="branding-font text-4xl text-black uppercase tracking-tighter font-black">LETS TALK.</h2>
               </div>
               <button 
                 onClick={onClose}
-                className="p-2 -mr-2 text-white/40 hover:text-white transition-all hover:rotate-90 duration-500"
+                className="p-2 -mr-2 text-black/20 hover:text-black transition-colors duration-300"
               >
-                <X size={28} strokeWidth={1} />
+                <X size={24} strokeWidth={1.5} />
               </button>
             </div>
 
-            {/* Contact Form - Architectural Underline Style */}
-            <form className="flex-1 flex flex-col space-y-12" onSubmit={(e) => e.preventDefault()}>
-              <div className="flex flex-col space-y-2 group">
-                <label className="text-[9px] uppercase tracking-[0.3em] text-white/30 group-focus-within:text-white transition-colors">Name</label>
+            {/* Contact Form - Matching Footer Style */}
+            <form className="flex flex-col space-y-4" onSubmit={(e) => e.preventDefault()}>
+              <div className="bg-black/5 rounded-2xl px-6 py-5 flex group transition-all focus-within:bg-black/[0.08] border border-black/5 focus-within:border-black/10">
                 <input 
                   type="text" 
-                  className="w-full bg-transparent border-b border-white/10 py-3 text-white outline-none focus:border-white transition-all duration-700 text-sm tracking-wide"
+                  placeholder="NAME"
+                  className="w-full bg-transparent outline-none text-xs uppercase tracking-[0.25em] placeholder:text-black/20 text-black font-semibold" 
                 />
               </div>
 
-              <div className="flex flex-col space-y-2 group">
-                <label className="text-[9px] uppercase tracking-[0.3em] text-white/30 group-focus-within:text-white transition-colors">Email Address</label>
+              <div className="bg-black/5 rounded-2xl px-6 py-5 flex group transition-all focus-within:bg-black/[0.08] border border-black/5 focus-within:border-black/10">
                 <input 
-                  type="email" 
-                  className="w-full bg-transparent border-b border-white/10 py-3 text-white outline-none focus:border-white transition-all duration-700 text-sm tracking-wide"
+                  type="text" 
+                  placeholder="CONTACT"
+                  className="w-full bg-transparent outline-none text-xs uppercase tracking-[0.25em] placeholder:text-black/20 text-black font-semibold" 
                 />
               </div>
 
-              <div className="flex flex-col space-y-2 group">
-                <label className="text-[9px] uppercase tracking-[0.3em] text-white/30 group-focus-within:text-white transition-colors">Your Message</label>
-                <textarea 
-                  rows={3}
-                  className="w-full bg-transparent border-b border-white/10 py-3 text-white outline-none focus:border-white transition-all duration-700 text-sm tracking-wide resize-none"
-                />
-              </div>
-
-              <div className="pt-8">
-                <button className="group relative overflow-hidden bg-white text-black font-bold uppercase text-[10px] tracking-[0.5em] px-10 py-5 w-full hover:bg-white active:scale-[0.98] transition-all">
-                  <span className="relative z-10 transition-colors duration-500">Send Inquiry</span>
+              <div className="pt-4">
+                <button className="w-full py-6 bg-black text-white font-black uppercase text-[10px] tracking-[0.5em] hover:bg-black/90 active:scale-[0.98] transition-all rounded-2xl shadow-xl shadow-black/10">
+                  Send Inquiry
                 </button>
               </div>
             </form>
 
-            {/* Bottom Socials */}
-            <div className="mt-12 flex flex-col space-y-6">
-              <span className="text-[9px] uppercase tracking-[0.3em] text-white/30">Connect</span>
-              <div className="flex gap-8">
-                <a href="https://www.instagram.com/isabelromer.interiordesign/" target="_blank" rel="noreferrer" className="text-white/40 hover:text-white transition-all hover:-translate-y-1 duration-300">
-                  <Instagram size={20} strokeWidth={1.5} />
+            {/* Direct Contact Section */}
+            <div className="mt-12 flex flex-col items-start">
+              <span className="text-[9px] uppercase tracking-[0.3em] font-black text-black/30 mb-8">contact me directly</span>
+              <div className="flex gap-10 text-black/30">
+                <a href="https://www.instagram.com/isabelromer.interiordesign/" target="_blank" rel="noreferrer" className="hover:text-black transition-all hover:-translate-y-1 duration-300">
+                  <Instagram size={22} strokeWidth={1.5} />
                 </a>
-                <a href="mailto:proyectos@isabelromer.com" className="text-white/40 hover:text-white transition-all hover:-translate-y-1 duration-300">
-                  <Mail size={20} strokeWidth={1.5} />
+                <a href="mailto:proyectos@isabelromer.com" className="hover:text-black transition-all hover:-translate-y-1 duration-300">
+                  <Mail size={22} strokeWidth={1.5} />
                 </a>
-                <a href="tel:+34647383266" className="text-white/40 hover:text-white transition-all hover:-translate-y-1 duration-300">
-                  <Phone size={20} strokeWidth={1.5} />
+                <a href="tel:+34647383266" className="hover:text-black transition-all hover:-translate-y-1 duration-300">
+                  <Phone size={22} strokeWidth={1.5} />
                 </a>
               </div>
             </div>
