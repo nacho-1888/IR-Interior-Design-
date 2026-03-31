@@ -40,13 +40,13 @@ export default function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
             <div className="mb-8 mt-2 flex flex-col items-center gap-6">
               <span className="text-[10px] uppercase tracking-[0.25em] font-bold text-white/60">Reach me directly</span>
               <div className="flex gap-10 text-white/50">
-                <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-white transition-transform hover:scale-110 duration-300">
+                <a href="https://www.instagram.com/isabelromer.interiordesign/" target="_blank" rel="noreferrer" className="hover:text-white transition-transform hover:scale-110 duration-300">
                   <Instagram size={22} />
                 </a>
-                <a href="mailto:isabel@romer.com" className="hover:text-white transition-transform hover:scale-110 duration-300">
+                <a href="mailto:proyectos@isabelromer.com" className="hover:text-white transition-transform hover:scale-110 duration-300">
                   <Mail size={22} />
                 </a>
-                <a href="https://wa.me/something" target="_blank" rel="noreferrer" className="hover:text-white transition-transform hover:scale-110 duration-300">
+                <a href="tel:+34647383266" className="hover:text-white transition-transform hover:scale-110 duration-300">
                   <Phone size={22} />
                 </a>
               </div>

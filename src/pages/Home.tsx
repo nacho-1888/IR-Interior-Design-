@@ -190,10 +190,15 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
           </h2>
           
           {/* Direct Studio Contact Links */}
-          <div className="flex gap-14 text-[10px] md:text-xs uppercase tracking-[0.4em] font-black text-black/40">
-            <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-black transition-colors">Instagram</a>
-            <a href="mailto:isabel@romer.com" className="hover:text-black transition-colors">Email</a>
-            <a href="https://wa.me/something" target="_blank" rel="noreferrer" className="hover:text-black transition-colors">WhatsApp</a>
+          <div className="flex flex-col space-y-4 text-[10px] md:text-xs uppercase tracking-[0.4em] font-black text-black/40">
+            <div className="flex gap-14">
+              <a href="https://www.instagram.com/isabelromer.interiordesign/" target="_blank" rel="noreferrer" className="hover:text-black transition-colors">Instagram</a>
+              <a href="mailto:proyectos@isabelromer.com" className="hover:text-black transition-colors">Email</a>
+            </div>
+            <div className="flex flex-col space-y-2 mt-4 text-black font-medium normal-case tracking-normal text-sm md:text-base">
+              <p>Madrid - Spain</p>
+              <a href="tel:+34647383266" className="hover:opacity-70 transition-opacity">+34 647 383 266</a>
+            </div>
           </div>
         </div>
 
