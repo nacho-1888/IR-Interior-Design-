@@ -48,7 +48,7 @@ const ProjectSection = React.memo(({ project, onProjectSelect }: ProjectSectionP
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}
-            className="absolute inset-0 w-full h-full grayscale-[20%] brightness-[0.8] will-change-opacity"
+            className="absolute inset-0 w-full h-full brightness-[1.05] will-change-opacity"
           />
         ))}
         

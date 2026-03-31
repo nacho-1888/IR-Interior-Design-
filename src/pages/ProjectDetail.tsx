@@ -59,7 +59,7 @@ export default function ProjectDetail({ onContactOpen }: { onContactOpen: () => 
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
             src={gallery[imgIndex]}
             alt={project.title}
-            className="absolute inset-0 w-full h-full object-cover grayscale-[10%] brightness-[0.85]"
+            className="absolute inset-0 w-full h-full object-cover"
             referrerPolicy="no-referrer"
           />
         </AnimatePresence>
