@@ -25,7 +25,7 @@ export default function Navbar({ onContactOpen }: { onContactOpen?: () => void }
   // Branding Transforms
   // Slightly larger end scale (0.32) for better legibility in sticky mode
   const logoScale = useTransform(scrollY, range, [0.95, 0.32]); 
-  const logoY = useTransform(scrollY, [0, 500], ["15vh", "2vh"]); // Lowered end value from 0vh to 2vh
+  const logoY = useTransform(scrollY, [0, 500], ["15vh", "6vh"]); // Lowered further from 2vh to 6vh
   const logoX = useTransform(scrollY, [300, 600], ["0vw", "2vw"]); 
   
   // Subtitle should fade out COMPLETELY to 0 when scrolling
@@ -62,7 +62,7 @@ export default function Navbar({ onContactOpen }: { onContactOpen?: () => void }
           <motion.span 
             style={{ 
               opacity: subtitleOpacity,
-              y: useTransform(scrollY, [0, 500], ["27vh", "6vh"]), // Brought down from 34vh to 27vh to be closer to name
+              y: useTransform(scrollY, [0, 500], ["27vh", "10vh"]), // Adjusted to follow the deeper logo drop
               x: logoX, // Slides with the logo
             }}
             className="absolute top-0 left-0 text-[10px] md:text-sm lg:text-base uppercase tracking-[1.1em] font-medium text-white/60 ml-2 md:ml-4 whitespace-nowrap z-0"
