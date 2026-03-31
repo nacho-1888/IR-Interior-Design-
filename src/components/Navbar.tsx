@@ -1,11 +1,9 @@
-import { motion, useScroll, useTransform, useMotionValueEvent } from "motion/react";
+import { motion, useScroll, useMotionValueEvent } from "motion/react";
 import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function Navbar({ onContactOpen }: { onContactOpen?: () => void }) {
   const { scrollY } = useScroll();
-  const [isOpen, setIsOpen] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
 
   // Hide the navbar when scrolling down, show when scrolling up with a threshold
@@ -13,117 +11,37 @@ export default function Navbar({ onContactOpen }: { onContactOpen?: () => void }
     const previous = scrollY.getPrevious() || 0;
     
     if (latest > previous + 30 && latest > 300) {
-      // Scrolling down past the hero with a 30px threshold - Hide
       setIsHidden(true);
     } else if (previous - latest > 60) {
-      // Scrolling up with a snappy 60px threshold - Show
       setIsHidden(false);
     } else if (latest < 50) {
-      // Near top - Always show
       setIsHidden(false);
     }
   });
-
-  // Transition Range: 0 to 600px for a much slower, weighted feel
-  const range = [0, 600];
-
-  // Static Bubble appearance logic: appears later and spans proportionally
-  const bubbleScale = useTransform(scrollY, [300, 600], [0.98, 1]);
-  const bubbleOpacity = useTransform(scrollY, [300, 450], [0, 1]);
-  const bubbleWidth = useTransform(scrollY, range, ["100%", "94%"]);
-  
-  // Navigation Links Opacity
-  const navOpacity = useTransform(scrollY, [100, 400], [0.5, 1]);
-
-  // Scaling/Positioning for the logo (Always visible and anchored left)
-  // Reduced end scale from 0.40 to 0.22 for a more elegant name in the sticky pill
-  const logoScale = useTransform(scrollY, range, [0.9, 0.22]); 
-  const logoY = useTransform(scrollY, [0, 400], ["15vh", "0vh"]); 
-  const logoX = useTransform(scrollY, [300, 600], ["0vw", "4vw"]); 
-  
-  // Subtitle should only exist in the Hero, disappearing rapidly
-  const subtitleOpacity = useTransform(scrollY, [0, 150], [1, 0]);
 
   return (
     <>
       <motion.nav 
         animate={{ y: isHidden ? "-150%" : "0%" }}
         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed top-0 left-0 w-full z-50 flex flex-col items-center pointer-events-none pt-6 md:pt-10 lg:pt-12 px-3 md:px-6"
+        className="fixed top-0 left-0 w-full z-50 pointer-events-none p-6 md:p-10 lg:p-12"
       >
-        <motion.div 
-          style={{ 
-            width: bubbleWidth,
-            scale: bubbleScale,
-            transformOrigin: "left center" 
-          }}
-          className="relative pointer-events-auto transition-all duration-700 h-18 md:h-20 lg:h-24 flex items-center justify-start"
-        >
-          {/* THE BUBBLE BACKGROUND - Static long capsule anchored left */}
-          <motion.div 
-            style={{ 
-              opacity: bubbleOpacity,
-            }}
-            className="absolute inset-0 z-0 liquid-glass rounded-full border border-white/5"
-          />
-
-          {/* THE CONTENT - Flex for branding, Absolute for contact avoids layout overflow */}
-          <div className="relative z-10 w-full h-full flex items-center pl-4 md:pl-6 flex-nowrap overflow-visible">
-            {/* BRANDING */}
-            <motion.div
-              style={{ 
-                scale: logoScale,
-                y: logoY,
-                x: logoX,
-                transformOrigin: "left center"
-              }}
-              className="flex items-center relative"
-            >
-              <Link 
-                to="/" 
-                className="text-6xl md:text-[8rem] lg:text-[10rem] branding-font font-bold leading-none tracking-tight block whitespace-nowrap uppercase text-white"
-              >
-                Isabel Römer
-              </Link>
-              <motion.span 
-                style={{ opacity: subtitleOpacity }}
-                className="absolute top-full left-0 text-[10px] md:text-xs uppercase tracking-[1.1em] font-medium text-white/60 ml-2 md:ml-4 mt-4 md:mt-6 whitespace-nowrap"
-              >
-                Interior Design
-              </motion.span>
-            </motion.div>
-
-            {/* CONTACT BUTTON - Absolute right positioning ignores the unscaled text width */}
-            <motion.div
-              style={{ opacity: bubbleOpacity }}
-              className="absolute right-8 md:right-16 lg:right-24 flex items-center"
-            >
-              <button 
-                onClick={onContactOpen} 
-                className="text-[10px] md:text-xs font-semibold uppercase tracking-[0.3em] text-white/90 px-6 py-3 rounded-full border border-white/20 hover:bg-white/10 transition-all duration-500 whitespace-nowrap"
-              >
-                Contact
-              </button>
-            </motion.div>
-          </div>
-        </motion.div>
+        <div className="flex items-center justify-start pointer-events-auto">
+          <Link 
+            to="/" 
+            className="group flex flex-col items-start"
+          >
+            {/* The Logo: Scale 0.22 relative to the original 10rem branding approach */}
+            <span className="text-2xl md:text-3xl lg:text-4xl branding-font font-bold uppercase tracking-tight text-white transition-opacity hover:opacity-70">
+              Isabel Römer
+            </span>
+            <span className="text-[8px] md:text-[10px] uppercase tracking-[0.8em] font-medium text-white/40 mt-1">
+              Interior Design
+            </span>
+          </Link>
+        </div>
       </motion.nav>
 
-      {/* Full screen menu for mobile */}
-      <motion.div 
-        initial={{ opacity: 0, x: "100%" }}
-        animate={{ opacity: isOpen ? 1 : 0, x: isOpen ? 0 : "100%" }}
-        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed inset-0 bg-luxury-black/95 backdrop-blur-xl text-luxury-paper flex flex-col items-center justify-center space-y-8 z-40"
-      >
-        <Link to="/" onClick={() => setIsOpen(false)} className="text-4xl display-font font-bold uppercase transition-all hover:tracking-widest">Home</Link>
-        <Link to="#contact" onClick={() => setIsOpen(false)} className="text-4xl display-font font-bold uppercase transition-all hover:tracking-widest">Contact Me</Link>
-        
-        <div className="absolute bottom-12 text-center space-y-2">
-          <p className="text-xs tracking-widest uppercase opacity-50">Madrid, Spain</p>
-          <p className="text-xs tracking-widest uppercase opacity-50">isabel@romer.com</p>
-        </div>
-      </motion.div>
     </>
   );
 }
