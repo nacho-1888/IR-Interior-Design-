@@ -100,7 +100,7 @@ const ProjectSection = React.memo(({ project, onProjectSelect }: ProjectSectionP
               className="group inline-flex flex-col items-start gap-4 text-[10px] font-semibold uppercase tracking-[0.4em] text-white hover:text-white/70 transition-colors pointer-events-auto"
             >
               <div className="flex items-center gap-4">
-                 <span>Explore Studio</span>
+                 <span>VIEW PROJECT</span>
                  <div className="w-16 h-[1px] bg-white group-hover:w-32 transition-all duration-700 ease-in-out" />
               </div>
             </Link>
