@@ -18,7 +18,9 @@ export default function ProjectDetail({ onContactOpen }: { onContactOpen: () => 
   }
 
   const [imgIndex, setImgIndex] = useState(0);
-  const gallery = [project.coverImage, ...project.gallery];
+  
+  // Unique images only to prevent repetition
+  const gallery = Array.from(new Set([project.coverImage, ...project.gallery]));
 
   // Professional Image Preloader to eliminate the black gap
   useEffect(() => {
@@ -29,10 +31,10 @@ export default function ProjectDetail({ onContactOpen }: { onContactOpen: () => 
   }, [gallery]);
 
   const nextImg = () => {
-    if (imgIndex < gallery.length - 1) setImgIndex(prev => prev + 1);
+    setImgIndex((prev) => (prev + 1) % gallery.length);
   };
   const prevImg = () => {
-    if (imgIndex > 0) setImgIndex(prev => prev - 1);
+    setImgIndex((prev) => (prev - 1 + gallery.length) % gallery.length);
   };
 
   // Keyboard navigation
@@ -90,8 +92,7 @@ export default function ProjectDetail({ onContactOpen }: { onContactOpen: () => 
         {/* Left Toggle */}
         <button 
           onClick={prevImg}
-          disabled={imgIndex === 0}
-          className={`w-1/2 h-full flex items-center justify-start pl-8 lg:pl-16 cursor-w-resize group transition-opacity ${imgIndex === 0 ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+          className={`w-1/2 h-full flex items-center justify-start pl-8 lg:pl-16 cursor-w-resize group transition-opacity opacity-100`}
         >
           <div className="w-10 h-10 lg:w-14 lg:h-14 flex items-center justify-center rounded-full border border-white/20 bg-black/5 backdrop-blur-sm transition-all hover:bg-white/10 group-hover:scale-110">
             <ChevronLeft className="text-white" size={24} strokeWidth={1.5} />
@@ -101,8 +102,7 @@ export default function ProjectDetail({ onContactOpen }: { onContactOpen: () => 
         {/* Right Toggle */}
         <button 
           onClick={nextImg}
-          disabled={imgIndex === gallery.length - 1}
-          className={`w-1/2 h-full flex items-center justify-end pr-8 lg:pr-16 cursor-e-resize group transition-opacity ${imgIndex === gallery.length - 1 ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+          className={`w-1/2 h-full flex items-center justify-end pr-8 lg:pr-16 cursor-e-resize group transition-opacity opacity-100`}
         >
           <div className="w-10 h-10 lg:w-14 lg:h-14 flex items-center justify-center rounded-full border border-white/20 bg-black/5 backdrop-blur-sm transition-all hover:bg-white/10 group-hover:scale-110">
             <ChevronRight className="text-white" size={24} strokeWidth={1.5} />
