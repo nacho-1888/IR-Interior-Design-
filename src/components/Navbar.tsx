@@ -25,7 +25,7 @@ export default function Navbar({ onContactOpen }: { onContactOpen?: () => void }
   // Branding Transforms
   // Slightly larger end scale (0.32) for better legibility in sticky mode
   const logoScale = useTransform(scrollY, range, [0.95, 0.32]); 
-  const logoY = useTransform(scrollY, [0, 500], ["15vh", "0vh"]); 
+  const logoY = useTransform(scrollY, [0, 500], ["15vh", "2vh"]); // Lowered end value from 0vh to 2vh
   const logoX = useTransform(scrollY, [300, 600], ["0vw", "2vw"]); 
   
   // Subtitle should fade out COMPLETELY to 0 when scrolling
@@ -58,11 +58,11 @@ export default function Navbar({ onContactOpen }: { onContactOpen?: () => void }
             </Link>
           </motion.div>
 
-          {/* THE SUBTITLE - Fade out completely, NO scaling, increased Y to avoid overlap */}
+          {/* THE SUBTITLE - Fade out, brought closer to the name in the Hero lockup */}
           <motion.span 
             style={{ 
               opacity: subtitleOpacity,
-              y: useTransform(scrollY, [0, 500], ["34vh", "5vh"]), // Adjusted for no overlap in Hero
+              y: useTransform(scrollY, [0, 500], ["27vh", "6vh"]), // Brought down from 34vh to 27vh to be closer to name
               x: logoX, // Slides with the logo
             }}
             className="absolute top-0 left-0 text-[10px] md:text-sm lg:text-base uppercase tracking-[1.1em] font-medium text-white/60 ml-2 md:ml-4 whitespace-nowrap z-0"
