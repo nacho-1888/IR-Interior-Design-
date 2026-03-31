@@ -23,22 +23,22 @@ export default function Navbar({ onContactOpen }: { onContactOpen?: () => void }
   const range = [0, 600];
 
   // Branding Transforms
-  // Reduced end scale from 0.40 to 0.22 for a more elegant name in the sticky mode
-  const logoScale = useTransform(scrollY, range, [0.9, 0.22]); 
-  const logoY = useTransform(scrollY, [0, 400], ["15vh", "0vh"]); 
-  const logoX = useTransform(scrollY, [300, 600], ["0vw", "4vw"]); 
+  // Slightly larger end scale (0.32) for better legibility in sticky mode
+  const logoScale = useTransform(scrollY, range, [0.95, 0.32]); 
+  const logoY = useTransform(scrollY, [0, 500], ["15vh", "0vh"]); 
+  const logoX = useTransform(scrollY, [300, 600], ["0vw", "2vw"]); 
   
-  // Subtitle should fade out slightly but NOT shrink
-  const subtitleOpacity = useTransform(scrollY, [0, 150], [1, 0.4]);
+  // Subtitle should fade out COMPLETELY to 0 when scrolling
+  const subtitleOpacity = useTransform(scrollY, [0, 200], [1, 0]);
 
   return (
     <>
       <motion.nav 
         animate={{ y: isHidden ? "-150%" : "0%" }}
         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed top-0 left-0 w-full z-50 pointer-events-none p-6 md:p-10 lg:p-12"
+        className="fixed top-0 left-0 w-full z-50 pointer-events-none p-6 md:p-10 lg:p-12 font-sans"
       >
-        <div className="relative pointer-events-auto flex items-center justify-start h-24">
+        <div className="relative pointer-events-auto flex flex-col items-start justify-center h-24">
           
           {/* THE LOGO - Dynamically scaling and moving */}
           <motion.div
@@ -46,7 +46,7 @@ export default function Navbar({ onContactOpen }: { onContactOpen?: () => void }
               scale: logoScale,
               y: logoY,
               x: logoX,
-              transformOrigin: "left center"
+              transformOrigin: "left top"
             }}
             className="flex items-center relative z-10"
           >
@@ -58,14 +58,14 @@ export default function Navbar({ onContactOpen }: { onContactOpen?: () => void }
             </Link>
           </motion.div>
 
-          {/* THE SUBTITLE - Positioned relative to the container so it DOES NOT scale with the logo */}
+          {/* THE SUBTITLE - Fade out completely, NO scaling, increased Y to avoid overlap */}
           <motion.span 
             style={{ 
               opacity: subtitleOpacity,
-              y: useTransform(scrollY, [0, 400], ["26vh", "4vh"]), // Syncs with logo bottom but stays constant size
+              y: useTransform(scrollY, [0, 500], ["34vh", "5vh"]), // Adjusted for no overlap in Hero
               x: logoX, // Slides with the logo
             }}
-            className="absolute top-0 left-0 text-[10px] md:text-xs uppercase tracking-[1.1em] font-medium text-white/60 ml-2 md:ml-4 whitespace-nowrap z-0"
+            className="absolute top-0 left-0 text-[10px] md:text-sm lg:text-base uppercase tracking-[1.1em] font-medium text-white/60 ml-2 md:ml-4 whitespace-nowrap z-0"
           >
             Interior Design
           </motion.span>
