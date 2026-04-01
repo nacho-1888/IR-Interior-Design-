@@ -182,7 +182,7 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
       <footer id="contact" className="w-full bg-white text-black pt-24 md:pt-32 pb-12 md:pb-16 px-6 md:px-24 flex flex-col font-sans relative z-30 border-t border-black/5">
         
         {/* Main Footer Block - Logo and Menu Locked Vertically */}
-        <div className="flex flex-row justify-between items-stretch w-full relative z-10 mb-8">
+        <div className="flex flex-row justify-between items-stretch w-full relative z-10 mb-8 max-w-[1920px] mx-auto">
           
           {/* Left: Huge Logo - The Vertical Anchor (Slightly more leading for Umlaut) */}
           <div className="w-auto flex flex-col">
@@ -194,7 +194,7 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
           </div>
 
           {/* Right side: Monolithic Link List - Locked to Logo Height */}
-          <div className="w-auto flex flex-col items-end justify-between text-[8.5px] md:text-xs font-bold py-[1vw]">
+          <div className="w-auto flex flex-col items-end justify-between text-[8.5px] md:text-sm font-bold py-[1vw]">
             <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-right whitespace-nowrap hover:text-black/40 transition-colors uppercase tracking-[0.25em]">Home</button>
             <button onClick={onContactOpen} className="text-right whitespace-nowrap hover:text-black/40 transition-colors uppercase tracking-[0.25em]">Contact Us</button>
             <a href="#portfolio" className="text-right whitespace-nowrap hover:text-black/40 transition-colors uppercase tracking-[0.25em]">Projects</a>
@@ -204,7 +204,7 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
         </div>
 
         {/* Studio Contact Metadata - Tucked tightly under branding */}
-        <div className="w-full relative z-10 mb-12">
+        <div className="w-full relative z-10 mb-12 max-w-[1920px] mx-auto">
           <div className="flex flex-col space-y-4 text-[10px] md:text-xs uppercase tracking-[0.4em] font-black text-black/40">
             <div className="flex flex-wrap gap-x-12 gap-y-2">
               <a href="https://www.instagram.com/isabelromer.interiordesign/" target="_blank" rel="noreferrer" className="hover:text-black transition-colors">Instagram</a>
@@ -214,29 +214,6 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
               <p className="whitespace-nowrap">Madrid — Spain</p>
               <div className="hidden md:block w-px h-4 bg-black/10" />
               <a href="tel:+34647383266" className="hover:opacity-70 transition-opacity whitespace-nowrap font-semibold">+34 647 383 266</a>
-            </div>
-          </div>
-        </div>
-
-        {/* Desktop Only: Expanded Complete Contact Section */}
-        <div className="hidden lg:flex w-full flex-col items-center mt-20 mb-32">
-          <div className="w-full max-center flex justify-end">
-            <div className="w-full max-w-md flex flex-col space-y-12">
-              <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-black leading-[0.85]">
-                Let's Talk.
-              </h3>
-              
-              <div className="flex flex-col space-y-4">
-                <div className="bg-black/5 rounded-2xl px-6 py-5 flex group transition-all focus-within:bg-black/[0.08] border border-black/5 focus-within:border-black/10">
-                  <input type="text" placeholder="NAME" className="w-full bg-transparent outline-none text-xs uppercase tracking-[0.25em] placeholder:text-black/20 text-black font-semibold" />
-                </div>
-                <div className="bg-black/5 rounded-2xl px-6 py-5 flex group transition-all focus-within:bg-black/[0.08] border border-black/5 focus-within:border-black/10">
-                  <input type="email" placeholder="EMAIL" className="w-full bg-transparent outline-none text-xs uppercase tracking-[0.25em] placeholder:text-black/20 text-black font-semibold" />
-                </div>
-                <button className="w-full py-6 bg-black text-white font-black uppercase text-[10px] tracking-[0.5em] hover:bg-black/90 active:scale-[0.98] transition-all rounded-2xl mt-4 shadow-2xl shadow-black/10">
-                  Send Message
-                </button>
-              </div>
             </div>
           </div>
         </div>
