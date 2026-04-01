@@ -65,7 +65,7 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
 
 
       {/* Hero section */}
-      <section className="h-screen w-full font-sans relative overflow-hidden">
+      <section className="h-[100dvh] w-full font-sans relative overflow-hidden">
         
         {/* Background Images Layer */}
         <div className="absolute inset-0 z-0">
