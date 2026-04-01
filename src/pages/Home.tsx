@@ -182,11 +182,11 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
       <footer id="contact" className="w-full bg-white text-black pt-24 md:pt-32 pb-12 md:pb-16 px-6 md:px-24 flex flex-col font-sans relative z-30 border-t border-black/5">
         
         {/* Main Footer Block - Logo and Menu Locked Vertically */}
-        <div className="flex flex-row justify-between items-stretch w-full relative z-10 mb-8 min-h-[14vw]">
+        <div className="flex flex-row justify-between items-stretch w-full relative z-10 mb-8">
           
-          {/* Left: Huge Logo - The Vertical Anchor */}
+          {/* Left: Huge Logo - The Vertical Anchor (Slightly more leading for Umlaut) */}
           <div className="w-auto flex flex-col">
-            <h2 className="text-[14.5vw] md:text-[7.5vw] leading-[0.8] display-font font-black tracking-tighter uppercase text-black m-0 p-0">
+            <h2 className="text-[14.5vw] md:text-[7.5vw] leading-[0.95] display-font font-black tracking-tighter uppercase text-black m-0 p-0">
               Isabel
               <br className="hidden md:block" />
               <span className="md:hidden"> </span>Römer
@@ -194,7 +194,7 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
           </div>
 
           {/* Right side: Monolithic Link List - Locked to Logo Height */}
-          <div className="w-auto flex flex-col items-end justify-between text-[8.5px] md:text-xs font-bold py-[0.5vw]">
+          <div className="w-auto flex flex-col items-end justify-between text-[8.5px] md:text-xs font-bold py-[1vw]">
             <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-right whitespace-nowrap hover:text-black/40 transition-colors uppercase tracking-[0.25em]">Home</button>
             <button onClick={onContactOpen} className="text-right whitespace-nowrap hover:text-black/40 transition-colors uppercase tracking-[0.25em]">Contact Us</button>
             <a href="#portfolio" className="text-right whitespace-nowrap hover:text-black/40 transition-colors uppercase tracking-[0.25em]">Projects</a>
