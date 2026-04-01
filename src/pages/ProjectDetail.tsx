@@ -77,7 +77,7 @@ export default function ProjectDetail({ onContactOpen }: { onContactOpen: () => 
         >
           Home
         </Link>
-        <h1 className="branding-font text-xl md:text-4xl lg:text-6xl uppercase tracking-[0.1em] font-black text-white absolute left-1/2 -translate-x-1/2 text-center w-full px-20 pointer-events-none whitespace-normal leading-tight pt-1">
+        <h1 className="branding-font text-2xl md:text-4xl lg:text-6xl uppercase tracking-[0.1em] font-black text-white absolute left-1/2 -translate-x-1/2 text-center w-[60%] md:w-full px-4 pointer-events-none whitespace-normal leading-[0.85] pt-1">
           {project.title}
         </h1>
         <button 
