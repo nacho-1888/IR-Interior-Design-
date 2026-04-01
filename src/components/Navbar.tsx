@@ -36,9 +36,9 @@ export default function Navbar({ onContactOpen }: { onContactOpen?: () => void }
       <motion.nav 
         animate={{ y: isHidden ? "-150%" : "0%" }}
         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed top-0 left-0 w-full z-50 pointer-events-none px-6 pb-6 pt-0 md:p-10 lg:p-12 font-sans"
+        className="fixed top-0 left-0 w-full z-50 pointer-events-none p-6 md:p-10 lg:p-12 font-sans"
       >
-        <div className="relative pointer-events-auto flex flex-col items-start justify-center h-28 md:h-24 pt-4 md:pt-0">
+        <div className="relative pointer-events-auto flex flex-col items-start justify-center h-24">
           
           {/* THE LOGO - Dynamically scaling and moving */}
           <motion.div
@@ -62,10 +62,10 @@ export default function Navbar({ onContactOpen }: { onContactOpen?: () => void }
           <motion.span 
             style={{ 
               opacity: subtitleOpacity,
-              y: useTransform(scrollY, [0, 500], ["36vh", "10vh"]), // Pushed down slightly more for the larger leading
+              y: useTransform(scrollY, [0, 500], ["26vh", "10vh"]), // Tightened from 36vh to 26vh for mobile
               x: logoX, // Slides with the logo
             }}
-            className="absolute top-0 left-0 text-[10px] md:text-sm lg:text-base uppercase tracking-[1.1em] font-medium text-white/60 ml-2 md:ml-4 whitespace-nowrap z-0"
+            className="absolute top-0 left-0 text-[8px] md:text-sm lg:text-base uppercase tracking-[0.6em] md:tracking-[1.1em] font-black text-white/50 ml-2 md:ml-4 whitespace-nowrap z-0"
           >
             Interior Design
           </motion.span>

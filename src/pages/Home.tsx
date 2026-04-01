@@ -99,15 +99,15 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
             </motion.div>
           </div>
 
-          {/* Bottom Section */}
-          <div className="flex flex-col md:flex-row justify-between items-end pb-8 w-full relative">
+          {/* Bottom Section - Repositioned HUD for mobile ergonomics */}
+          <div className="flex flex-col md:flex-row justify-between items-end pb-8 w-full relative h-full">
             
-            {/* Dynamic Project Title in Bottom Left */}
+            {/* Dynamic Project Title - Lifted higher to clear mobile search bars */}
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 1 }}
-              className="max-w-[280px] md:max-w-xl absolute bottom-4 left-2 md:left-4"
+              className="max-w-[280px] md:max-w-xl absolute bottom-[18vh] left-2 md:left-4"
             >
               <AnimatePresence mode="wait">
                 <motion.h2
@@ -116,15 +116,15 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: 20 }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
-                  className="text-[8vw] md:text-5xl lg:text-6xl font-bold uppercase tracking-tight text-white/95"
+                  className="text-[10vw] md:text-5xl lg:text-6xl font-bold uppercase tracking-tight text-white/95"
                 >
                   {heroProjects[heroIndex].title}
                 </motion.h2>
               </AnimatePresence>
             </motion.div>
 
-            {/* Carousel Flat Lines Indicator */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-4">
+            {/* Carousel Flat Lines Indicator - Re-centered visually */}
+            <div className="absolute bottom-[8vh] left-1/2 -translate-x-1/2 flex items-center gap-4">
               {heroImages.map((_, i) => (
                 <button 
                   key={i}
@@ -135,33 +135,32 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
               ))}
             </div>
 
-            {/* Bottom Right Menu */}
+            {/* Top Right Navigation Menu - Relocated for mobile visibility */}
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7, duration: 1 }}
-              className="flex flex-col items-end space-y-4 absolute bottom-8 right-0 md:pr-4"
+              className="flex flex-col items-end space-y-4 md:space-y-6 absolute top-8 right-0 md:pr-4 z-40 bg-black/10 backdrop-blur-sm p-4 rounded-xl md:bg-transparent md:backdrop-blur-none"
             >
               <button 
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} 
-                className="text-[10px] md:text-xs text-white uppercase tracking-[0.35em] flex items-center gap-6 hover:opacity-70 transition-opacity"
+                className="text-[9px] md:text-xs text-white uppercase tracking-[0.35em] whitespace-nowrap hover:opacity-70 transition-opacity"
               >
-                Home <span className="w-10 h-[1px] bg-white hidden md:block" />
+                Home
               </button>
               <button 
                 onClick={() => document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" })} 
-                className="text-[10px] md:text-xs text-white/60 uppercase tracking-[0.35em] hover:text-white transition-colors text-right w-full"
+                className="text-[9px] md:text-xs text-white/60 uppercase tracking-[0.35em] whitespace-nowrap hover:text-white transition-colors"
               >
                 Portfolio
               </button>
               <button 
                 onClick={onContactOpen} 
-                className="text-[10px] md:text-xs text-white/60 uppercase tracking-[0.35em] hover:text-white transition-colors text-right w-full"
+                className="text-[9px] md:text-xs text-white/60 uppercase tracking-[0.35em] whitespace-nowrap hover:text-white transition-colors"
               >
                 Contact
               </button>
             </motion.div>
-
           </div>
         </div>
       </section>
