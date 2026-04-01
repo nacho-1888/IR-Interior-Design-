@@ -179,9 +179,9 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
       </div>
 
       {/* Solid Museum-Style White Footer */}
-      <footer id="contact" className="w-full bg-white text-black pt-24 md:pt-32 pb-12 md:pb-16 px-6 md:px-24 flex flex-col md:flex-row justify-between items-start gap-12 md:gap-20 font-sans relative z-30 border-t border-black/5 flex-wrap">
+      <footer id="contact" className="w-full bg-white text-black pt-24 md:pt-32 pb-12 md:pb-16 px-6 md:px-24 flex flex-col md:flex-row justify-between items-start gap-12 md:gap-20 font-sans relative z-30 border-t border-black/5">
         
-        {/* Left: Huge Logo - Adjusted width to prevent wrap */}
+        {/* Left: Huge Logo & Direct Studio Contact */}
         <div className="w-full md:w-4/12 relative z-10">
           <h2 className="text-[14vw] md:text-[7.5vw] leading-[0.95] display-font font-black tracking-tighter uppercase text-black mb-12">
             Isabel
@@ -189,26 +189,26 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
             <span className="md:hidden"> </span>Römer
           </h2>
           
-          {/* Direct Studio Contact Links */}
           <div className="flex flex-col space-y-4 text-[10px] md:text-xs uppercase tracking-[0.4em] font-black text-black/40">
             <div className="flex gap-14">
               <a href="https://www.instagram.com/isabelromer.interiordesign/" target="_blank" rel="noreferrer" className="hover:text-black transition-colors">Instagram</a>
               <a href="mailto:proyectos@isabelromer.com" className="hover:text-black transition-colors">Email</a>
             </div>
-            <div className="flex flex-col space-y-2 mt-4 text-black font-medium normal-case tracking-normal text-sm md:text-base">
-              <p>Madrid - Spain</p>
-              <a href="tel:+34647383266" className="hover:opacity-70 transition-opacity">+34 647 383 266</a>
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-4 text-black font-medium normal-case tracking-normal text-sm md:text-base">
+              <p>Madrid — Spain</p>
+              <div className="hidden md:block w-px h-4 bg-black/10" />
+              <a href="tel:+34647383266" className="hover:opacity-70 transition-opacity whitespace-nowrap">+34 647 383 266</a>
             </div>
           </div>
         </div>
 
-        {/* Center: Monolithic Link List - Adjusted width */}
-        <div className="w-full md:w-2/12 flex flex-col space-y-6 text-xs font-bold justify-start relative z-10 pt-4">
-          <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-left hover:text-black/40 transition-colors uppercase tracking-[0.2em]">Home</button>
-          <button onClick={onContactOpen} className="text-left hover:text-black/40 transition-colors uppercase tracking-[0.2em]">Contact Us</button>
-          <a href="#portfolio" className="hover:text-black/40 transition-colors uppercase tracking-[0.2em]">Projects</a>
-          <Link to="/privacy-policy" className="hover:text-black/40 transition-colors uppercase tracking-[0.2em]">Privacy Policy</Link>
-          <Link to="/terms-conditions" className="hover:text-black/40 transition-colors uppercase tracking-[0.2em]">Terms & Conditions</Link>
+        {/* Right side for mobile: Monolithic Link List relocated */}
+        <div className="w-full md:w-2/12 flex flex-col items-end md:items-start space-y-6 text-[10px] md:text-xs font-bold justify-start relative z-10 md:pt-4">
+          <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-right md:text-left hover:text-black/40 transition-colors uppercase tracking-[0.2em]">Home</button>
+          <button onClick={onContactOpen} className="text-right md:text-left hover:text-black/40 transition-colors uppercase tracking-[0.2em]">Contact Us</button>
+          <a href="#portfolio" className="text-right md:text-left hover:text-black/40 transition-colors uppercase tracking-[0.2em]">Projects</a>
+          <Link to="/privacy-policy" className="text-right md:text-left hover:text-black/40 transition-colors uppercase tracking-[0.2em]">Privacy Policy</Link>
+          <Link to="/terms-conditions" className="text-right md:text-left hover:text-black/40 transition-colors uppercase tracking-[0.2em]">Terms & Conditions</Link>
         </div>
 
         {/* Right: Expanded Complete Contact Section - Adjusted width to prevent wrap */}
