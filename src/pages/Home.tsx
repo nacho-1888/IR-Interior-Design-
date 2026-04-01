@@ -135,18 +135,18 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
               ))}
             </div>
 
-            {/* Top Right Navigation Menu - Relocated for mobile visibility */}
+            {/* Right Side Navigation Menu - Below Branding */}
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7, duration: 1 }}
-              className="flex flex-col items-end space-y-4 md:space-y-6 absolute top-8 right-0 md:pr-4 z-40 bg-black/10 backdrop-blur-sm p-4 rounded-xl md:bg-transparent md:backdrop-blur-none"
+              className="flex flex-col items-end space-y-4 md:space-y-6 absolute top-[38vh] right-0 md:pr-4 z-40"
             >
               <button 
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} 
-                className="text-[9px] md:text-xs text-white uppercase tracking-[0.35em] whitespace-nowrap hover:opacity-70 transition-opacity"
+                className="text-[9px] md:text-xs text-white uppercase tracking-[0.35em] flex items-center gap-4 hover:opacity-70 transition-opacity"
               >
-                Home
+                Home <span className="w-10 h-[1px] bg-white hidden md:block" />
               </button>
               <button 
                 onClick={() => document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" })} 

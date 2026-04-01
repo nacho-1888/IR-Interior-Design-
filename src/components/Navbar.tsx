@@ -38,34 +38,34 @@ export default function Navbar({ onContactOpen }: { onContactOpen?: () => void }
         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
         className="fixed top-0 left-0 w-full z-50 pointer-events-none p-6 md:p-10 lg:p-12 font-sans"
       >
-        <div className="relative pointer-events-auto flex flex-col items-start justify-center h-24">
+        <div className="relative pointer-events-auto flex flex-col items-end justify-center h-24">
           
-          {/* THE LOGO - Dynamically scaling and moving */}
+          {/* THE LOGO - Dynamically scaling and moving to the top-right */}
           <motion.div
             style={{ 
               scale: logoScale,
               y: logoY,
               x: logoX,
-              transformOrigin: "left top"
+              transformOrigin: "right top"
             }}
             className="flex items-center relative z-10"
           >
             <Link 
               to="/" 
-              className="text-6xl md:text-[8rem] lg:text-[10rem] branding-font font-bold leading-[0.95] md:leading-none tracking-tight block whitespace-nowrap md:whitespace-nowrap uppercase text-white"
+              className="text-6xl md:text-[8rem] lg:text-[10rem] branding-font font-bold leading-[0.95] md:leading-none tracking-tight block whitespace-nowrap text-right uppercase text-white px-2"
             >
               Isabel <br className="md:hidden" /> Römer
             </Link>
           </motion.div>
 
-          {/* THE SUBTITLE - Fade out, brought closer to the name in the Hero lockup */}
+          {/* THE SUBTITLE - Tucked carefully below without overlap */}
           <motion.span 
             style={{ 
               opacity: subtitleOpacity,
-              y: useTransform(scrollY, [0, 500], ["26vh", "10vh"]), // Tightened from 36vh to 26vh for mobile
-              x: logoX, // Slides with the logo
+              y: useTransform(scrollY, [0, 500], ["28vh", "10vh"]), // Pushed to 28vh to avoid overlap
+              x: logoX,
             }}
-            className="absolute top-0 left-0 text-[8px] md:text-sm lg:text-base uppercase tracking-[0.6em] md:tracking-[1.1em] font-black text-white/50 ml-2 md:ml-4 whitespace-nowrap z-0"
+            className="absolute top-0 right-0 text-[8px] md:text-sm lg:text-base uppercase tracking-[0.6em] md:tracking-[1.1em] font-black text-white/50 mr-4 whitespace-nowrap z-0"
           >
             Interior Design
           </motion.span>
