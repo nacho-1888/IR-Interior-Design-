@@ -112,11 +112,11 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
               <AnimatePresence mode="wait">
                 <motion.h2
                   key={heroIndex}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 20 }}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -30 }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
-                  className="text-[10vw] md:text-5xl lg:text-6xl font-bold uppercase tracking-tight text-white/95"
+                  className="text-[13vw] md:text-8xl lg:text-9xl display-font font-black tracking-tighter text-white uppercase leading-[0.8] mb-10 mix-blend-difference"
                 >
                   {heroProjects[heroIndex].title}
                 </motion.h2>
@@ -192,34 +192,33 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
               <span className="md:hidden"> </span>Römer
             </h2>
           </div>
-
-          {/* Right side: Monolithic Link List - Locked to Logo Height */}
+          {/* Right side: Monolithic Link List - Focused on Navigation */}
           <div className="w-auto flex flex-col items-end justify-between text-[8.5px] md:text-sm font-bold py-[1vw]">
-            <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-right whitespace-nowrap hover:text-black/40 transition-colors uppercase tracking-[0.25em]">Home</button>
-            <button onClick={onContactOpen} className="text-right whitespace-nowrap hover:text-black/40 transition-colors uppercase tracking-[0.25em]">Contact Us</button>
-            <a href="#portfolio" className="text-right whitespace-nowrap hover:text-black/40 transition-colors uppercase tracking-[0.25em]">Projects</a>
-            <Link to="/privacy-policy" className="text-right whitespace-nowrap hover:text-black/40 transition-colors uppercase tracking-[0.25em]">Privacy</Link>
-            <Link to="/terms-conditions" className="text-right whitespace-nowrap hover:text-black/40 transition-colors uppercase tracking-[0.25em]">Terms</Link>
+            <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-right whitespace-nowrap hover:text-black/40 transition-colors uppercase tracking-[0.25em] text-black">Home</button>
+            <button onClick={onContactOpen} className="text-right whitespace-nowrap hover:text-black/40 transition-colors uppercase tracking-[0.25em] text-black">Contact Us</button>
+            <a href="#portfolio" className="text-right whitespace-nowrap hover:text-black/40 transition-colors uppercase tracking-[0.25em] text-black">Projects</a>
+            <Link to="/privacy-policy" className="text-right whitespace-nowrap hover:text-black/40 transition-colors uppercase tracking-[0.25em] text-black">Privacy</Link>
+            <Link to="/terms-conditions" className="text-right whitespace-nowrap hover:text-black/40 transition-colors uppercase tracking-[0.25em] text-black">Terms</Link>
           </div>
         </div>
 
-        {/* Studio Contact Metadata - Tucked tightly under branding */}
+        {/* Studio Contact Metadata - Unified Hierarchical Opacity */}
         <div className="w-full relative z-10 mb-12 max-w-[1920px] mx-auto">
-          <div className="flex flex-col space-y-4 text-[10px] md:text-xs uppercase tracking-[0.4em] font-black text-black/40">
-            <div className="flex flex-wrap gap-x-12 gap-y-2">
+          <div className="flex flex-col space-y-4 text-[10px] md:text-xs uppercase tracking-[0.4em] font-black">
+            <div className="flex flex-wrap gap-x-12 gap-y-2 text-black/40">
               <a href="https://www.instagram.com/isabelromer.interiordesign/" target="_blank" rel="noreferrer" className="hover:text-black transition-colors">Instagram</a>
               <a href="mailto:proyectos@isabelromer.com" className="hover:text-black transition-colors">Email</a>
             </div>
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-1 mt-2 text-black font-medium normal-case tracking-normal text-sm md:text-base">
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-1 mt-2 text-black font-semibold normal-case tracking-normal text-sm md:text-base">
               <p className="whitespace-nowrap">Madrid — Spain</p>
               <div className="hidden md:block w-px h-4 bg-black/10" />
-              <a href="tel:+34647383266" className="hover:opacity-70 transition-opacity whitespace-nowrap font-semibold">+34 647 383 266</a>
+              <a href="tel:+34647383266" className="hover:opacity-70 transition-opacity whitespace-nowrap">+34 647 383 266</a>
             </div>
           </div>
         </div>
 
-        {/* Global Copyright - Spans full width on mobile/desktop bottoms */}
-        <div className="w-full pt-10 md:pt-4 text-[9px] md:text-[10px] font-bold tracking-[0.3em] md:text-right text-black/30 uppercase mt-4 md:mt-0 border-t border-black/5 md:border-none">
+        {/* Global Copyright - Bottom Marker */}
+        <div className="w-full pt-10 md:pt-4 text-[9px] md:text-[10px] font-bold tracking-[0.3em] md:text-right text-black/40 uppercase mt-4 md:mt-0 border-t border-black/5 md:border-none">
           © 2026 Isabel Römer. All Rights Reserved.
         </div>
       </footer>
