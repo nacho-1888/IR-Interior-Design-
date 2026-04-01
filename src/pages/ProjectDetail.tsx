@@ -48,7 +48,7 @@ export default function ProjectDetail({ onContactOpen }: { onContactOpen: () => 
   }, [imgIndex]);
 
   return (
-    <main className="bg-luxury-black text-white h-[105vh] md:h-screen w-full relative overflow-hidden font-sans">
+    <main className="bg-luxury-black text-white h-[100dvh] md:h-screen w-full relative overflow-hidden font-sans">
       
       {/* Background Gallery Layer */}
       <div className="absolute inset-0 z-0 bg-[#050505] overflow-hidden">
@@ -70,12 +70,12 @@ export default function ProjectDetail({ onContactOpen }: { onContactOpen: () => 
       </div>
 
       {/* TOP OVERLAY - Mirroring Reference Layout */}
-      <div className="absolute top-0 left-0 w-full z-20 flex justify-between items-center p-8 lg:p-12">
+      <div className="absolute top-0 left-0 w-full z-20 flex justify-between items-center p-8 pt-16 lg:p-12 lg:pt-12">
         <Link 
           to="/" 
           className="text-white text-[10px] md:text-xs uppercase tracking-[0.4em] font-medium hover:opacity-50 transition-opacity z-30"
         >
-          Menu
+          Home
         </Link>
         <h1 className="branding-font text-2xl md:text-4xl lg:text-6xl uppercase tracking-[0.1em] font-black text-white absolute left-1/2 -translate-x-1/2 text-center w-full px-24 pointer-events-none">
           {project.title}
@@ -112,14 +112,9 @@ export default function ProjectDetail({ onContactOpen }: { onContactOpen: () => 
       </div>
 
       {/* BOTTOM OVERLAY - Mirroring Reference Layout */}
-      <div className="absolute bottom-0 left-0 w-full z-20 flex justify-between items-end p-8 lg:p-12 pointer-events-none">
+      <div className="absolute bottom-0 left-0 w-full z-20 flex justify-between items-end p-8 pb-24 lg:p-12 lg:pb-12 pointer-events-none">
         
-        {/* Scroll/Indicator Arrow */}
-        <div className="pointer-events-auto">
-          <div className="w-8 h-8 flex items-center justify-center border border-white/20 rounded-full hover:bg-white/10 transition-all cursor-pointer">
-             <span className="text-white">↓</span>
-          </div>
-        </div>
+        <div className="hidden md:block pointer-events-auto w-[60px]" />
 
         {/* Dynamic Image Progress Line */}
         <div className="flex-1 flex justify-center pb-3 pointer-events-auto">
