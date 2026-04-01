@@ -43,23 +43,22 @@ export default function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
 
             {/* Direct Contact List - Refined Visual Hierarchy */}
             <div className="flex flex-col space-y-12 mt-6">
-              
-              {/* Call */}
-              <a href="tel:+34647383266" className="group flex flex-col items-start">
-                <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-black/40 mb-3 group-hover:text-black transition-colors">Call</span>
+              {/* WhatsApp */}
+              <a href="https://wa.me/34647383266" target="_blank" rel="noreferrer" className="group flex flex-col items-start">
+                <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-black/40 mb-3 group-hover:text-black transition-colors">WhatsApp</span>
                 <span className="text-xl md:text-2xl font-light tracking-tight text-black">+34 647 383 266</span>
-              </a>
-
-              {/* Message / Instagram */}
-              <a href="https://www.instagram.com/isabelromer.interiordesign/" target="_blank" rel="noreferrer" className="group flex flex-col items-start">
-                <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-black/40 mb-3 group-hover:text-black transition-colors">Message</span>
-                <span className="text-xl md:text-2xl font-light tracking-tight text-black">@isabelromer.interiordesign</span>
               </a>
 
               {/* Email */}
               <a href="mailto:proyectos@isabelromer.com" className="group flex flex-col items-start">
                 <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-black/40 mb-3 group-hover:text-black transition-colors">Email</span>
                 <span className="text-xl md:text-2xl font-light tracking-tight text-black">proyectos@isabelromer.com</span>
+              </a>
+
+              {/* Instagram */}
+              <a href="https://www.instagram.com/isabelromer.interiordesign/" target="_blank" rel="noreferrer" className="group flex flex-col items-start">
+                <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-black/40 mb-3 group-hover:text-black transition-colors">Instagram</span>
+                <span className="text-xl md:text-2xl font-light tracking-tight text-black">@isabelromer.interiordesign</span>
               </a>
 
             </div>
