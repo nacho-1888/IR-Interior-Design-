@@ -181,29 +181,29 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
       {/* Solid Museum-Style White Footer */}
       <footer id="contact" className="w-full bg-white text-black pt-24 md:pt-32 pb-12 md:pb-16 px-6 md:px-24 flex flex-col font-sans relative z-30 border-t border-black/5">
         
-        {/* Main Footer Row: Brand + Right-aligned Menu */}
-        <div className="flex flex-row justify-between items-start w-full relative z-10 mb-12">
+        {/* Main Footer Block - Logo and Menu Locked Vertically */}
+        <div className="flex flex-row justify-between items-stretch w-full relative z-10 mb-8 min-h-[14vw]">
           
-          {/* Left: Huge Logo - Restored to 14vw for impact */}
+          {/* Left: Huge Logo - The Vertical Anchor */}
           <div className="w-auto flex flex-col">
-            <h2 className="text-[14vw] md:text-[7.5vw] leading-[0.82] display-font font-black tracking-tighter uppercase text-black m-0 p-0">
+            <h2 className="text-[14.5vw] md:text-[7.5vw] leading-[0.8] display-font font-black tracking-tighter uppercase text-black m-0 p-0">
               Isabel
               <br className="hidden md:block" />
               <span className="md:hidden"> </span>Römer
             </h2>
           </div>
 
-          {/* Right side: Monolithic Link List - Perfectly Top-Aligned to Logo */}
-          <div className="w-auto flex flex-col items-end md:items-start space-y-4 md:space-y-6 text-[8px] md:text-xs font-bold justify-start pt-1 md:pt-[0.5vw]">
-            <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-right md:text-left hover:text-black/40 transition-colors uppercase tracking-[0.25em]">Home</button>
-            <button onClick={onContactOpen} className="text-right md:text-left hover:text-black/40 transition-colors uppercase tracking-[0.25em]">Contact Us</button>
-            <a href="#portfolio" className="text-right md:text-left hover:text-black/40 transition-colors uppercase tracking-[0.25em]">Projects</a>
-            <Link to="/privacy-policy" className="text-right md:text-left hover:text-black/40 transition-colors uppercase tracking-[0.25em]">Privacy</Link>
-            <Link to="/terms-conditions" className="text-right md:text-left hover:text-black/40 transition-colors uppercase tracking-[0.25em]">Terms</Link>
+          {/* Right side: Monolithic Link List - Locked to Logo Height */}
+          <div className="w-auto flex flex-col items-end justify-between text-[8.5px] md:text-xs font-bold py-[0.5vw]">
+            <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-right whitespace-nowrap hover:text-black/40 transition-colors uppercase tracking-[0.25em]">Home</button>
+            <button onClick={onContactOpen} className="text-right whitespace-nowrap hover:text-black/40 transition-colors uppercase tracking-[0.25em]">Contact Us</button>
+            <a href="#portfolio" className="text-right whitespace-nowrap hover:text-black/40 transition-colors uppercase tracking-[0.25em]">Projects</a>
+            <Link to="/privacy-policy" className="text-right whitespace-nowrap hover:text-black/40 transition-colors uppercase tracking-[0.25em]">Privacy</Link>
+            <Link to="/terms-conditions" className="text-right whitespace-nowrap hover:text-black/40 transition-colors uppercase tracking-[0.25em]">Terms</Link>
           </div>
         </div>
 
-        {/* Lower Footer Row: Direct Studio Contact */}
+        {/* Studio Contact Metadata - Tucked tightly under branding */}
         <div className="w-full relative z-10 mb-12">
           <div className="flex flex-col space-y-4 text-[10px] md:text-xs uppercase tracking-[0.4em] font-black text-black/40">
             <div className="flex flex-wrap gap-x-12 gap-y-2">
@@ -213,14 +213,14 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
             <div className="flex flex-wrap items-center gap-x-6 gap-y-1 mt-2 text-black font-medium normal-case tracking-normal text-sm md:text-base">
               <p className="whitespace-nowrap">Madrid — Spain</p>
               <div className="hidden md:block w-px h-4 bg-black/10" />
-              <a href="tel:+34647383266" className="hover:opacity-70 transition-opacity whitespace-nowrap">+34 647 383 266</a>
+              <a href="tel:+34647383266" className="hover:opacity-70 transition-opacity whitespace-nowrap font-semibold">+34 647 383 266</a>
             </div>
           </div>
         </div>
 
         {/* Desktop Only: Expanded Complete Contact Section */}
         <div className="hidden lg:flex w-full flex-col items-center mt-20 mb-32">
-          <div className="w-full max-w-7xl flex justify-end">
+          <div className="w-full max-center flex justify-end">
             <div className="w-full max-w-md flex flex-col space-y-12">
               <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-black leading-[0.85]">
                 Let's Talk.
