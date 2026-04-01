@@ -48,7 +48,7 @@ export default function ProjectDetail({ onContactOpen }: { onContactOpen: () => 
   }, [imgIndex]);
 
   return (
-    <main className="bg-luxury-black text-white min-h-[110dvh] md:h-screen w-full relative overflow-hidden font-sans">
+    <main className="bg-luxury-black text-white h-[100dvh] md:h-screen w-full relative overflow-hidden font-sans">
       
       {/* Background Gallery Layer */}
       <div className="absolute inset-0 z-0 bg-[#050505] overflow-hidden">

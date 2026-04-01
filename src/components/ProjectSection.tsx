@@ -27,7 +27,7 @@ const ProjectSection = React.memo(({ project, onProjectSelect }: ProjectSectionP
   return (
     <section 
       ref={containerRef}
-      className="relative min-h-[110dvh] md:h-screen w-full flex items-center justify-center bg-luxury-black overflow-hidden font-sans"
+      className="relative h-[100dvh] md:h-screen w-full flex items-center justify-center bg-luxury-black overflow-hidden font-sans"
     >
       {/* Foolproof GPU Crossfade: Pre-mounted architectural layers */}
       <motion.div 
