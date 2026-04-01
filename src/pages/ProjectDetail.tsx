@@ -70,10 +70,10 @@ export default function ProjectDetail({ onContactOpen }: { onContactOpen: () => 
       </div>
 
       {/* TOP OVERLAY - Improved for mobile overlap prevention */}
-      <div className="absolute top-0 left-0 w-full z-20 flex justify-between items-start p-8 pt-16 lg:p-12 lg:pt-12 pointer-events-none">
+      <div className="absolute top-0 left-0 w-full z-20 flex justify-between items-start px-4 pt-16 lg:p-12 lg:pt-12 pointer-events-none">
         <Link 
           to="/" 
-          className="text-white text-[10px] md:text-xs uppercase tracking-[0.4em] font-medium hover:opacity-50 transition-opacity z-30 pointer-events-auto"
+          className="text-white text-[8px] md:text-xs uppercase tracking-[0.4em] font-medium hover:opacity-50 transition-opacity z-30 pointer-events-auto"
         >
           Home
         </Link>
@@ -82,7 +82,7 @@ export default function ProjectDetail({ onContactOpen }: { onContactOpen: () => 
         </h1>
         <button 
           onClick={onContactOpen} 
-          className="text-white text-[10px] md:text-xs uppercase tracking-[0.4em] font-medium hover:opacity-50 transition-opacity z-30 pointer-events-auto"
+          className="text-white text-[8px] md:text-xs uppercase tracking-[0.4em] font-medium hover:opacity-50 transition-opacity z-30 pointer-events-auto text-right"
         >
           Let's Talk
         </button>
