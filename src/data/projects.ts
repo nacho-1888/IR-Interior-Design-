@@ -34,7 +34,7 @@ export const projects: Project[] = [
     location: "Madrid, Spain",
     description: "A sanctuary of warmth and character, where every detail tells a story through rich materials and sophisticated silhouettes.",
     coverImage: "/assets/projects/aca-entre-nos/img1.png",
-    customPosition: "left center",
+    customPosition: "center",
     gallery: [
       "/assets/projects/aca-entre-nos/img1.png",
       "/assets/projects/aca-entre-nos/img2.png",
