@@ -78,8 +78,8 @@ const ProjectSection = React.memo(({ project, onProjectSelect }: ProjectSectionP
         </div>
       </div>
 
-      {/* Bottom Left Content (Current Project Details) */}
-      <div className={`absolute bottom-16 md:bottom-20 left-6 lg:left-20 z-20 ${project.title === 'ACA ENTRE NOS' ? 'max-w-5xl' : 'max-w-3xl'} pointer-events-none`}>
+      {/* Bottom Left Content (Current Project Details) - Lifted higher on mobile */}
+      <div className={`absolute bottom-24 md:bottom-20 left-6 lg:left-20 z-20 ${project.title === 'ACA ENTRE NOS' ? 'max-w-5xl' : 'max-w-3xl'} pointer-events-none`}>
         <AnimatePresence mode="popLayout">
           <motion.div
              key={project.id}

@@ -69,20 +69,20 @@ export default function ProjectDetail({ onContactOpen }: { onContactOpen: () => 
         <div className="absolute inset-0 bg-black/30 z-10" />
       </div>
 
-      {/* TOP OVERLAY - Mirroring Reference Layout */}
-      <div className="absolute top-0 left-0 w-full z-20 flex justify-between items-center p-8 pt-16 lg:p-12 lg:pt-12">
+      {/* TOP OVERLAY - Improved for mobile overlap prevention */}
+      <div className="absolute top-0 left-0 w-full z-20 flex justify-between items-start p-8 pt-16 lg:p-12 lg:pt-12 pointer-events-none">
         <Link 
           to="/" 
-          className="text-white text-[10px] md:text-xs uppercase tracking-[0.4em] font-medium hover:opacity-50 transition-opacity z-30"
+          className="text-white text-[10px] md:text-xs uppercase tracking-[0.4em] font-medium hover:opacity-50 transition-opacity z-30 pointer-events-auto"
         >
           Home
         </Link>
-        <h1 className="branding-font text-2xl md:text-4xl lg:text-6xl uppercase tracking-[0.1em] font-black text-white absolute left-1/2 -translate-x-1/2 text-center w-full px-24 pointer-events-none">
+        <h1 className="branding-font text-xl md:text-4xl lg:text-6xl uppercase tracking-[0.1em] font-black text-white absolute left-1/2 -translate-x-1/2 text-center w-full px-20 pointer-events-none whitespace-normal leading-tight pt-1">
           {project.title}
         </h1>
         <button 
           onClick={onContactOpen} 
-          className="text-white text-[10px] md:text-xs uppercase tracking-[0.4em] font-medium hover:opacity-50 transition-opacity z-30"
+          className="text-white text-[10px] md:text-xs uppercase tracking-[0.4em] font-medium hover:opacity-50 transition-opacity z-30 pointer-events-auto"
         >
           Let's Talk
         </button>
@@ -111,13 +111,13 @@ export default function ProjectDetail({ onContactOpen }: { onContactOpen: () => 
         </button>
       </div>
 
-      {/* BOTTOM OVERLAY - Mirroring Reference Layout */}
-      <div className="absolute bottom-0 left-0 w-full z-20 flex justify-between items-end p-8 pb-24 lg:p-12 lg:pb-12 pointer-events-none">
+      {/* BOTTOM OVERLAY - Re-centered progress bars and More Work shifted lower on mobile */}
+      <div className="absolute bottom-0 left-0 w-full z-20 flex flex-col md:flex-row justify-center md:justify-between items-center md:items-end p-8 pb-16 lg:p-12 lg:pb-12 pointer-events-none gap-6 md:gap-0">
         
         <div className="hidden md:block pointer-events-auto w-[60px]" />
 
         {/* Dynamic Image Progress Line */}
-        <div className="flex-1 flex justify-center pb-3 pointer-events-auto">
+        <div className="flex justify-center pb-3 pointer-events-auto">
           <div className="flex items-center gap-4">
             {gallery.map((_, i) => (
               <button 
@@ -129,7 +129,7 @@ export default function ProjectDetail({ onContactOpen }: { onContactOpen: () => 
           </div>
         </div>
 
-        {/* Back/Next Link */}
+        {/* Back/Next Link - Now centered and lower on mobile */}
         <div className="pointer-events-auto">
           <Link 
             to="/#portfolio" 
@@ -138,7 +138,6 @@ export default function ProjectDetail({ onContactOpen }: { onContactOpen: () => 
             More Work <span className="text-lg">→</span>
           </Link>
         </div>
-
       </div>
 
     </main>
