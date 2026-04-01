@@ -102,12 +102,12 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
           {/* Bottom Section - Repositioned HUD for mobile ergonomics */}
           <div className="flex flex-col md:flex-row justify-between items-end pb-8 w-full relative h-full">
             
-            {/* Dynamic Project Title - Lifted higher to clear mobile search bars */}
+            {/* Dynamic Project Title - Lifted higher to clear mobile search bars - Hidden on Mobile */}
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 1 }}
-              className="max-w-[280px] md:max-w-xl absolute bottom-[18vh] left-2 md:left-4"
+              className="hidden md:block max-w-[280px] md:max-w-xl absolute bottom-[18vh] left-2 md:left-4"
             >
               <AnimatePresence mode="wait">
                 <motion.h2
