@@ -36,9 +36,9 @@ export default function Navbar({ onContactOpen }: { onContactOpen?: () => void }
       <motion.nav 
         animate={{ y: isHidden ? "-150%" : "0%" }}
         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed top-0 left-0 w-full z-50 pointer-events-none p-6 md:p-10 lg:p-12 font-sans"
+        className="fixed top-0 left-0 w-full z-50 pointer-events-none px-6 pb-6 pt-0 md:p-10 lg:p-12 font-sans"
       >
-        <div className="relative pointer-events-auto flex flex-col items-start justify-center h-24">
+        <div className="relative pointer-events-auto flex flex-col items-start justify-center h-28 md:h-24 pt-4 md:pt-0">
           
           {/* THE LOGO - Dynamically scaling and moving */}
           <motion.div

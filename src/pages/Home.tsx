@@ -60,12 +60,12 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
   }, []);
 
   return (
-    <main className="relative bg-luxury-black text-luxury-paper">
+    <main className="relative bg-luxury-black text-luxury-paper h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
       
 
 
-      {/* Hero section - Locked to dynamic viewport for zero-peek full bleed */}
-      <section className="h-[100dvh] md:h-screen w-full font-sans relative overflow-hidden">
+      {/* Hero section - Ultra-Stretched for zero-gap immersive bleed */}
+      <section className="h-[120vh] md:h-screen w-full font-sans relative overflow-hidden snap-start">
         
         {/* Background Images Layer */}
         <div className="absolute inset-0 z-0">
@@ -166,10 +166,10 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
         </div>
       </section>
 
-      {/* Projects Portfolio Section - Dynamically reduced on mobile */}
+      {/* Projects Portfolio Section - Snapping windows */}
       <div id="portfolio" className="relative z-20 bg-luxury-black">
         {activeProjects.map((project, idx) => (
-          <div key={`pw-${idx}`} className={idx > 0 ? "hidden md:block" : "block"}>
+          <div key={`pw-${idx}`} className={`${idx > 0 ? "hidden md:block" : "block"} snap-start`}>
             <ProjectSection 
               project={project} 
               index={idx} 
