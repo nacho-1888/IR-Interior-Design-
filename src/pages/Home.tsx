@@ -116,7 +116,7 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -30 }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
-                  className="text-[13vw] md:text-8xl lg:text-9xl display-font font-black tracking-tighter text-white uppercase leading-[0.8] mb-10 mix-blend-difference"
+                  className="text-[10vw] md:text-5xl lg:text-6xl branding-font font-black tracking-tighter text-white uppercase leading-[0.8] mb-10 mix-blend-difference"
                 >
                   {heroProjects[heroIndex].title}
                 </motion.h2>
@@ -184,9 +184,9 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
         {/* Main Footer Block - Logo and Menu Locked Vertically */}
         <div className="flex flex-row justify-between items-stretch w-full relative z-10 mb-8 max-w-[1920px] mx-auto">
           
-          {/* Left: Huge Logo - The Vertical Anchor (Slightly more leading for Umlaut) */}
+          {/* Left: Huge Logo - The Vertical Anchor (Montserrat branding font) */}
           <div className="w-auto flex flex-col">
-            <h2 className="text-[14.5vw] md:text-[7.5vw] leading-[0.95] display-font font-black tracking-tighter uppercase text-black m-0 p-0">
+            <h2 className="text-[14.5vw] md:text-[7.5vw] leading-[0.95] branding-font font-black tracking-tighter uppercase text-black m-0 p-0">
               Isabel
               <br className="hidden md:block" />
               <span className="md:hidden"> </span>Römer
