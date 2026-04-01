@@ -22,6 +22,7 @@ export const projects: Project[] = [
     location: "Jerónimos, Madrid",
     description: "An exceptional residence where classical architecture meets avant-garde interior design in one of Madrid's most prestigious corners.",
     coverImage: "/assets/projects/marques-cubas/img1.png",
+    customPosition: "center",
     gallery: [
       "/assets/projects/marques-cubas/img1.png",
     ],
