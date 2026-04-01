@@ -179,75 +179,62 @@ export default function Home({ onContactOpen }: { onContactOpen: () => void }) {
       </div>
 
       {/* Solid Museum-Style White Footer */}
-      <footer id="contact" className="w-full bg-white text-black pt-24 md:pt-32 pb-12 md:pb-16 px-6 md:px-24 flex flex-col md:flex-row justify-between items-start gap-12 md:gap-20 font-sans relative z-30 border-t border-black/5">
+      <footer id="contact" className="w-full bg-white text-black pt-24 md:pt-32 pb-12 md:pb-16 px-6 md:px-24 flex flex-col font-sans relative z-30 border-t border-black/5">
         
-        {/* Left: Huge Logo & Direct Studio Contact */}
-        <div className="w-full md:w-4/12 relative z-10">
-          <h2 className="text-[14vw] md:text-[7.5vw] leading-[0.95] display-font font-black tracking-tighter uppercase text-black mb-12">
-            Isabel
-            <br className="hidden md:block" />
-            <span className="md:hidden"> </span>Römer
-          </h2>
+        {/* Main Footer Row: Brand + Right-aligned Menu */}
+        <div className="flex flex-row justify-between items-start w-full relative z-10 mb-12">
           
-          <div className="flex flex-col space-y-4 text-[10px] md:text-xs uppercase tracking-[0.4em] font-black text-black/40">
-            <div className="flex gap-14">
-              <a href="https://www.instagram.com/isabelromer.interiordesign/" target="_blank" rel="noreferrer" className="hover:text-black transition-colors">Instagram</a>
-              <a href="mailto:proyectos@isabelromer.com" className="hover:text-black transition-colors">Email</a>
-            </div>
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-4 text-black font-medium normal-case tracking-normal text-sm md:text-base">
-              <p>Madrid — Spain</p>
-              <div className="hidden md:block w-px h-4 bg-black/10" />
-              <a href="tel:+34647383266" className="hover:opacity-70 transition-opacity whitespace-nowrap">+34 647 383 266</a>
-            </div>
-          </div>
-        </div>
-
-        {/* Right side for mobile: Monolithic Link List relocated */}
-        <div className="w-full md:w-2/12 flex flex-col items-end md:items-start space-y-6 text-[10px] md:text-xs font-bold justify-start relative z-10 md:pt-4">
-          <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-right md:text-left hover:text-black/40 transition-colors uppercase tracking-[0.2em]">Home</button>
-          <button onClick={onContactOpen} className="text-right md:text-left hover:text-black/40 transition-colors uppercase tracking-[0.2em]">Contact Us</button>
-          <a href="#portfolio" className="text-right md:text-left hover:text-black/40 transition-colors uppercase tracking-[0.2em]">Projects</a>
-          <Link to="/privacy-policy" className="text-right md:text-left hover:text-black/40 transition-colors uppercase tracking-[0.2em]">Privacy Policy</Link>
-          <Link to="/terms-conditions" className="text-right md:text-left hover:text-black/40 transition-colors uppercase tracking-[0.2em]">Terms & Conditions</Link>
-        </div>
-
-        {/* Right: Expanded Complete Contact Section - Adjusted width to prevent wrap */}
-        <div className="hidden md:flex w-full md:w-4/12 flex-col space-y-16 items-end relative z-10">
-          <div className="w-full max-w-md flex flex-col space-y-12">
-            <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-black leading-[0.85]">
-              Let's Talk.
-            </h3>
+          {/* Left: Huge Logo & Direct Studio Contact */}
+          <div className="w-7/12 md:w-4/12 flex flex-col">
+            <h2 className="text-[12vw] md:text-[7.5vw] leading-[0.95] display-font font-black tracking-tighter uppercase text-black mb-8">
+              Isabel
+              <br className="hidden md:block" />
+              <span className="md:hidden"> </span>Römer
+            </h2>
             
-            <div className="flex flex-col space-y-4">
-              <div className="bg-black/5 rounded-2xl px-6 py-5 flex group transition-all focus-within:bg-black/[0.08] border border-black/5 focus-within:border-black/10">
-                <input 
-                  type="text" 
-                  placeholder="NAME" 
-                  className="w-full bg-transparent outline-none text-xs uppercase tracking-[0.25em] placeholder:text-black/20 text-black font-semibold" 
-                />
+            <div className="flex flex-col space-y-4 text-[10px] md:text-xs uppercase tracking-[0.4em] font-black text-black/40">
+              <div className="flex flex-wrap gap-x-8 gap-y-2">
+                <a href="https://www.instagram.com/isabelromer.interiordesign/" target="_blank" rel="noreferrer" className="hover:text-black transition-colors">Instagram</a>
+                <a href="mailto:proyectos@isabelromer.com" className="hover:text-black transition-colors">Email</a>
               </div>
-
-              <div className="bg-black/5 rounded-2xl px-6 py-5 flex group transition-all focus-within:bg-black/[0.08] border border-black/5 focus-within:border-black/10">
-                <input 
-                  type="email" 
-                  placeholder="EMAIL" 
-                  className="w-full bg-transparent outline-none text-xs uppercase tracking-[0.25em] placeholder:text-black/20 text-black font-semibold" 
-                />
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-2 text-black font-medium normal-case tracking-normal text-[11px] md:text-base">
+                <p className="whitespace-nowrap">Madrid — Spain</p>
+                <div className="hidden md:block w-px h-4 bg-black/10" />
+                <a href="tel:+34647383266" className="hover:opacity-70 transition-opacity whitespace-nowrap">+34 647 383 266</a>
               </div>
-
-              <div className="bg-black/5 rounded-2xl px-6 py-6 flex group transition-all focus-within:bg-black/[0.08] border border-black/5 focus-within:border-black/10">
-                <textarea 
-                  placeholder="ABOUT YOU" 
-                  rows={1}
-                  className="w-full bg-transparent outline-none text-xs uppercase tracking-[0.25em] placeholder:text-black/20 text-black font-semibold resize-none" 
-                />
-              </div>
-
-              <button className="w-full py-6 bg-black text-white font-black uppercase text-[10px] tracking-[0.5em] hover:bg-black/90 active:scale-[0.98] transition-all rounded-2xl mt-4 shadow-2xl shadow-black/10">
-                Send Message
-              </button>
             </div>
           </div>
+
+          {/* Right side: Monolithic Link List - Now sitting right of the logo */}
+          <div className="w-5/12 md:w-2/12 flex flex-col items-end md:items-start space-y-4 md:space-y-6 text-[9px] md:text-xs font-bold justify-start pt-2 md:pt-4">
+            <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-right md:text-left hover:text-black/40 transition-colors uppercase tracking-[0.2em]">Home</button>
+            <button onClick={onContactOpen} className="text-right md:text-left hover:text-black/40 transition-colors uppercase tracking-[0.2em]">Contact Us</button>
+            <a href="#portfolio" className="text-right md:text-left hover:text-black/40 transition-colors uppercase tracking-[0.2em]">Projects</a>
+            <Link to="/privacy-policy" className="text-right md:text-left hover:text-black/40 transition-colors uppercase tracking-[0.2em]">Privacy</Link>
+            <Link to="/terms-conditions" className="text-right md:text-left hover:text-black/40 transition-colors uppercase tracking-[0.2em]">Terms</Link>
+          </div>
+
+          {/* Desktop Only: Expanded Complete Contact Section */}
+          <div className="hidden lg:flex w-4/12 flex-col space-y-16 items-end">
+            <div className="w-full max-w-md flex flex-col space-y-12">
+              <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-black leading-[0.85]">
+                Let's Talk.
+              </h3>
+              
+              <div className="flex flex-col space-y-4">
+                <div className="bg-black/5 rounded-2xl px-6 py-5 flex group transition-all focus-within:bg-black/[0.08] border border-black/5 focus-within:border-black/10">
+                  <input type="text" placeholder="NAME" className="w-full bg-transparent outline-none text-xs uppercase tracking-[0.25em] placeholder:text-black/20 text-black font-semibold" />
+                </div>
+                <div className="bg-black/5 rounded-2xl px-6 py-5 flex group transition-all focus-within:bg-black/[0.08] border border-black/5 focus-within:border-black/10">
+                  <input type="email" placeholder="EMAIL" className="w-full bg-transparent outline-none text-xs uppercase tracking-[0.25em] placeholder:text-black/20 text-black font-semibold" />
+                </div>
+                <button className="w-full py-6 bg-black text-white font-black uppercase text-[10px] tracking-[0.5em] hover:bg-black/90 active:scale-[0.98] transition-all rounded-2xl mt-4 shadow-2xl shadow-black/10">
+                  Send Message
+                </button>
+              </div>
+            </div>
+          </div>
+
         </div>
 
         {/* Global Copyright - Spans full width on mobile/desktop bottoms */}
