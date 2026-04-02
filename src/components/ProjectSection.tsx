@@ -54,6 +54,8 @@ const ProjectSection = React.memo(({ project, onProjectSelect }: ProjectSectionP
         
         <div className="absolute inset-0 bg-black/30 z-20 pointer-events-none" />
         <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-black/80 to-transparent z-20 pointer-events-none" />
+        {/* Right-side vignette to make project names pop */}
+        <div className="absolute top-0 right-0 h-full w-1/2 bg-gradient-to-l from-black/60 to-transparent z-20 pointer-events-none" />
       </motion.div>
 
       {/* Top Right Navigation List - More Architectural */}
