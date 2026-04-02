@@ -91,4 +91,19 @@ export const projects: Project[] = [
     year: "2024",
     category: "Residential",
   },
+  {
+    id: "cat-cay",
+    title: "Cat Cay",
+    location: "Cat Cay, Bahamas",
+    description: "An expansive private island sanctuary where tropical luxury is distilled into its most architectural form, perfectly framing the turquoise horizon.",
+    coverImage: "/assets/projects/cat-cay/cat-cay-1.png",
+    gallery: [
+      "/assets/projects/cat-cay/cat-cay-1.png",
+      "/assets/projects/cat-cay/cat-cay-2.png",
+      "/assets/projects/cat-cay/cat-cay-3.png",
+      "/assets/projects/cat-cay/cat-cay-4.png",
+    ],
+    year: "2024",
+    category: "Residential",
+  },
 ];
