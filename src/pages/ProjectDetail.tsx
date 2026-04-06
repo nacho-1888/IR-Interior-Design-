@@ -199,7 +199,7 @@ export default function ProjectDetail({ onContactOpen }: { onContactOpen: () => 
             <h2 className="text-[14.5vw] md:text-[7.5vw] leading-[0.95] branding-font font-black tracking-tighter uppercase text-white m-0 p-0">
               Isabel
               <br className="hidden md:block" />
-              <span className="md:hidden"> </span>Römer
+              <span className="md:hidden"> </span><span style={{display:'block', marginTop:'4px'}}>Römer</span>
             </h2>
           </div>
           
@@ -223,7 +223,7 @@ export default function ProjectDetail({ onContactOpen }: { onContactOpen: () => 
             <div className="flex flex-wrap items-center gap-x-6 gap-y-1 mt-2 text-white font-semibold normal-case tracking-normal text-sm md:text-base">
               <p className="whitespace-nowrap">Madrid — Spain</p>
               <div className="hidden md:block w-px h-4 bg-white/20" />
-              <a href="tel:+34647383266" className="hover:opacity-70 transition-opacity whitespace-nowrap">+34 647 383 266</a>
+              <a href="tel:+34665338108" className="hover:opacity-70 transition-opacity whitespace-nowrap">+34 665 338 108</a>
             </div>
           </div>
         </div>

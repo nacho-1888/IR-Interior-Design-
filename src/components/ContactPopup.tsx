@@ -44,9 +44,9 @@ export default function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
             {/* Direct Contact List - Refined Visual Hierarchy */}
             <div className="flex flex-col space-y-12 mt-6">
               {/* WhatsApp */}
-              <a href="https://wa.me/34647383266" target="_blank" rel="noreferrer" className="group flex flex-col items-start">
+              <a href="https://wa.me/34665338108" target="_blank" rel="noreferrer" className="group flex flex-col items-start">
                 <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-black/40 mb-3 group-hover:text-black transition-colors">WhatsApp</span>
-                <span className="text-xl md:text-2xl font-light tracking-tight text-black">+34 647 383 266</span>
+                <span className="text-xl md:text-2xl font-light tracking-tight text-black">+34 665 338 108</span>
               </a>
 
               {/* Email */}

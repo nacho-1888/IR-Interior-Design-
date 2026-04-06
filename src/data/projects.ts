@@ -60,8 +60,8 @@ export const projects: Project[] = [
     category: "Residential",
   },
   {
-    id: "breganza",
-    title: "Breganza",
+    id: "braganza",
+    title: "Braganza",
     location: "Aravaca, Madrid",
     description: "A masterful dialogue between light and shadow, where clean architectural volumes are softened by a rich palette of natural materials.",
     coverImage: "/assets/projects/breganza/DSC03875.jpg",

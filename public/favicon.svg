@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <circle cx="50" cy="50" r="48" fill="white" stroke="#0d0d0d" stroke-width="3"/>
+  <!-- I vertical bar -->
+  <rect x="28" y="22" width="5" height="56" fill="#0d0d0d"/>
+  <!-- R shape: vertical stem -->
+  <rect x="39" y="22" width="5" height="56" fill="#0d0d0d"/>
+  <!-- R top curve -->
+  <path d="M44 22 Q68 22 68 36 Q68 50 44 50" stroke="#0d0d0d" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+  <!-- R leg diagonal -->
+  <line x1="44" y1="50" x2="70" y2="78" stroke="#0d0d0d" stroke-width="4.5" stroke-linecap="round"/>
+</svg>
