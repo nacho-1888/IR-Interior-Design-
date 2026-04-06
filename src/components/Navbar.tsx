@@ -52,7 +52,7 @@ export default function Navbar({ onContactOpen }: { onContactOpen?: () => void }
           >
             <Link 
               to="/" 
-              className="text-6xl md:text-[8rem] lg:text-[10rem] branding-font font-black leading-[0.95] md:leading-none tracking-tight block whitespace-nowrap text-left uppercase text-white"
+              className="text-6xl md:text-[6rem] lg:text-[10rem] branding-font font-black leading-[0.95] md:leading-none tracking-tight block whitespace-nowrap text-left uppercase text-white"
             >
               Isabel <br className="md:hidden" /> Römer
             </Link>
