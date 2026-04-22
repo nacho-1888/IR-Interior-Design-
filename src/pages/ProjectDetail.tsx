@@ -37,6 +37,27 @@ export default function ProjectDetail({ onContactOpen }: { onContactOpen: () => 
     setImgIndex((prev) => (prev - 1 + gallery.length) % gallery.length);
   };
 
+  // Touch Swipe Navigation for Mobile
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStart === null) return;
+    const touchEnd = e.changedTouches[0].clientX;
+    const distance = touchStart - touchEnd;
+    const swipeThreshold = 50;
+
+    if (distance > swipeThreshold) {
+      nextImg();
+    } else if (distance < -swipeThreshold) {
+      prevImg();
+    }
+    setTouchStart(null);
+  };
+
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -51,7 +72,11 @@ export default function ProjectDetail({ onContactOpen }: { onContactOpen: () => 
     <main className="bg-luxury-black text-white w-full relative font-sans overflow-x-hidden">
       
       {/* 1. HERO GALLERY SECTION */}
-      <section className="h-[100dvh] md:h-screen w-full relative overflow-hidden">
+      <section 
+        className="h-[100dvh] md:h-screen w-full relative overflow-hidden"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
         
         {/* Background Gallery Layer */}
         <div className="absolute inset-0 z-0 bg-[#050505] overflow-hidden">
