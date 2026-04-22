@@ -37,25 +37,29 @@ export default function ProjectDetail({ onContactOpen }: { onContactOpen: () => 
     setImgIndex((prev) => (prev - 1 + gallery.length) % gallery.length);
   };
 
-  // Touch Swipe Navigation for Mobile
+  // Touch navigation for mobile swipe
   const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
-  const handleTouchStart = (e: React.TouchEvent) => {
+  // the required distance between touchStart and touchEnd to be detected as a swipe
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
     setTouchStart(e.targetTouches[0].clientX);
   };
 
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    if (touchStart === null) return;
-    const touchEnd = e.changedTouches[0].clientX;
-    const distance = touchStart - touchEnd;
-    const swipeThreshold = 50;
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
 
-    if (distance > swipeThreshold) {
-      nextImg();
-    } else if (distance < -swipeThreshold) {
-      prevImg();
-    }
-    setTouchStart(null);
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    if (isLeftSwipe) nextImg();
+    if (isRightSwipe) prevImg();
   };
 
   // Keyboard navigation
@@ -72,14 +76,15 @@ export default function ProjectDetail({ onContactOpen }: { onContactOpen: () => 
     <main className="bg-luxury-black text-white w-full relative font-sans overflow-x-hidden">
       
       {/* 1. HERO GALLERY SECTION */}
-      <section 
-        className="h-[100dvh] md:h-screen w-full relative overflow-hidden"
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
-      >
+      <section className="h-[100dvh] md:h-screen w-full relative overflow-hidden">
         
         {/* Background Gallery Layer */}
-        <div className="absolute inset-0 z-0 bg-[#050505] overflow-hidden">
+        <div 
+          className="absolute inset-0 z-0 bg-[#050505] overflow-hidden touch-pan-y"
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+        >
           <AnimatePresence initial={false}>
             <motion.img
               key={imgIndex}
