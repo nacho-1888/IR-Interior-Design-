@@ -53,8 +53,11 @@ export const projects: Project[] = [
     coverImage: "/assets/projects/reina/img1.png",
     gallery: [
       "/assets/projects/reina/img1.png",
-      "/assets/projects/reina/img2.png",
+      "/assets/projects/reina/img2.jpg",
       "/assets/projects/reina/img3.png",
+      "/assets/projects/reina/img4.jpg",
+      "/assets/projects/reina/img5.jpg",
+      "/assets/projects/reina/img6.jpg",
     ],
     year: "2024",
     category: "Residential",
