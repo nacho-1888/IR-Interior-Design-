@@ -51,7 +51,11 @@ export const projects: Project[] = [
     location: "Chueca, Madrid",
     description: "A vibrant and light-filled residence where historic architectural details meet a fresh, contemporary materiality.",
     coverImage: "/assets/projects/reina/img1.png",
-    customPosition: "bottom",
+    customPosition: "center",
+    imagePositions: {
+      "/assets/projects/reina/img4.jpg": "bottom",
+      "/assets/projects/reina/img5.jpg": "bottom",
+    },
     gallery: [
       "/assets/projects/reina/img1.png",
       "/assets/projects/reina/img2.jpg",

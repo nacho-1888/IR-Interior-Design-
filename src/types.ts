@@ -8,4 +8,5 @@ export interface Project {
   year: string;
   category: string;
   customPosition?: string;
+  imagePositions?: Record<string, string>;
 }
