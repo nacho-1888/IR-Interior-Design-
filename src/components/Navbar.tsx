@@ -54,9 +54,8 @@ export default function Navbar({ onContactOpen }: { onContactOpen?: () => void }
               to="/" 
               className="text-6xl md:text-[6rem] lg:text-[10rem] branding-font font-black leading-[0.95] md:leading-none tracking-tight block whitespace-nowrap text-left uppercase text-white"
             >
-              Isabel
-              <br className="hidden md:block" />
-              <span className="md:hidden"> </span><span style={{display:'block', marginTop:'4px'}}>Römer</span>
+              Isabel <br className="md:hidden" />
+              <span className="md:inline-block md:mt-0" style={{ display: 'inline-block', marginTop: '4px' }}>Römer</span>
             </Link>
           </motion.div>
 
